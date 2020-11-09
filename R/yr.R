@@ -7,7 +7,7 @@ new_yr <- function(x = numeric(), era = new_era()) {
   new_vctr(x, era = era, class = "era_yr")
   # S4 compatibility as suggested in:
   # https://vctrs.r-lib.org/articles/s3-vector.html#low-level-and-user-friendly-constructors-1
-  # TODO: Error: cannot add bindings to a locked environment
+  # See https://github.com/joeroe/era/issues/12
   # methods::setOldClass(c("era_yr", "vctrs_vctr"))
 }
 
@@ -34,7 +34,6 @@ new_yr <- function(x = numeric(), era = new_era()) {
 yr <- function(x = numeric(), era) {
   x <- vec_cast(x, numeric())
 
-  # TODO: assert era
   if (vec_size(era) > 1) {
     stop("yr vectors can only have one era attribute")
   }
@@ -67,8 +66,6 @@ is_yr <- function(x) {
 }
 
 # Casting/coercion --------------------------------------------------------
-# TODO:
-# * Cast to/from character? Adding abbreviation?
 
 #' @export
 vec_ptype2.era_yr.era_yr <- function(x, y, ..., x_arg = "", y_arg = "") {
@@ -207,8 +204,6 @@ vec_arith.numeric.era_yr <- function(op, x, y, ...) {
     stop_incompatible_op(op, x, y)
   )
 }
-
-# TODO: vec_math
 
 # Getters and setters -----------------------------------------------------
 

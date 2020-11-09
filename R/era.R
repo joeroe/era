@@ -48,7 +48,6 @@ era <- function(abbreviation,
     return(era_dictionary(abbreviation))
   }
 
-  # TODO: Should be able to define the era of epoch
   vec_cast(abbreviation, character())
   epoch <- vec_cast(epoch, integer())
   vec_cast(name, character())
@@ -59,7 +58,6 @@ era <- function(abbreviation,
   new_era(abbreviation, epoch, name, unit, scale, direction)
 }
 
-# TODO: Should this really be a vector (rcrd)?
 new_era <- function(abbreviation = NA,
                     epoch = NA,
                     name = NA,
@@ -77,10 +75,6 @@ new_era <- function(abbreviation = NA,
   )
 }
 
-# TODO:
-# * Document these somewhere
-# * And/or make this a user-accessible function that can return the full list
-# * Partial matching?
 era_dictionary <- function(x) {
   switch(x,
          # Calendar years Before Present
@@ -107,11 +101,6 @@ era_dictionary <- function(x) {
   )
 }
 
-# TODO
-validate_era <- function() {
-
-}
-
 #' Is this an `era` object?
 #'
 #' Tests whether an object is a `era`; an calendar era definition constructed
@@ -129,7 +118,6 @@ is_era <- function(x) {
 
 # S3 methods --------------------------------------------------------------
 
-# TODO: Fails with NAs
 #' @export
 format.era <- function(x, ...) {
   nameout <- paste0(era_name(x), " (", era_abbr(x), ")")

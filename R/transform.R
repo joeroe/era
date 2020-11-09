@@ -46,12 +46,12 @@ yr_transform <- function(x, era = yr_era(x)) {
   }
 
   # Epoch
-  # TODO: Year 1 problem
   if(era_epoch(src_era) != era_epoch(dst_era)) {
     x <- x + (era_epoch(dst_era) - era_epoch(src_era))
   }
 
-  # TODO: direction?
+  # Direction
+  # See https://github.com/joeroe/era/issues/13
 
   x <- yr(x, dst_era)
   return(x)
