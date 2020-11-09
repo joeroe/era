@@ -1,0 +1,9 @@
+authors:
+  Joe Roe:
+    href: "https://joeroe.io"
+
+template:
+  opengraph:
+    twitter:
+      creator: "@joeroe90"
+      card: summary
