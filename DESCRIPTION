@@ -1,0 +1,21 @@
+Package: era
+Type: Package
+Title: Years with Era
+Version: 0.1.0
+Authors@R: person("Joe", "Roe", email = "joe@joeroe.io",
+  role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1011-1244"))
+Description: Provides a consistent vector representation of years with an 
+    associated calendar era or time scale. It includes built-in definitions of 
+    several time scales commonly used in archaeology, geology, and other 
+    paleosciences (e.g. Common Era, Before Present, SI-prefixed *annus*) as well
+    as support for arbitrary user-defined eras. Functions and type-stable 
+    arithmetic with years and conversions between eras are also provided.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    vctrs (>= 0.3.0),
+    methods,
+    rlang

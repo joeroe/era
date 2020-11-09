@@ -1,0 +1,85 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+**era** is an R package that provides a consistent vector representation of years with an associated calendar era or time scale.
+It includes built-in definitions of several time scales commonly used in archaeology, geology, and other paleosciences (e.g. Common Era, Before Present, SI-prefixed *annus*) as well as support for arbitrary user-defined eras.
+Functions for type-stable arithmetic with years and conversions between eras are also provided.
+
+## Installation
+
+You can install the development version of era from GitHub with the [remotes](https://remotes.r-lib.org/) package.
+
+```{r install, eval=FALSE}
+# install.packages("remotes")
+remotes::install_github("joeroe/era")
+```
+
+## Usage
+
+`yr()` constructs an vector representing years with an associated era.
+
+```{r eg-yr}
+library(era)
+yr(10010:10001, "cal BP")
+```
+
+The time scale used by a `yr` vector is defined by a call to `era()`.
+Many common era systems are built into the package and can be used by simply passing a string to `era()` or `yr()`.
+Use `yr_transform()` to convert between eras.
+
+```{r eg-transform}
+x <- yr(10010:10001, "cal BP")
+yr_transform(x, era("BCE"))
+```
+
+Arbitrary user-defined eras are also supported.
+
+```{r eg-custom-era}
+era("T.A.", epoch = -9021, name = "Third Age", direction = "forwards")
+```
+
+era is based on [vctrs](https://vctrs.r-lib.org/), which means years fit nicely into both data frames and tibbles.
+
+```{r eg-tbl}
+library("tibble")
+tibble(bp_year = yr(c(15000, 14000, 13000, 12000, 11000), "cal BP"),
+       bce_year = yr_transform(bp_year, era("BCE")))
+```
+
+It also ensures type- and size-stable computations.
+For example, you can perform arithmetic with years:
+
+```{r eg-arith}
+a <- yr(1500, "CE")
+b <- yr(2020, "CE")
+b - a
+```
+
+But only when they have the same era:
+
+```{r eg-arith-error, error=TRUE}
+c <- yr(0.5, "ka")
+b - c
+```
+
+And years will be coerced to a plain numeric vector if a computation means their era attribute is no longer accurate:
+
+```{r eg-coerce}
+a * b
+```
