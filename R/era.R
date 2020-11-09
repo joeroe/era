@@ -48,11 +48,10 @@ era <- function(abbreviation,
     return(era_dictionary(abbreviation))
   }
 
-  # TODO: Consider whether we need to be this strict
   # TODO: Should be able to define the era of epoch
-  vec_assert(abbreviation, character())
+  vec_cast(abbreviation, character())
   epoch <- vec_cast(epoch, integer())
-  vec_assert(name, character())
+  vec_cast(name, character())
   unit <- rlang::arg_match(unit)
   scale <- vec_cast(scale, integer())
   direction <- rlang::arg_match(direction)
