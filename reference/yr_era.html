@@ -121,6 +121,8 @@ to <em>convert</em> the values of a <code>yr</code> vector to a new era.</p>
 
     <pre class="usage"><span class='fu'>yr_era</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
+<span class='fu'>yr_set_era</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>era</span><span class='op'>)</span>
+
 <span class='fu'>yr_era</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -131,16 +133,17 @@ to <em>convert</em> the values of a <code>yr</code> vector to a new era.</p>
       <td><p>A vector of years.</p></td>
     </tr>
     <tr>
-      <th>value</th>
-      <td><p>An <code>era</code> object. See <code><a href='era.html'>era()</a></code>.</p></td>
+      <th>value, era</th>
+      <td><p>An <code>era</code> object (see <code><a href='era.html'>era()</a></code>) to be assigned to <code>x</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>yr_era(x)</code> returns the existing era associated with <code>x</code>.</p>
-<p><code>yr_era(x) &lt;- value</code> returns <code>x</code> with the new era set. If <code>x</code> is not already
-a <code>yr</code> vector, it will attempt to coerce it into one.</p>
+<p><code>yr_set_era(x, era)</code> and <code>yr_era(x) &lt;- era</code> return <code>x</code> with the new era
+assigned. If <code>x</code> is not already a <code>yr</code> vector, it will attempt to coerce it
+into one.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>5000</span><span class='op'>:</span><span class='fl'>5050</span>
