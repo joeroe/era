@@ -173,6 +173,16 @@ vec_arith.era_yr.era_yr <- function(op, x, y, ...) {
   )
 }
 
+#' @method vec_arith.era_yr MISSING
+#' @export
+vec_arith.era_yr.MISSING <- function(op, x, y, ...) {
+  switch(op,
+         `-` = new_yr(x * -1, yr_era(x)),
+         `+` = x,
+         stop_incompatible_op(op, x, y)
+  )
+}
+
 #' @method vec_arith.era_yr numeric
 #' @export
 vec_arith.era_yr.numeric <- function(op, x, y, ...) {
