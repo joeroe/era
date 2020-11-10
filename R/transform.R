@@ -12,8 +12,7 @@
 #' Era transformations currently supported:
 #'
 #' * Between scales
-#' * Between epochs (but note that conversions from or to Common Era-based time
-#'   scales do not yet correctly handle the 1 BCE/1 CE problem.)
+#' * Between epochs
 #'
 #' Not supported:
 #'

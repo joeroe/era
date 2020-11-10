@@ -81,10 +81,10 @@ era_dictionary <- function(x) {
          `BP` = era("BP", 1950, "Before Present"),
          `cal BP` = era("cal BP", 1950, "Before Present"),
          # Common Era
-         `BC` = era("BC", 1, "Before Christ"),
-         `BCE` = era("BCE", 1, "Before Common Era"),
-         `AD` = era("AD", 1, "Anno Domini", direction = "forwards"),
-         `CE` = era("CE", 1, "Common Era", direction = "forwards"),
+         `BC` = era("BC", 0, "Before Christ"),
+         `BCE` = era("BCE", 0, "Before Common Era"),
+         `AD` = era("AD", 0, "Anno Domini", direction = "forwards"),
+         `CE` = era("CE", 0, "Common Era", direction = "forwards"),
          # Uncalibrated radiocarbon years
          `uncal BP` = era("uncal BP", 1950, "uncalibrated Before Present", "radiocarbon years"),
          `bp` = era("bp", 1950, "uncalibrate Before Present", "radiocarbon years"),

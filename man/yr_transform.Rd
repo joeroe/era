@@ -22,8 +22,7 @@ are possible (see details).
 Era transformations currently supported:
 \itemize{
 \item Between scales
-\item Between epochs (but note that conversions from or to Common Era-based time
-scales do not yet correctly handle the 1 BCE/1 CE problem.)
+\item Between epochs
 }
 
 Not supported:
