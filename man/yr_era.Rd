@@ -2,23 +2,27 @@
 % Please edit documentation in R/yr.R
 \name{yr_era}
 \alias{yr_era}
+\alias{yr_set_era}
 \alias{yr_era<-}
 \title{Get or set the era of a vector of years}
 \usage{
 yr_era(x)
+
+yr_set_era(x, era)
 
 yr_era(x) <- value
 }
 \arguments{
 \item{x}{A vector of years.}
 
-\item{value}{An \code{era} object. See \code{\link[=era]{era()}}.}
+\item{value, era}{An \code{era} object (see \code{\link[=era]{era()}}) to be assigned to \code{x}.}
 }
 \value{
 \code{yr_era(x)} returns the existing era associated with \code{x}.
 
-\code{yr_era(x) <- value} returns \code{x} with the new era set. If \code{x} is not already
-a \code{yr} vector, it will attempt to coerce it into one.
+\code{yr_set_era(x, era)} and \code{yr_era(x) <- era} return \code{x} with the new era
+assigned. If \code{x} is not already a \code{yr} vector, it will attempt to coerce it
+into one.
 }
 \description{
 Functions for extracting or assigning the era of a vector of years.

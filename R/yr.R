@@ -223,14 +223,15 @@ vec_arith.numeric.era_yr <- function(op, x, y, ...) {
 #' This function does not alter the underlying values of `x`. Use [yr_transform()]
 #' to *convert* the values of a `yr` vector to a new era.
 #'
-#' @param x A vector of years.
-#' @param value An `era` object. See [era()].
+#' @param x  A vector of years.
+#' @param value,era  An `era` object (see [era()]) to be assigned to `x`.
 #'
 #' @return
 #' `yr_era(x)` returns the existing era associated with `x`.
 #'
-#' `yr_era(x) <- value` returns `x` with the new era set. If `x` is not already
-#' a `yr` vector, it will attempt to coerce it into one.
+#' `yr_set_era(x, era)` and `yr_era(x) <- era` return `x` with the new era
+#' assigned. If `x` is not already a `yr` vector, it will attempt to coerce it
+#' into one.
 #'
 #' @export
 #'
@@ -245,12 +246,16 @@ yr_era <- function(x) {
 
 #' @rdname yr_era
 #' @export
-`yr_era<-` <- function(x, value) {
+yr_set_era <- function(x, era) {
   if (!is_yr(x)) {
-    x <- new_yr(vec_cast(x, numeric()), value)
+    x <- new_yr(vec_cast(x, numeric()), era)
   }
   else {
-    attr(x, "era") <- value
+    attr(x, "era") <- era
   }
   return(x)
 }
+
+#' @rdname yr_era
+#' @export
+`yr_era<-` <- function(x, value) yr_set_era(x, value)
