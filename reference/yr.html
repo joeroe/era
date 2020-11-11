@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Years with era — yr • era</title>
+<title>Create a vector of years with era — yr • era</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Years with era — yr" />
-<meta property="og:description" content="Represents years with an associated era or time scale." />
+<meta property="og:title" content="Create a vector of years with era — yr" />
+<meta property="og:description" content="A yr object represents years with an associated calendar era or time scale." />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@joeroe90" />
 <meta name="twitter:site" content="@joeroe90" />
@@ -75,7 +75,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
       </span>
     </div>
 
@@ -92,7 +92,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/joeroe/era/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -106,13 +111,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Years with era</h1>
-    
+    <h1>Create a vector of years with era</h1>
+    <small class="dont-index">Source: <a href='https://github.com/joeroe/era/blob/master/R/yr.R'><code>R/yr.R</code></a></small>
     <div class="hidden name"><code>yr.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Represents years with an associated era or time scale.</p>
+    <p>A <code>yr</code> object represents years with an associated calendar era or time scale.</p>
     </div>
 
     <pre class="usage"><span class='fu'>yr</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>era</span><span class='op'>)</span></pre>
@@ -126,7 +131,7 @@
     </tr>
     <tr>
       <th>era</th>
-      <td><p>Object describing time scale. Either:</p><ul>
+      <td><p>The calendar era used by <code>x</code>. Either:</p><ul>
 <li><p>A string matching one of the standard era labels defined in <code><a href='eras.html'>eras()</a></code></p></li>
 <li><p>An <code>era</code> object constructed with <code><a href='era.html'>era()</a></code></p></li>
 </ul></td>
@@ -136,6 +141,11 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code>yr</code> (<code>era_yr</code>) object.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other years with era functions: 
+<code><a href='yr_era.html'>yr_era</a>()</code>,
+<code><a href='yr_transform.html'>yr_transform</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># The R Age</span>

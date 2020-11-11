@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create an era object — era • era</title>
+<title>Get parameters of an era — era_parameters • era</title>
 
 
 <!-- jquery -->
@@ -39,12 +39,8 @@
 
 
 
-<meta property="og:title" content="Create an era object — era" />
-<meta property="og:description" content="An era object defines the time scale associated with a vector of years
-(see yr()). era() returns an era object, either by looking up
-label in the standard eras defined in eras() or, if more than one
-argument is given, constructing a new definition with the specified
-parameters." />
+<meta property="og:title" content="Get parameters of an era — era_parameters" />
+<meta property="og:description" content="Extracts a specific parameter from an era object." />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@joeroe90" />
 <meta name="twitter:site" content="@joeroe90" />
@@ -115,79 +111,61 @@ parameters." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create an era object</h1>
+    <h1>Get parameters of an era</h1>
     <small class="dont-index">Source: <a href='https://github.com/joeroe/era/blob/master/R/era.R'><code>R/era.R</code></a></small>
-    <div class="hidden name"><code>era.Rd</code></div>
+    <div class="hidden name"><code>era_parameters.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>An <code>era</code> object defines the time scale associated with a vector of years
-(see <code><a href='yr.html'>yr()</a></code>). <code>era()</code> returns an <code>era</code> object, either by looking up
-<code>label</code> in the standard eras defined in <code><a href='eras.html'>eras()</a></code> or, if more than one
-argument is given, constructing a new definition with the specified
-parameters.</p>
+    <p>Extracts a specific parameter from an era object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>era</span><span class='op'>(</span>
-  <span class='va'>label</span>,
-  epoch <span class='op'>=</span> <span class='cn'>NULL</span>,
-  name <span class='op'>=</span> <span class='va'>label</span>,
-  unit <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"calendar"</span>, <span class='st'>"radiocarbon"</span><span class='op'>)</span>,
-  scale <span class='op'>=</span> <span class='fl'>1</span>,
-  direction <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"backwards"</span>, <span class='st'>"forwards"</span><span class='op'>)</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>era_label</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>era_epoch</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>era_name</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>era_unit</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>era_scale</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>era_direction</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>label</th>
-      <td><p>Character. If only one argument is given to <code>era()</code>, the
-abbreviated label of a standard era defined in <code><a href='eras.html'>eras()</a></code>.
-Otherwise, the label to give to the era constructed using the following
-arguments.</p></td>
-    </tr>
-    <tr>
-      <th>epoch</th>
-      <td><p>Integer. Epoch year from which years are counted (in the Common
-Era).</p></td>
-    </tr>
-    <tr>
-      <th>name</th>
-      <td><p>Character. Full name of the era. Defaults to the value of
-<code>label</code>.</p></td>
-    </tr>
-    <tr>
-      <th>unit</th>
-      <td><p>Character. Type of years used. Default: <code>"calendar"</code>.</p></td>
-    </tr>
-    <tr>
-      <th>scale</th>
-      <td><p>Integer. Number of years represented by one unit, e.g. <code>1000</code>
-for ka. Default: 1.</p></td>
-    </tr>
-    <tr>
-      <th>direction</th>
-      <td><p>Are years counted <code>"backwards"</code> (the default) or <code>"forwards"</code>
-from <code>epoch</code>?</p></td>
+      <th>x</th>
+      <td><p>An <code>era</code> object.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>era</code>.</p>
+    <p>Value of the parameter.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The available parameters are:</p><ul>
+<li><p><strong>label</strong> – unique, abbreviated label of the era, e.g. "cal BP"</p></li>
+<li><p><strong>epoch</strong> – year of origin of the era, e.g. 1950 for years Before Present</p></li>
+<li><p><strong>name</strong> – full name of the era, e.g. "calendar years Before Present"</p></li>
+<li><p><strong>unit</strong> – unit of years used, e.g. "calendar years", "radiocarbon years"</p></li>
+<li><p><strong>scale</strong> – multiple of years used, e.g. 1000 for ka/kiloannum</p></li>
+<li><p><strong>direction</strong> – whether years are counted "backwards" or "forwards" from the epoch
+#'</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other era definition functions: 
-<code><a href='eras.html'>eras</a>()</code></p></div>
+    <div class='dont-index'><p>Other era helper functions: 
+<code><a href='is_era.html'>is_era</a>()</code>,
+<code><a href='is_yr.html'>is_yr</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>era</span><span class='op'>(</span><span class='st'>"cal BP"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;era[1]&gt;
-#&gt; [1] Before Present (cal BP): calendar years, counted backwards from 1950</div><div class='input'>
-<span class='fu'>era</span><span class='op'>(</span><span class='st'>"T.A."</span>, epoch <span class='op'>=</span> <span class='op'>-</span><span class='fl'>9021</span>, name <span class='op'>=</span> <span class='st'>"Third Age"</span>, direction <span class='op'>=</span> <span class='st'>"forwards"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;era[1]&gt;
-#&gt; [1] Third Age (T.A.): calendar years, counted forwards from -9021</div></pre>
+    <pre class="examples"><div class='input'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='era.html'>era</a></span><span class='op'>(</span><span class='st'>"cal BP"</span><span class='op'>)</span>
+<span class='fu'>era_name</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "Before Present"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
