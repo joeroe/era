@@ -37,24 +37,25 @@ yr_transform <- function(x, era = yr_era(x)) {
   src_era <- yr_era(x)
   dst_era <- era
 
-  # Unit
+  # Check comparable units
   if (era_unit(src_era) != era_unit(src_era)) {
     stop("No method for transforming ", era_unit(src_era), " to ", era_unit(dst_era))
   }
 
-  # Scale
-  if(era_scale(src_era) != era_scale(dst_era)) {
-    x <- x * (era_scale(src_era) / era_scale(dst_era))
-  }
+  # Rescale to 1 (if not already)
+  x <- x * era_scale(src_era)
 
-  # Epoch
-  if(era_epoch(src_era) != era_epoch(dst_era)) {
-    x <- x + (era_epoch(dst_era) - era_epoch(src_era))
-  }
+  # Transformation
+  d <- c("backwards" = -1, "forwards" = 1)
+  dx <- unname(d[era_direction(src_era)])
+  dy <- unname(d[era_direction(dst_era)])
+  ex <- era_epoch(src_era)
+  ey <- era_epoch(dst_era)
+  y <- x * (dx*dy) + dy * (ex - ey)
 
-  # Direction
-  # See https://github.com/joeroe/era/issues/13
+  # Apply destination scale
+  y <- y / era_scale(dst_era)
 
-  x <- yr(x, dst_era)
-  return(x)
+  y <- yr(y, dst_era)
+  return(y)
 }
