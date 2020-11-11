@@ -11,12 +11,12 @@ new_yr <- function(x = numeric(), era = new_era()) {
   # methods::setOldClass(c("era_yr", "vctrs_vctr"))
 }
 
-#' Years with era
+#' Create a vector of years with era
 #'
-#' Represents years with an associated era or time scale.
+#' A `yr` object represents years with an associated calendar era or time scale.
 #'
 #' @param x    A numeric vector of years.
-#' @param era  Object describing time scale. Either:
+#' @param era  The calendar era used by `x`. Either:
 #'  * A string matching one of the standard era labels defined in [eras()]
 #'  * An `era` object constructed with [era()]
 #'

@@ -126,7 +126,7 @@ eras <- function(label = NA) {
 
 #' Is this an `era` object?
 #'
-#' Tests whether an object is a `era`; an calendar era definition constructed
+#' Tests whether an object is an `era`; a calendar era definition constructed
 #' by [era()].
 #'
 #' @param x  Object to test.
@@ -157,19 +157,19 @@ format.era <- function(x, ...) {
 
 # Getters and setters -----------------------------------------------------
 
-#' Get attributes of an era
+#' Get parameters of an era
 #'
-#' Extracts a specific attribute from an era object.
+#' Extracts a specific parameter from an era object.
 #'
-#' @name era_attributes
+#' @name era_parameters
 #'
 #' @param x An `era` object.
 #'
 #' @return
-#' Value of the attribute.
+#' Value of the parameter.
 #'
 #' @details
-#' The available attributes are:
+#' The available parameters are:
 #'
 #' * **label** – unique, abbreviated label of the era, e.g. "cal BP"
 #' * **epoch** – year of origin of the era, e.g. 1950 for years Before Present
@@ -183,37 +183,37 @@ format.era <- function(x, ...) {
 #' era_name(x)
 NULL
 
-#' @rdname era_attributes
+#' @rdname era_parameters
 #' @export
 era_label <- function(x) {
   return(field(x, "label"))
 }
 
-#' @rdname era_attributes
+#' @rdname era_parameters
 #' @export
 era_epoch <- function(x) {
   return(field(x, "epoch"))
 }
 
-#' @rdname era_attributes
+#' @rdname era_parameters
 #' @export
 era_name <- function(x) {
   return(field(x, "name"))
 }
 
-#' @rdname era_attributes
+#' @rdname era_parameters
 #' @export
 era_unit <- function(x) {
   return(field(x, "unit"))
 }
 
-#' @rdname era_attributes
+#' @rdname era_parameters
 #' @export
 era_scale <- function(x) {
   return(field(x, "scale"))
 }
 
-#' @rdname era_attributes
+#' @rdname era_parameters
 #' @export
 era_direction <- function(x) {
   return(field(x, "direction"))

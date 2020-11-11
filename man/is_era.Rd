@@ -13,6 +13,6 @@ is_era(x)
 \code{TRUE} or \code{FALSE}.
 }
 \description{
-Tests whether an object is a \code{era}; an calendar era definition constructed
+Tests whether an object is an \code{era}; a calendar era definition constructed
 by \code{\link[=era]{era()}}.
 }

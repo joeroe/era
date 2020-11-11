@@ -2,14 +2,14 @@
 % Please edit documentation in R/yr.R
 \name{yr}
 \alias{yr}
-\title{Years with era}
+\title{Create a vector of years with era}
 \usage{
 yr(x = numeric(), era)
 }
 \arguments{
 \item{x}{A numeric vector of years.}
 
-\item{era}{Object describing time scale. Either:
+\item{era}{The calendar era used by \code{x}. Either:
 \itemize{
 \item A string matching one of the standard era labels defined in \code{\link[=eras]{eras()}}
 \item An \code{era} object constructed with \code{\link[=era]{era()}}
@@ -19,7 +19,7 @@ yr(x = numeric(), era)
 A \code{yr} (\code{era_yr}) object.
 }
 \description{
-Represents years with an associated era or time scale.
+A \code{yr} object represents years with an associated calendar era or time scale.
 }
 \examples{
 # The R Age
