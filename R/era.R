@@ -4,21 +4,21 @@
 
 #' Create an era object
 #'
-#' The `era` class defines the time scale associated with a vector of years
+#' An `era` object defines the time scale associated with a vector of years
 #' (see [yr()]). `era()` returns an `era` object, either by looking up
-#' `abbreviation` in the standard definitions included in the package or, if
-#' more than one argument is given, constructing a new definition with the
-#' given parameters.
+#' `label` in the standard eras defined in [eras()] or, if more than one
+#' argument is given, constructing a new definition with the specified
+#' parameters.
 #'
-#' @param abbreviation  Character. If only one argument is given to `era()`, the
-#'  abbreviation of a standard era defined in the package.
-#'  Otherwise, the abbreviation of a user-specified era defined by the following
+#' @param label  Character. If only one argument is given to `era()`, the
+#'  abbreviated label of a standard era defined in [eras()].
+#'  Otherwise, the label to give to the era constructed using the following
 #'  arguments.
 #' @param epoch  Integer. Epoch year from which years are counted (in the Common
 #'  Era).
 #' @param name  Character. Full name of the era. Defaults to the value of
-#'  `abbreviation`.
-#' @param unit  Character. Default: `"calendar years"`.
+#'  `label`.
+#' @param unit  Character. Type of years used. Default: `"calendar"`.
 #' @param scale  Integer. Number of years represented by one unit, e.g. `1000`
 #'  for ka. Default: 1.
 #' @param direction  Are years counted `"backwards"` (the default) or `"forwards"`
@@ -33,10 +33,10 @@
 #' era("cal BP")
 #'
 #' era("T.A.", epoch = -9021, name = "Third Age", direction = "forwards")
-era <- function(abbreviation,
+era <- function(label,
                 epoch = NULL,
-                name = abbreviation,
-                unit = c("calendar years", "radiocarbon years"),
+                name = label,
+                unit = c("calendar", "radiocarbon"),
                 scale = 1,
                 direction = c("backwards", "forwards")) {
   if (missing(epoch) &&
@@ -44,28 +44,34 @@ era <- function(abbreviation,
       missing(unit) &&
       missing(scale) &&
       missing(direction)) {
-    vec_assert(abbreviation, character())
-    return(era_dictionary(abbreviation))
+    label <- vec_cast(label, character())
+    parameters <- as.list(eras(label))
+  }
+  else {
+    # Use data.frame() to get vector recycling
+    parameters <- data.frame(
+      label = vec_cast(label, character()),
+      epoch = vec_cast(epoch, integer()),
+      name = vec_cast(name, character()),
+      unit = rlang::arg_match(unit),
+      scale = vec_cast(scale, integer()),
+      direction = rlang::arg_match(direction),
+      stringsAsFactors = FALSE
+    )
+    parameters <- as.list(parameters)
   }
 
-  vec_cast(abbreviation, character())
-  epoch <- vec_cast(epoch, integer())
-  vec_cast(name, character())
-  unit <- rlang::arg_match(unit)
-  scale <- vec_cast(scale, integer())
-  direction <- rlang::arg_match(direction)
-
-  new_era(abbreviation, epoch, name, unit, scale, direction)
+  do.call(new_era, parameters)
 }
 
-new_era <- function(abbreviation = NA,
+new_era <- function(label = NA,
                     epoch = NA,
                     name = NA,
                     unit = NA,
                     scale = NA,
                     direction = NA) {
   new_rcrd(
-    list(abbreviation = abbreviation,
+    list(label = label,
          epoch = epoch,
          name = name,
          unit = unit,
@@ -75,30 +81,47 @@ new_era <- function(abbreviation = NA,
   )
 }
 
-era_dictionary <- function(x) {
-  switch(x,
-         # Calendar years Before Present
-         `BP` = era("BP", 1950, "Before Present"),
-         `cal BP` = era("cal BP", 1950, "Before Present"),
-         # Common Era
-         `BC` = era("BC", 0, "Before Christ"),
-         `BCE` = era("BCE", 0, "Before Common Era"),
-         `AD` = era("AD", 0, "Anno Domini", direction = "forwards"),
-         `CE` = era("CE", 0, "Common Era", direction = "forwards"),
-         # Uncalibrated radiocarbon years
-         `uncal BP` = era("uncal BP", 1950, "uncalibrated Before Present", "radiocarbon years"),
-         `bp` = era("bp", 1950, "uncalibrate Before Present", "radiocarbon years"),
-         `bc` = era("bc", 1950, "uncalibrated BC"),
-         # SI time scale
-         `ka` = era("ka", 1950, "kiloannum", scale = 1000),
-         `Ma` = era("Ma", 1950, "megaannum", scale = 1e6),
-         `Ga` = era("Ga", 1950, "gigaannum", scale = 1e9),
-         # Pseudo-SI (years ago) time scale
-         `kya` = era("kya", 1950, "thousand years ago", scale = 1000),
-         `mya` = era("mya", 1950, "million years ago", scale = 1e6),
-         `bya` = era("bya", 1950, "billion years ago", scale = 1e9),
-         stop("Unknown era: '", x, "'.")
-  )
+#' Standard eras
+#'
+#' @description
+#' Definitions of common eras and time scales.
+#'
+#' `eras()` lists all available era definitions. `eras(label)` looks up a
+#' specific era by its unique, abbreviated name (e.g. "cal BP").
+#'
+#' @param label (Optional) Abbreviated names(s) of eras to look up.
+#'
+#' @details
+#' Looking up eras by `label` uses partial matching.
+#'
+#' @return
+#' A table of era definitions. This can be passed to [era()] to construct an
+#' `era` object.
+#'
+#' @export
+#'
+#' @examples
+#' # List all available eras
+#' eras()
+#'
+#' # Look up a specific era by label
+#' eras("cal BP")
+#'
+#' #  uses partial matching
+#' eras("cal")
+eras <- function(label = NA) {
+  # era_table is an internal dataset generated in data-raw/era_table.R
+  if (requireNamespace("tibble", quietly = TRUE)) {
+    era_table <- tibble::as_tibble(era_table)
+  }
+
+  # Partial matching
+  if (!all(is.na(label))) {
+    era_table[pmatch(label, era_table[["label"]]),]
+  }
+  else {
+    era_table
+  }
 }
 
 #' Is this an `era` object?
@@ -120,13 +143,14 @@ is_era <- function(x) {
 
 #' @export
 format.era <- function(x, ...) {
-  nameout <- paste0(era_name(x), " (", era_abbr(x), ")")
-  nameout[era_name(x) == era_abbr(x)] <- era_name(x)[era_name(x) == era_abbr(x)]
+  nameout <- paste0(era_name(x), " (", era_label(x), ")")
+  nameout[era_name(x) == era_label(x)] <- era_name(x)[era_name(x) == era_label(x)]
 
   unitout <- paste0(era_unit(x), " (\u00d7", era_scale(x), ")")
   unitout[era_scale(x) == 1] <- era_unit(x)[era_scale(x) == 1]
 
-  out <- paste0(nameout, ": ", unitout, ", counted ", era_direction(x), " from ", era_epoch(x))
+  out <- paste0(nameout, ": ", unitout, " years, counted ", era_direction(x),
+                " from ", era_epoch(x))
 
   return(out)
 }
@@ -147,7 +171,7 @@ format.era <- function(x, ...) {
 #' @details
 #' The available attributes are:
 #'
-#' * **abbreviation** (abbr) – abbreviated name of the era, e.g. "cal BP"
+#' * **label** – unique, abbreviated label of the era, e.g. "cal BP"
 #' * **epoch** – year of origin of the era, e.g. 1950 for years Before Present
 #' * **name** – full name of the era, e.g. "calendar years Before Present"
 #' * **unit** – unit of years used, e.g. "calendar years", "radiocarbon years"
@@ -161,14 +185,8 @@ NULL
 
 #' @rdname era_attributes
 #' @export
-era_abbreviation <- function(x) {
-  return(field(x, "abbreviation"))
-}
-
-#' @rdname era_attributes
-#' @export
-era_abbr <- function(x) {
-  return(era_abbreviation(x))
+era_label <- function(x) {
+  return(field(x, "label"))
 }
 
 #' @rdname era_attributes

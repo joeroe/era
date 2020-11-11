@@ -11,8 +11,8 @@ yr(x = numeric(), era)
 
 \item{era}{Object describing time scale. Either:
 \itemize{
-\item A string matching one of the standard era abbreviations recognised by \code{\link[=era]{era()}}
-\item An \code{era} object
+\item A string matching one of the standard era labels defined in \code{\link[=eras]{eras()}}
+\item An \code{era} object constructed with \code{\link[=era]{era()}}
 }}
 }
 \value{

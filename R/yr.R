@@ -17,8 +17,8 @@ new_yr <- function(x = numeric(), era = new_era()) {
 #'
 #' @param x    A numeric vector of years.
 #' @param era  Object describing time scale. Either:
-#'  * A string matching one of the standard era abbreviations recognised by [era()]
-#'  * An `era` object
+#'  * A string matching one of the standard era labels defined in [eras()]
+#'  * An `era` object constructed with [era()]
 #'
 #' @return
 #' A `yr` (`era_yr`) object.
@@ -110,7 +110,7 @@ vec_cast.double.era_yr <- function(x, to, ...) {
 # Print generics ---------------------------------------------------------
 #' @export
 vec_ptype_full.era_yr <- function(x, ...) {
-  paste0("yr (", era_abbr(yr_era(x)), ")")
+  paste0("yr (", era_label(yr_era(x)), ")")
 }
 
 #' @export
@@ -118,16 +118,9 @@ vec_ptype_abbr.era_yr <- function(x, ...) {
   "yr"
 }
 
-# format.era_yr <- function(x, ...) {
-#   out <- formatC(vec_data(x))
-#   out[is.na(x)] <- NA
-#   out[!is.na(x)] <- paste0(out[!is.na(x)], " ", era_abbreviation(yr_era(x)))
-#   return(out)
-# }
-
 #' @export
 obj_print_header.era_yr <- function(x, ...) {
-  xera <- era_abbr(yr_era(x))
+  xera <- era_label(yr_era(x))
   cat("# ", xera, " years <", vec_ptype_abbr(x), "[", vec_size(x), "]>:", "\n",
       sep = "")
 }

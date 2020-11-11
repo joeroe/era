@@ -2,8 +2,7 @@
 % Please edit documentation in R/era.R
 \name{era_attributes}
 \alias{era_attributes}
-\alias{era_abbreviation}
-\alias{era_abbr}
+\alias{era_label}
 \alias{era_epoch}
 \alias{era_name}
 \alias{era_unit}
@@ -11,9 +10,7 @@
 \alias{era_direction}
 \title{Get attributes of an era}
 \usage{
-era_abbreviation(x)
-
-era_abbr(x)
+era_label(x)
 
 era_epoch(x)
 
@@ -37,7 +34,7 @@ Extracts a specific attribute from an era object.
 \details{
 The available attributes are:
 \itemize{
-\item \strong{abbreviation} (abbr) – abbreviated name of the era, e.g. "cal BP"
+\item \strong{label} – unique, abbreviated label of the era, e.g. "cal BP"
 \item \strong{epoch} – year of origin of the era, e.g. 1950 for years Before Present
 \item \strong{name} – full name of the era, e.g. "calendar years Before Present"
 \item \strong{unit} – unit of years used, e.g. "calendar years", "radiocarbon years"

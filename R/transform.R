@@ -17,7 +17,8 @@
 #' Not supported:
 #'
 #' * Between directions (to be implemented).
-#' * units: `calendar years` ↔ `radiocarbon years`. This requires [calibration](https://en.wikipedia.org/wiki/Radiocarbon_calibration)
+#' * units: `calendar` ↔ `radiocarbon` years. This requires
+#'   [calibration](https://en.wikipedia.org/wiki/Radiocarbon_calibration)
 #'   or un-calibration, which is outside the scope of this package. Functions
 #'   for radiocarbon calibration can be found in [rcarbon::calibrate()] and
 #'   [Bchron::BchronCalibrate()].

@@ -5,27 +5,27 @@
 \title{Create an era object}
 \usage{
 era(
-  abbreviation,
+  label,
   epoch = NULL,
-  name = abbreviation,
-  unit = c("calendar years", "radiocarbon years"),
+  name = label,
+  unit = c("calendar", "radiocarbon"),
   scale = 1,
   direction = c("backwards", "forwards")
 )
 }
 \arguments{
-\item{abbreviation}{Character. If only one argument is given to \code{era()}, the
-abbreviation of a standard era defined in the package.
-Otherwise, the abbreviation of a user-specified era defined by the following
+\item{label}{Character. If only one argument is given to \code{era()}, the
+abbreviated label of a standard era defined in \code{\link[=eras]{eras()}}.
+Otherwise, the label to give to the era constructed using the following
 arguments.}
 
 \item{epoch}{Integer. Epoch year from which years are counted (in the Common
 Era).}
 
 \item{name}{Character. Full name of the era. Defaults to the value of
-\code{abbreviation}.}
+\code{label}.}
 
-\item{unit}{Character. Default: \code{"calendar years"}.}
+\item{unit}{Character. Type of years used. Default: \code{"calendar"}.}
 
 \item{scale}{Integer. Number of years represented by one unit, e.g. \code{1000}
 for ka. Default: 1.}
@@ -37,11 +37,11 @@ from \code{epoch}?}
 An object of class \code{era}.
 }
 \description{
-The \code{era} class defines the time scale associated with a vector of years
+An \code{era} object defines the time scale associated with a vector of years
 (see \code{\link[=yr]{yr()}}). \code{era()} returns an \code{era} object, either by looking up
-\code{abbreviation} in the standard definitions included in the package or, if
-more than one argument is given, constructing a new definition with the
-given parameters.
+\code{label} in the standard eras defined in \code{\link[=eras]{eras()}} or, if more than one
+argument is given, constructing a new definition with the specified
+parameters.
 }
 \examples{
 era("cal BP")

@@ -10,11 +10,11 @@ status](https://github.com/joeroe/era/workflows/R-CMD-check/badge.svg)](https://
 
 **era** is an R package that provides a consistent vector representation
 of years with an associated calendar era or time scale. It includes
-built-in definitions of several time scales commonly used in
-archaeology, geology, and other paleosciences (e.g. Common Era, Before
-Present, SI-prefixed *annus*) as well as support for arbitrary
-user-defined eras. Functions for type-stable arithmetic with years and
-conversions between eras are also provided.
+built-in definitions of many contemporary and historic calendars; time
+scales commonly used in archaeology, astronomy, geology, and other
+palaeosciences (e.g. Before Present, SI-prefixed *annus*); and support
+for arbitrary user-defined eras. Functions for converting between eras
+and for type-stable arithmetic with years are also provided.
 
 ## Installation
 
@@ -47,8 +47,8 @@ convert between eras.
 x <- yr(10010:10001, "cal BP")
 yr_transform(x, era("BCE"))
 #> # BCE years <yr[10]>:
-#>  [1] 8061 8060 8059 8058 8057 8056 8055 8054 8053 8052
-#> # Era: Before Common Era (BCE): calendar years, counted backwards from 1
+#>  [1] 8060 8059 8058 8057 8056 8055 8054 8053 8052 8051
+#> # Era: Before Common Era (BCE): calendar years, counted backwards from 0
 ```
 
 Arbitrary user-defined eras are also supported.
@@ -69,11 +69,11 @@ tibble(bp_year = yr(c(15000, 14000, 13000, 12000, 11000), "cal BP"),
 #> # A tibble: 5 x 2
 #>   bp_year bce_year
 #>      <yr>     <yr>
-#> 1   15000    13051
-#> 2   14000    12051
-#> 3   13000    11051
-#> 4   12000    10051
-#> 5   11000     9051
+#> 1   15000    13050
+#> 2   14000    12050
+#> 3   13000    11050
+#> 4   12000    10050
+#> 5   11000     9050
 ```
 
 It also ensures type- and size-stable computations. For example, you can
@@ -85,7 +85,7 @@ b <- yr(2020, "CE")
 b - a
 #> # CE years <yr[1]>:
 #> [1] 520
-#> # Era: Common Era (CE): calendar years, counted forwards from 1
+#> # Era: Common Era (CE): calendar years, counted forwards from 0
 ```
 
 But only when they have the same era:
