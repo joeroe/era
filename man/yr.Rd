@@ -28,3 +28,9 @@ yr(1993:2020, "CE")
 # A bad movie
 yr(10000, "BC")
 }
+\seealso{
+Other years with era functions: 
+\code{\link{yr_era}()},
+\code{\link{yr_transform}()}
+}
+\concept{years with era functions}

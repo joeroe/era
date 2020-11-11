@@ -16,3 +16,9 @@ is_era(x)
 Tests whether an object is an \code{era}; a calendar era definition constructed
 by \code{\link[=era]{era()}}.
 }
+\seealso{
+Other era helper functions: 
+\code{\link{era_parameters}},
+\code{\link{is_yr}()}
+}
+\concept{era helper functions}

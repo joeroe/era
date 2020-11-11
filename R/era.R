@@ -27,6 +27,8 @@
 #' @return
 #' An object of class `era`.
 #'
+#' @family era definition functions
+#'
 #' @export
 #'
 #' @examples
@@ -81,7 +83,7 @@ new_era <- function(label = NA,
   )
 }
 
-#' Standard eras
+#' Standard era definitions
 #'
 #' @description
 #' Definitions of common eras and time scales.
@@ -97,6 +99,8 @@ new_era <- function(label = NA,
 #' @return
 #' A table of era definitions. This can be passed to [era()] to construct an
 #' `era` object.
+#'
+#' @family era definition functions
 #'
 #' @export
 #'
@@ -134,6 +138,8 @@ eras <- function(label = NA) {
 #' @return
 #' `TRUE` or `FALSE`.
 #'
+#' @family era helper functions
+#'
 #' @export
 is_era <- function(x) {
   inherits(x, "era")
@@ -165,9 +171,6 @@ format.era <- function(x, ...) {
 #'
 #' @param x An `era` object.
 #'
-#' @return
-#' Value of the parameter.
-#'
 #' @details
 #' The available parameters are:
 #'
@@ -177,6 +180,11 @@ format.era <- function(x, ...) {
 #' * **unit** – unit of years used, e.g. "calendar years", "radiocarbon years"
 #' * **scale** – multiple of years used, e.g. 1000 for ka/kiloannum
 #' * **direction** – whether years are counted "backwards" or "forwards" from the epoch
+#' #'
+#' @return
+#' Value of the parameter.
+#'
+#' @family era helper functions
 #'
 #' @examples
 #' x <- era("cal BP")

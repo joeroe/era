@@ -39,3 +39,9 @@ for radiocarbon calibration can be found in \code{\link[rcarbon:calibrate]{rcarb
 x <- yr(10010:10001, "cal BP")
 yr_transform(x, era("BCE"))
 }
+\seealso{
+Other years with era functions: 
+\code{\link{yr_era}()},
+\code{\link{yr}()}
+}
+\concept{years with era functions}

@@ -40,9 +40,16 @@ The available parameters are:
 \item \strong{unit} – unit of years used, e.g. "calendar years", "radiocarbon years"
 \item \strong{scale} – multiple of years used, e.g. 1000 for ka/kiloannum
 \item \strong{direction} – whether years are counted "backwards" or "forwards" from the epoch
+#'
 }
 }
 \examples{
 x <- era("cal BP")
 era_name(x)
 }
+\seealso{
+Other era helper functions: 
+\code{\link{is_era}()},
+\code{\link{is_yr}()}
+}
+\concept{era helper functions}

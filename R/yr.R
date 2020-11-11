@@ -23,6 +23,8 @@ new_yr <- function(x = numeric(), era = new_era()) {
 #' @return
 #' A `yr` (`era_yr`) object.
 #'
+#' @family years with era functions
+#'
 #' @export
 #'
 #' @examples
@@ -52,6 +54,8 @@ yr <- function(x = numeric(), era) {
 #'
 #' @return
 #' `TRUE` or `FALSE`
+#'
+#' @family era helper functions
 #'
 #' @export
 #'
@@ -225,6 +229,8 @@ vec_arith.numeric.era_yr <- function(op, x, y, ...) {
 #' `yr_set_era(x, era)` and `yr_era(x) <- era` return `x` with the new era
 #' assigned. If `x` is not already a `yr` vector, it will attempt to coerce it
 #' into one.
+#'
+#' @family years with era functions
 #'
 #' @export
 #'

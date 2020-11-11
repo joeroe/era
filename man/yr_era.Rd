@@ -34,3 +34,9 @@ x <- 5000:5050
 yr_era(x) <- era("cal BP")
 yr_era(x)
 }
+\seealso{
+Other years with era functions: 
+\code{\link{yr_transform}()},
+\code{\link{yr}()}
+}
+\concept{years with era functions}

@@ -48,3 +48,8 @@ era("cal BP")
 
 era("T.A.", epoch = -9021, name = "Third Age", direction = "forwards")
 }
+\seealso{
+Other era definition functions: 
+\code{\link{eras}()}
+}
+\concept{era definition functions}

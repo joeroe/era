@@ -7,3 +7,17 @@ template:
     twitter:
       creator: "@joeroe90"
       card: summary
+
+reference:
+- title: "Years with era"
+  desc: "Functions for constructing and transforming `yr` objects, representing years with an associated era."
+- contents:
+  - has_concept("years with era functions")
+- title: "Era definitions"
+  desc: "Functions for defining calendar eras and time scales."
+- contents:
+  - has_concept("era definition functions")
+- title: "Helper functions"
+  desc: "Miscellaneous utility functions for working with `yr` and `era` objects."
+- contents:
+  - has_concept("era helper functions")

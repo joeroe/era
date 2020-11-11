@@ -22,3 +22,9 @@ is_yr(x)
 #x <- as.integer(x)
 #is_yr(x)
 }
+\seealso{
+Other era helper functions: 
+\code{\link{era_parameters}},
+\code{\link{is_era}()}
+}
+\concept{era helper functions}

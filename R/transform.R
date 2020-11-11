@@ -26,6 +26,8 @@
 #' @return
 #' A `yr` object in the era specified by `era`.
 #'
+#' @family years with era functions
+#'
 #' @export
 #'
 #' @examples

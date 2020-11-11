@@ -2,7 +2,7 @@
 % Please edit documentation in R/era.R
 \name{eras}
 \alias{eras}
-\title{Standard eras}
+\title{Standard era definitions}
 \usage{
 eras(label = NA)
 }
@@ -32,3 +32,8 @@ eras("cal BP")
 #  uses partial matching
 eras("cal")
 }
+\seealso{
+Other era definition functions: 
+\code{\link{era}()}
+}
+\concept{era definition functions}
