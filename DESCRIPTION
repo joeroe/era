@@ -25,4 +25,6 @@ Imports:
     methods,
     rlang
 Suggests: 
-    tibble
+    tibble,
+    testthat,
+    covr
