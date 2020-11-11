@@ -1,4 +1,20 @@
-test_that("era_parameters getters return correct value", {
+test_that("eras() returns era_table", {
+  expect_equal(as.data.frame(eras()), era_table)
+})
+
+test_that("labels in era_table are unique", {
+  expect_equal(era_table[["label"]], unique(era_table[["label"]]))
+})
+
+test_that("eras(label) returns correct exact match", {
+  expect_match(eras("cal BP")[["label"]], "cal BP", fixed = TRUE)
+})
+
+test_that("eras(label) returns correct partial match", {
+  expect_match(eras("cal")[["label"]], "cal BP", fixed = TRUE)
+})
+
+test_that("era_parameters getter functions return correct value", {
   tera <- era("TE", epoch = 5000, name = "Test Era", unit = "calendar",
               scale = 1e6, direction = "forwards")
   expect_match(era_label(tera), "TE", fixed = TRUE)
