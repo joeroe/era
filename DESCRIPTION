@@ -1,7 +1,7 @@
 Package: era
 Type: Package
 Title: Years with Era
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: person("Joe", "Roe", email = "joe@joeroe.io",
   role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1011-1244"))
 Description: Provides a consistent vector representation of years with an 
@@ -12,6 +12,8 @@ Description: Provides a consistent vector representation of years with an
     Functions for converting between eras and for type-stable arithmetic with 
     years are also provided.
 License: MIT + file LICENSE
+URL: https://era.joeroe.io, https://github.com/joeroe/era
+BugReports: https://github.com/joeroe/era/issues
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
