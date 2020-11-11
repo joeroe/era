@@ -40,11 +40,11 @@
 
 
 <meta property="og:title" content="Create an era object — era" />
-<meta property="og:description" content="The era class defines the time scale associated with a vector of years
+<meta property="og:description" content="An era object defines the time scale associated with a vector of years
 (see yr()). era() returns an era object, either by looking up
-abbreviation in the standard definitions included in the package or, if
-more than one argument is given, constructing a new definition with the
-given parameters." />
+label in the standard eras defined in eras() or, if more than one
+argument is given, constructing a new definition with the specified
+parameters." />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@joeroe90" />
 <meta name="twitter:site" content="@joeroe90" />
@@ -116,18 +116,18 @@ given parameters." />
     </div>
 
     <div class="ref-description">
-    <p>The <code>era</code> class defines the time scale associated with a vector of years
+    <p>An <code>era</code> object defines the time scale associated with a vector of years
 (see <code><a href='yr.html'>yr()</a></code>). <code>era()</code> returns an <code>era</code> object, either by looking up
-<code>abbreviation</code> in the standard definitions included in the package or, if
-more than one argument is given, constructing a new definition with the
-given parameters.</p>
+<code>label</code> in the standard eras defined in <code><a href='eras.html'>eras()</a></code> or, if more than one
+argument is given, constructing a new definition with the specified
+parameters.</p>
     </div>
 
     <pre class="usage"><span class='fu'>era</span><span class='op'>(</span>
-  <span class='va'>abbreviation</span>,
+  <span class='va'>label</span>,
   epoch <span class='op'>=</span> <span class='cn'>NULL</span>,
-  name <span class='op'>=</span> <span class='va'>abbreviation</span>,
-  unit <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"calendar years"</span>, <span class='st'>"radiocarbon years"</span><span class='op'>)</span>,
+  name <span class='op'>=</span> <span class='va'>label</span>,
+  unit <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"calendar"</span>, <span class='st'>"radiocarbon"</span><span class='op'>)</span>,
   scale <span class='op'>=</span> <span class='fl'>1</span>,
   direction <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"backwards"</span>, <span class='st'>"forwards"</span><span class='op'>)</span>
 <span class='op'>)</span></pre>
@@ -136,10 +136,10 @@ given parameters.</p>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>abbreviation</th>
+      <th>label</th>
       <td><p>Character. If only one argument is given to <code>era()</code>, the
-abbreviation of a standard era defined in the package.
-Otherwise, the abbreviation of a user-specified era defined by the following
+abbreviated label of a standard era defined in <code><a href='eras.html'>eras()</a></code>.
+Otherwise, the label to give to the era constructed using the following
 arguments.</p></td>
     </tr>
     <tr>
@@ -150,11 +150,11 @@ Era).</p></td>
     <tr>
       <th>name</th>
       <td><p>Character. Full name of the era. Defaults to the value of
-<code>abbreviation</code>.</p></td>
+<code>label</code>.</p></td>
     </tr>
     <tr>
       <th>unit</th>
-      <td><p>Character. Default: <code>"calendar years"</code>.</p></td>
+      <td><p>Character. Type of years used. Default: <code>"calendar"</code>.</p></td>
     </tr>
     <tr>
       <th>scale</th>
