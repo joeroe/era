@@ -53,6 +53,9 @@
   </a>
 </li>
 <li>
+  <a href="articles/era.html">Get started</a>
+</li>
+<li>
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
@@ -86,59 +89,25 @@
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"joeroe/era"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="usage" class="section level2">
+<div id="basic-usage" class="section level2">
 <h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
-<p><code><a href="reference/yr.html">yr()</a></code> constructs an vector representing years with an associated era.</p>
+<a href="#basic-usage" class="anchor"></a>Basic usage</h2>
+<p><code><a href="reference/yr.html">yr()</a></code> defines the era associated with a vector of years:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://era.joeroe.io">era</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">10010</span><span class="op">:</span><span class="fl">10001</span>, <span class="st">"cal BP"</span><span class="op">)</span>
 <span class="co">#&gt; # cal BP years &lt;yr[10]&gt;:</span>
 <span class="co">#&gt;  [1] 10010 10009 10008 10007 10006 10005 10004 10003 10002 10001</span>
 <span class="co">#&gt; # Era: Before Present (cal BP): calendar years, counted backwards from 1950</span></code></pre></div>
-<p>The time scale used by a <code>yr</code> vector is defined by a call to <code><a href="reference/era.html">era()</a></code>. Many common era systems are built into the package and can be used by simply passing a string to <code><a href="reference/era.html">era()</a></code> or <code><a href="reference/yr.html">yr()</a></code>. Use <code><a href="reference/yr_transform.html">yr_transform()</a></code> to convert between eras.</p>
+<p><code>yr</code> is a vector class is based on <a href="https://vctrs.r-lib.org/">vctrs</a>. This means it behaves in a consistent, type-stable way across base R and other packages, and fits neatly into tibbles and data frames. Many common calendar systems and time scales are built into the package (see <code>?eras()</code>) and can be referenced by simply passing their abbreviated label to <code><a href="reference/yr.html">yr()</a></code>. Other eras can be defined using the <code><a href="reference/era.html">era()</a></code> function directly.</p>
+<p>Use <code><a href="reference/yr_transform.html">yr_transform()</a></code> to convert between eras:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">10010</span><span class="op">:</span><span class="fl">10001</span>, <span class="st">"cal BP"</span><span class="op">)</span>
-<span class="fu"><a href="reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="reference/era.html">era</a></span><span class="op">(</span><span class="st">"BCE"</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">10010</span><span class="op">:</span><span class="fl">10001</span>, <span class="st">"cal BP"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="reference/era.html">era</a></span><span class="op">(</span><span class="st">"BCE"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # BCE years &lt;yr[10]&gt;:</span>
 <span class="co">#&gt;  [1] 8060 8059 8058 8057 8056 8055 8054 8053 8052 8051</span>
 <span class="co">#&gt; # Era: Before Common Era (BCE): calendar years, counted backwards from 0</span></code></pre></div>
-<p>Arbitrary user-defined eras are also supported.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/era.html">era</a></span><span class="op">(</span><span class="st">"T.A."</span>, epoch <span class="op">=</span> <span class="op">-</span><span class="fl">9021</span>, name <span class="op">=</span> <span class="st">"Third Age"</span>, direction <span class="op">=</span> <span class="st">"forwards"</span><span class="op">)</span>
-<span class="co">#&gt; &lt;era[1]&gt;</span>
-<span class="co">#&gt; [1] Third Age (T.A.): calendar years, counted forwards from -9021</span></code></pre></div>
-<p>era is based on <a href="https://vctrs.r-lib.org/">vctrs</a>, which means years fit nicely into both data frames and tibbles.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tibble.tidyverse.org/">"tibble"</a></span><span class="op">)</span>
-<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>bp_year <span class="op">=</span> <span class="fu"><a href="reference/yr.html">yr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15000</span>, <span class="fl">14000</span>, <span class="fl">13000</span>, <span class="fl">12000</span>, <span class="fl">11000</span><span class="op">)</span>, <span class="st">"cal BP"</span><span class="op">)</span>,
-       bce_year <span class="op">=</span> <span class="fu"><a href="reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="va">bp_year</span>, <span class="fu"><a href="reference/era.html">era</a></span><span class="op">(</span><span class="st">"BCE"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 2</span>
-<span class="co">#&gt;   bp_year bce_year</span>
-<span class="co">#&gt;      &lt;yr&gt;     &lt;yr&gt;</span>
-<span class="co">#&gt; 1   15000    13050</span>
-<span class="co">#&gt; 2   14000    12050</span>
-<span class="co">#&gt; 3   13000    11050</span>
-<span class="co">#&gt; 4   12000    10050</span>
-<span class="co">#&gt; 5   11000     9050</span></code></pre></div>
-<p>It also ensures type- and size-stable computations. For example, you can perform arithmetic with years:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">1500</span>, <span class="st">"CE"</span><span class="op">)</span>
-<span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">2020</span>, <span class="st">"CE"</span><span class="op">)</span>
-<span class="va">b</span> <span class="op">-</span> <span class="va">a</span>
-<span class="co">#&gt; # CE years &lt;yr[1]&gt;:</span>
-<span class="co">#&gt; [1] 520</span>
-<span class="co">#&gt; # Era: Common Era (CE): calendar years, counted forwards from 0</span></code></pre></div>
-<p>But only when they have the same era:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="st">"ka"</span><span class="op">)</span>
-<span class="va">b</span> <span class="op">-</span> <span class="va">c</span>
-<span class="co">#&gt; Error: &lt;yr (CE)&gt; - &lt;yr (ka)&gt; is not permitted</span>
-<span class="co">#&gt; Reconcile eras with yr_transform() first.</span></code></pre></div>
-<p>And years will be coerced to a plain numeric vector if a computation means their era attribute is no longer accurate:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span>
-<span class="co">#&gt; [1] 3030000</span></code></pre></div>
+<p>For further usage, see the <a href="https://era.joeroe.io/articles/era.html">package introduction</a> (<code><a href="articles/era.html">vignette("era")</a></code>).</p>
 </div>
 
   </div>
