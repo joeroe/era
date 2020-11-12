@@ -6,6 +6,13 @@ test_that("labels in era_table are unique", {
   expect_equal(era_table[["label"]], unique(era_table[["label"]]))
 })
 
+test_that("all eras defined in eras() are valid", {
+  expect_s3_class(
+    do.call(era, as.list(eras())),
+    "era"
+  )
+})
+
 test_that("eras(label) returns correct exact match", {
   expect_match(eras("cal BP")[["label"]], "cal BP", fixed = TRUE)
 })
