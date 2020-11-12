@@ -1,0 +1,190 @@
+---
+title: "Years with an era"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Years with an era}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r include=FALSE}
+this_year <- as.integer(format(Sys.Date(), "%Y"))
+```
+
+Archaeologists, geologists, and other palaeoscientists use different systems for numbering years in the distant past.
+For example, the year 10,000 BCE is 11,950 [Before Present](https://en.wikipedia.org/wiki/Before_Present) or 11.95 [ka](https://en.wikipedia.org/wiki/Year#Symbols).
+It is usually fine to store years as a plain numeric vector in R, but sometimes it helps to be explicit about which system is being used:
+
+* When you have data that mixes different systems
+* When you want to transform years between different systems
+* When you need to do arithmetic with years
+
+The **era** package helps in these cases by providing classes which define the 'era' associated with a vector of years and functions for formatting, combining, and transforming years with different eras.
+This vignette is an introduction to the main features of the package.
+
+```{r setup, message=FALSE}
+library("era")
+library("tibble")
+library("dplyr")
+```
+
+## Years with an era: the `yr` class {#yr}
+
+Vectors of years with an era are represented by the `yr` (`era_yr`) class, which is constructed with `yr()`:
+
+```{r yr}
+yr(c(10000, 11000, 12000), "BP")
+```
+
+The first argument is a numeric vector of years.
+These can be integers or doubles.
+
+The second argument, `era`, defines the numbering system associated with the years.
+This is an object of class `era` which defines the [parameters of the calendar, epoch and time scale](#era).
+Most of the time, you can simply specify the abbreviated label of the era, which will be looked up in the standard eras defined by `eras()`:
+
+```{r yr-era-eg}
+yr(c(10000, 11000, 12000), "BCE")
+yr(c(10000, 11000, 12000), "uncal BP")
+yr(c(10000, 11000, 12000), "ka")
+```
+
+`yr_era()` returns details of the era associated with a `yr` vector:
+
+```{r yr-era-get}
+neolithic <- yr(11700:7500, "BP")
+yr_era(neolithic)
+```
+
+`yr_era()`, and its pipe-friendly alias `yr_set_era()`, can also be used to set the era of an existing object:
+
+```{r yr-era-set}
+chalcolithic <- 7500:6000
+yr_era(chalcolithic) <- yr_era(neolithic)
+yr_era(chalcolithic)
+```
+
+Note that this only updates the vector's era attribute; it doesn't change the data itself.
+To *convert* years from one era to another, you need to use [the `yr_transform()` function](#yr_transform).
+
+`yr` vectors fit nicely into tables, both base data frames and tibbles:
+
+```{r eg-tbl}
+postglacial <- tribble(
+  ~period,           ~start_ka,
+  "Late Holocene",   4.2,
+  "Mid Holocene",    8.326,
+  "Early Holocene",  11.7,
+  "Younger Dryas",   12.9,
+  "Bølling-Allerød", 14.7,
+  "Heinrich 1",      17.0
+)
+
+postglacial %>% 
+  mutate(start_ka = yr(start_ka, "ka"))
+```
+
+## Era definitions: the `era` class {#era}
+
+Eras are defined by the `era` class.
+Many common eras are defined by the `eras()` function and can be referenced in `yr()` or `era()` by their abbreviated `label`:
+
+```{r eras, results=FALSE}
+eras()
+```
+```{r eras-table, echo=FALSE}
+eras() %>% 
+  knitr::kable()
+```
+
+Eras are defined by the following parameters:
+
+* **label**: an abbreviated label that uniquely identifies the era
+* **name**: the full name of the era
+* **epoch**: the origin year from which years are counted
+* **unit**: the type of years counted, e.g. "calendar" or "radiocarbon"
+* **scale**: the number of years represented by one unit
+* **direction**: whether years are counted forwards or backwards from the epoch
+
+These parameters are passed to `era()` to construct an `era` object.
+`epoch`, `unit`, `scale`, and `direction` determine the transformation between eras;
+`label` and `name` are purely descriptive.
+
+You can define arbitrary eras by using the `era()` function directly:
+
+```{r custom-era}
+era("T.A.", epoch = -9021, name = "Third Age", direction = "forwards")
+```
+
+As long as all the parameters are specified correctly, user-defined eras can also be used in `yr_transform()`.
+
+## Converting years between eras: `yr_transform()` {#yr_transform}
+
+Use `yr_transform()` to convert years between eras:
+
+```{r transform}
+postglacial %>% 
+  mutate(start_ka = yr(start_ka, "ka")) %>% 
+  mutate(start_bp = yr_transform(start_ka, era("BP")),
+         start_bce = yr_transform(start_ka, era("BCE")))
+```
+
+Transformations are only possible when the two eras have the same unit:
+
+```{r transform-unit, error=TRUE}
+uncal <- yr(9000, "uncal BP")
+yr_transform(uncal, era("cal BP"))
+```
+
+### Transformation precision
+
+era transformations are precise:
+
+```{r yr-transform-precise}
+yr(500000, "BCE") %>% 
+  yr_transform(era("ka"))
+```
+
+Often, this precision is not necessary.
+For example, when converting years on a geologic time scale between calendar- and present-based eras, the `r this_year - 1950` year difference between the formal definition of "Present" and the actual present is rarely significant.
+To get prettier results, simply use `round()`:
+
+```{r yr-transform-pretty}
+yr(500000, "BCE") %>% 
+  yr_transform(era("ka")) %>% 
+  round()
+```
+
+## Arithmetic with years {#arithmetic}
+
+The `yr` class ensures type- and size-stable computations with years.
+For example, you can perform arithmetic:
+
+```{r eg-arith}
+a <- yr(1500, "CE")
+b <- yr(2020, "CE")
+b - a
+```
+
+But only when they have the same era:
+
+```{r eg-arith-error, error=TRUE}
+c <- yr(0.5, "ka")
+b - c
+```
+
+And years will be coerced to a plain numeric vector if a computation means their era attribute is no longer accurate:
+
+```{r eg-coerce}
+a * b
+```

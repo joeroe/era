@@ -28,9 +28,9 @@ You can install the development version of era from GitHub with the
 remotes::install_github("joeroe/era")
 ```
 
-## Usage
+## Basic usage
 
-`yr()` constructs an vector representing years with an associated era.
+`yr()` defines the era associated with a vector of years:
 
 ``` r
 library(era)
@@ -40,69 +40,24 @@ yr(10010:10001, "cal BP")
 #> # Era: Before Present (cal BP): calendar years, counted backwards from 1950
 ```
 
-The time scale used by a `yr` vector is defined by a call to `era()`.
-Many common era systems are built into the package and can be used by
-simply passing a string to `era()` or `yr()`. Use `yr_transform()` to
-convert between eras.
+`yr` is a vector class is based on [vctrs](https://vctrs.r-lib.org/).
+This means it behaves in a consistent, type-stable way across base R and
+other packages, and fits neatly into tibbles and data frames. Many
+common calendar systems and time scales are built into the package (see
+`?eras()`) and can be referenced by simply passing their abbreviated
+label to `yr()`. Other eras can be defined using the `era()` function
+directly.
+
+Use `yr_transform()` to convert between eras:
 
 ``` r
-x <- yr(10010:10001, "cal BP")
-yr_transform(x, era("BCE"))
+yr(10010:10001, "cal BP") %>% 
+  yr_transform(era("BCE"))
 #> # BCE years <yr[10]>:
 #>  [1] 8060 8059 8058 8057 8056 8055 8054 8053 8052 8051
 #> # Era: Before Common Era (BCE): calendar years, counted backwards from 0
 ```
 
-Arbitrary user-defined eras are also supported.
-
-``` r
-era("T.A.", epoch = -9021, name = "Third Age", direction = "forwards")
-#> <era[1]>
-#> [1] Third Age (T.A.): calendar years, counted forwards from -9021
-```
-
-era is based on [vctrs](https://vctrs.r-lib.org/), which means years fit
-nicely into both data frames and tibbles.
-
-``` r
-library("tibble")
-tibble(bp_year = yr(c(15000, 14000, 13000, 12000, 11000), "cal BP"),
-       bce_year = yr_transform(bp_year, era("BCE")))
-#> # A tibble: 5 x 2
-#>   bp_year bce_year
-#>      <yr>     <yr>
-#> 1   15000    13050
-#> 2   14000    12050
-#> 3   13000    11050
-#> 4   12000    10050
-#> 5   11000     9050
-```
-
-It also ensures type- and size-stable computations. For example, you can
-perform arithmetic with years:
-
-``` r
-a <- yr(1500, "CE")
-b <- yr(2020, "CE")
-b - a
-#> # CE years <yr[1]>:
-#> [1] 520
-#> # Era: Common Era (CE): calendar years, counted forwards from 0
-```
-
-But only when they have the same era:
-
-``` r
-c <- yr(0.5, "ka")
-b - c
-#> Error: <yr (CE)> - <yr (ka)> is not permitted
-#> Reconcile eras with yr_transform() first.
-```
-
-And years will be coerced to a plain numeric vector if a computation
-means their era attribute is no longer accurate:
-
-``` r
-a * b
-#> [1] 3030000
-```
+For further usage, see the [package
+introduction](https://era.joeroe.io/articles/era.html)
+(`vignette("era")`).

@@ -23,8 +23,13 @@ Depends:
 Imports: 
     vctrs (>= 0.3.0),
     methods,
-    rlang
+    rlang,
+    magrittr
 Suggests: 
     tibble,
     testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown,
+    dplyr
+VignetteBuilder: knitr
