@@ -39,7 +39,8 @@ yr_transform <- function(x, era = yr_era(x)) {
 
   # Check comparable units
   if (era_unit(src_era) != era_unit(dst_era)) {
-    stop("No method for transforming ", era_unit(src_era), " to ", era_unit(dst_era))
+    stop("No method for transforming ", era_unit(src_era), " to ",
+         era_unit(dst_era), " years")
   }
 
   # Rescale to 1 (if not already)
