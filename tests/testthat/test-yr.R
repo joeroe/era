@@ -16,4 +16,6 @@ test_that("yr get and set functions work", {
   expect_equal(yr_era(x), era("ka"))
   yr_era(x) <- era("BCE")
   expect_equal(yr_era(x), era("BCE"))
+  y <- yr_set_era(1, era("mya"))
+  expect_equal(yr_era(y), era("mya"))
 })
