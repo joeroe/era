@@ -1,3 +1,8 @@
+# era 0.2.1
+
+* Added new era definitions:
+  * Islamic calendars (Lunar Hijri, Solar Hijri)
+
 # era 0.2.0
 
 First beta release, including:

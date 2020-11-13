@@ -38,7 +38,7 @@
 era <- function(label,
                 epoch = NULL,
                 name = label,
-                unit = c("calendar", "radiocarbon"),
+                unit = c("calendar", "Islamic lunar", "radiocarbon"),
                 scale = 1,
                 direction = c("backwards", "forwards")) {
   if (missing(epoch) &&
