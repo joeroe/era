@@ -22,6 +22,10 @@ test_that("all eras defined in eras() are valid", {
   )
 })
 
+test_that("format.era returns correct output", {
+  expect_snapshot_output(era("BP"))
+})
+
 test_that("eras(label) returns correct exact match", {
   expect_match(eras("cal BP")[["label"]], "cal BP", fixed = TRUE)
 })

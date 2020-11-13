@@ -33,3 +33,5 @@ Suggests:
     rmarkdown,
     dplyr
 VignetteBuilder: knitr
+Config/testthat/edition: 3
+
