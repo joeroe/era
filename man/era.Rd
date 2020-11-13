@@ -10,7 +10,7 @@ era(
   name = label,
   unit = c("calendar", "Islamic lunar", "radiocarbon"),
   scale = 1,
-  direction = c("backwards", "forwards")
+  direction = -1
 )
 }
 \arguments{
@@ -30,7 +30,7 @@ Era).}
 \item{scale}{Integer. Number of years represented by one unit, e.g. \code{1000}
 for ka. Default: 1.}
 
-\item{direction}{Are years counted \code{"backwards"} (the default) or \code{"forwards"}
+\item{direction}{Are years counted backwards (\code{-1}) (the default) or forwards (\code{1})
 from \code{epoch}?}
 }
 \value{
@@ -46,7 +46,7 @@ parameters.
 \examples{
 era("cal BP")
 
-era("T.A.", epoch = -9021, name = "Third Age", direction = "forwards")
+era("T.A.", epoch = -9021, name = "Third Age", direction = 1)
 }
 \seealso{
 Other era definition functions: 

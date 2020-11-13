@@ -21,7 +21,7 @@
 #' @param unit  Character. Type of years used. Default: `"calendar"`.
 #' @param scale  Integer. Number of years represented by one unit, e.g. `1000`
 #'  for ka. Default: 1.
-#' @param direction  Are years counted `"backwards"` (the default) or `"forwards"`
+#' @param direction  Are years counted backwards (`-1`) (the default) or forwards (`1`)
 #'  from `epoch`?
 #'
 #' @return
@@ -34,13 +34,13 @@
 #' @examples
 #' era("cal BP")
 #'
-#' era("T.A.", epoch = -9021, name = "Third Age", direction = "forwards")
+#' era("T.A.", epoch = -9021, name = "Third Age", direction = 1)
 era <- function(label,
                 epoch = NULL,
                 name = label,
                 unit = c("calendar", "Islamic lunar", "radiocarbon"),
                 scale = 1,
-                direction = c("backwards", "forwards")) {
+                direction = -1) {
   if (missing(epoch) &&
       missing(name) &&
       missing(unit) &&
@@ -50,6 +50,13 @@ era <- function(label,
     parameters <- as.list(eras(label))
   }
   else {
+    # Backwards compatibility with era v.<=0.2.0
+    if (any(direction %in% c("backwards", "forwards"))) {
+      direction[direction == "backwards"] <- -1
+      direction[direction == "forwards"] <- 1
+      direction <- as.integer(direction)
+    }
+
     # Use data.frame() to get vector recycling
     parameters <- data.frame(
       label = vec_cast(label, character()),
@@ -57,7 +64,7 @@ era <- function(label,
       name = vec_cast(name, character()),
       unit = rlang::arg_match(unit),
       scale = vec_cast(scale, integer()),
-      direction = rlang::arg_match(direction),
+      direction = vec_cast(direction, integer()),
       stringsAsFactors = FALSE
     )
     parameters <- as.list(parameters)
@@ -128,6 +135,27 @@ eras <- function(label = NA) {
   }
 }
 
+
+# Validators --------------------------------------------------------------
+
+validate_era <- function(x) {
+  # label
+  vec_assert(era_label(x), character())
+
+  # epoch
+  vec_assert(era_epoch(x), numeric())
+
+  # name
+  vec_assert(era_name(x), character())
+
+  # unit
+  # scale
+  # direction
+  if (!era_direction(x) %in% c(-1, 1)) {
+    stop("direction must be -1 (backwards) or 1 (forwards)")
+  }
+}
+
 #' Is this an `era` object?
 #'
 #' Tests whether an object is an `era`; a calendar era definition constructed
@@ -155,8 +183,10 @@ format.era <- function(x, ...) {
   unitout <- paste0(era_unit(x), " (\u00d7", era_scale(x), ")")
   unitout[era_scale(x) == 1] <- era_unit(x)[era_scale(x) == 1]
 
-  out <- paste0(nameout, ": ", unitout, " years, counted ", era_direction(x),
-                " from ", era_epoch(x))
+  dirout <- c("backwards", "forwards")[(era_direction(x) > 0) + 1]
+
+  out <- paste0(nameout, ": ", unitout, " years, counted ", dirout, " from ",
+                era_epoch(x))
 
   return(out)
 }

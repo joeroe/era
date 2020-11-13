@@ -114,7 +114,7 @@ Eras are defined by the following parameters:
 * **epoch**: the origin year from which years are counted
 * **unit**: the type of years counted, e.g. "calendar" or "radiocarbon"
 * **scale**: the number of years represented by one unit
-* **direction**: whether years are counted forwards or backwards from the epoch
+* **direction**: whether years are counted forwards (`1`) or backwards (`-1`) from the epoch
 
 These parameters are passed to `era()` to construct an `era` object.
 `epoch`, `unit`, `scale`, and `direction` determine the transformation between eras;
@@ -123,7 +123,7 @@ These parameters are passed to `era()` to construct an `era` object.
 You can define arbitrary eras by using the `era()` function directly:
 
 ```{r custom-era}
-era("T.A.", epoch = -9021, name = "Third Age", direction = "forwards")
+era("T.A.", epoch = -9021, name = "Third Age", direction = 1)
 ```
 
 As long as all the parameters are specified correctly, user-defined eras can also be used in `yr_transform()`.

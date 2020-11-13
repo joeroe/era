@@ -2,6 +2,8 @@
 
 * Added new era definitions:
   * Islamic calendars (Lunar Hijri, Solar Hijri)
+* Reworked era definition scheme:
+  * Direction is now coded as `1` ("forwards") or `-1` ("backwards"). The previous character arguments still work but are deprecated.
 
 # era 0.2.0
 

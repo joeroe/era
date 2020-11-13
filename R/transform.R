@@ -47,9 +47,8 @@ yr_transform <- function(x, era = yr_era(x)) {
   x <- x * era_scale(src_era)
 
   # Transformation
-  d <- c("backwards" = -1, "forwards" = 1)
-  dx <- unname(d[era_direction(src_era)])
-  dy <- unname(d[era_direction(dst_era)])
+  dx <- era_direction(src_era)
+  dy <- era_direction(dst_era)
   ex <- era_epoch(src_era)
   ey <- era_epoch(dst_era)
   y <- x * (dx*dy) + dy * (ex - ey)
