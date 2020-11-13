@@ -9,6 +9,10 @@ test_that("yr() throws an error with multiple eras", {
                "yr vectors can only have one era attribute")
 })
 
+test_that("format.yr returns correct output", {
+  expect_snapshot_output(yr(1, "BP"))
+})
+
 test_that("yr get and set functions work", {
   x <- yr(1, "BP")
   expect_equal(yr_era(x), era("BP"))
