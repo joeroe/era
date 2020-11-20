@@ -161,7 +161,8 @@ validate_era <- function(x) {
   # scale
   # direction
   if (!era_direction(x) %in% c(-1, 1)) {
-    stop("direction must be -1 (backwards) or 1 (forwards)")
+   abort("`direction` must be -1 (backwards) or 1 (forwards)",
+         class = "era_invalid_era")
   }
 }
 

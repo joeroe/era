@@ -5,8 +5,7 @@ test_that("yr() constructs an era_yr with valid input", {
 })
 
 test_that("yr() throws an error with multiple eras", {
-  expect_error(yr(1, era(c("BC", "BP"))),
-               "yr vectors can only have one era attribute")
+  expect_error(yr(1, era(c("BC", "BP"))), class = "era_invalid_yr")
 })
 
 test_that("format.yr returns correct output", {

@@ -37,7 +37,8 @@ yr <- function(x = numeric(), era) {
   x <- vec_cast(x, numeric())
 
   if (vec_size(era) > 1) {
-    stop("yr vectors can only have one era attribute")
+    abort("yr vectors must have only one `era` attribute.",
+          class = "era_invalid_yr")
   }
   if (is.character(era)) {
     era <- era(era)
