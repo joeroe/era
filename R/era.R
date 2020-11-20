@@ -46,6 +46,15 @@ era <- function(label,
       missing(unit) &&
       missing(scale) &&
       missing(direction)) {
+    if (any(is.na(label))) {
+      rlang::abort(
+        "`label` must not contain NAs.",
+        class = "era_invalid_era",
+        body = rlang::format_error_bullets(c(
+          i = "Use eras() to get a list of known era labels."
+        ))
+      )
+    }
     label <- vec_cast(label, character())
     parameters <- as.list(eras(label))
   }
