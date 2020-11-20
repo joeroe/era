@@ -1,3 +1,10 @@
+#' Internal rlang methods
+#'
+#' @import rlang
+#' @keywords internal
+#' @name era-rlang
+NULL
+
 #' Internal vctrs methods
 #'
 #' @import vctrs
