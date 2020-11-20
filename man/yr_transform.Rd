@@ -23,11 +23,12 @@ Era transformations currently supported:
 \itemize{
 \item Between scales
 \item Between epochs
+\item Between directions
 }
 
 Not supported:
 \itemize{
-\item Between directions (to be implemented).
+\item Between different units (to be implemented).
 \item units: \code{calendar} ↔ \code{radiocarbon} years. This requires
 \href{https://en.wikipedia.org/wiki/Radiocarbon_calibration}{calibration}
 or un-calibration, which is outside the scope of this package. Functions

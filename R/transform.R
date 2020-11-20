@@ -13,10 +13,11 @@
 #'
 #' * Between scales
 #' * Between epochs
+#' * Between directions
 #'
 #' Not supported:
 #'
-#' * Between directions (to be implemented).
+#' * Between different units (to be implemented).
 #' * units: `calendar` ↔ `radiocarbon` years. This requires
 #'   [calibration](https://en.wikipedia.org/wiki/Radiocarbon_calibration)
 #'   or un-calibration, which is outside the scope of this package. Functions
