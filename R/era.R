@@ -69,7 +69,7 @@ era <- function(label,
     # Use data.frame() to get vector recycling
     parameters <- data.frame(
       label = vec_cast(label, character()),
-      epoch = vec_cast(epoch, integer()),
+      epoch = vec_cast(epoch, numeric()),
       name = vec_cast(name, character()),
       unit = arg_match(unit),
       scale = vec_cast(scale, integer()),
@@ -79,7 +79,9 @@ era <- function(label,
     parameters <- as.list(parameters)
   }
 
-  do.call(new_era, parameters)
+  era <- do.call(new_era, parameters)
+  validate_era(era)
+  return(era)
 }
 
 new_era <- function(label = NA,
@@ -148,22 +150,34 @@ eras <- function(label = NA) {
 # Validators --------------------------------------------------------------
 
 validate_era <- function(x) {
-  # label
-  vec_assert(era_label(x), character())
+  problems <- c(
+    "era attributes must not be NA" =
+      apply(vec_proxy(x), 1, function(x) any(is.na(x))),
+    "`label` must be a character" =
+      !vec_is(era_label(x), character()),
+    "`epoch` must be a numeric" =
+      !vec_is(era_epoch(x), numeric()),
+    "`name` must be a character" =
+      !vec_is(era_name(x), character()),
+    "`unit` must be one of 'calendar', 'Islamic lunar', 'radiocarbon'" =
+      !all(era_unit(x) %in% c("calendar", "Islamic lunar", "radiocarbon")),
+    "`scale` must be an integer" =
+      !vec_is(era_scale(x), integer()),
+    "`scale` must be positive" =
+      !all(era_scale(x) > 0),
+    "`direction` must be -1 (backwards) or 1 (forwards)" =
+      !all(era_direction(x) %in% c(-1, 1))
+  )
 
-  # epoch
-  vec_assert(era_epoch(x), numeric())
-
-  # name
-  vec_assert(era_name(x), character())
-
-  # unit
-  # scale
-  # direction
-  if (!era_direction(x) %in% c(-1, 1)) {
-   abort("`direction` must be -1 (backwards) or 1 (forwards)",
-         class = "era_invalid_era")
+  if (any(problems)) {
+    problems <- names(problems[problems])
+    names(problems) <- rep("x", length(problems))
+    abort("Invalid era:",
+          class = "era_invalid_era",
+          body = format_error_bullets(problems))
   }
+
+  return(invisible(x))
 }
 
 #' Is this an `era` object?
