@@ -10,7 +10,7 @@ is_era(x)
 
 validate_era(x)
 
-is_valid_era(x, warn = TRUE)
+is_valid_era(x)
 }
 \arguments{
 \item{x}{Object to test.}

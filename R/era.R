@@ -201,7 +201,7 @@ validate_era <- function(x) {
 
 #' @rdname is_era
 #' @export
-is_valid_era <- function(x, warn = TRUE) {
+is_valid_era <- function(x) {
   problems <- era_problems(x)
   !any(problems)
 }
