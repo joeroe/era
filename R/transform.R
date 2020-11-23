@@ -7,6 +7,10 @@
 #'
 #' @param x  A `yr` object to be transformed.
 #' @param era  Target `era` object, see [era()].
+#' @param precision Desired precision of the transformation, i.e. the
+#'  transformed values are rounded to the nearest `precision`. If `NA`
+#'  (the default), no rounding is performed and the exact transformed value is
+#'  returned.
 #'
 #' @details
 #' Era transformations currently supported:
@@ -34,7 +38,9 @@
 #' @examples
 #' x <- yr(10010:10001, "cal BP")
 #' yr_transform(x, era("BCE"))
-yr_transform <- function(x, era = yr_era(x)) {
+#'
+#' yr_transform(x, era("ka"), precision = 1)
+yr_transform <- function(x, era = yr_era(x), precision = NA) {
   src_era <- yr_era(x)
   dst_era <- era
 
@@ -62,6 +68,11 @@ yr_transform <- function(x, era = yr_era(x)) {
 
   # Apply destination scale
   y <- y / era_scale(dst_era)
+
+  # Round to precision
+  if (!is.na(precision)) {
+    y <- round(y / precision) * precision
+  }
 
   y <- yr(y, dst_era)
   return(y)

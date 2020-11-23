@@ -4,12 +4,17 @@
 \alias{yr_transform}
 \title{Convert years from one era to another}
 \usage{
-yr_transform(x, era = yr_era(x))
+yr_transform(x, era = yr_era(x), precision = NA)
 }
 \arguments{
 \item{x}{A \code{yr} object to be transformed.}
 
 \item{era}{Target \code{era} object, see \code{\link[=era]{era()}}.}
+
+\item{precision}{Desired precision of the transformation, i.e. the
+transformed values are rounded to the nearest \code{precision}. If \code{NA}
+(the default), no rounding is performed and the exact transformed value is
+returned.}
 }
 \value{
 A \code{yr} object in the era specified by \code{era}.
@@ -39,6 +44,8 @@ for radiocarbon calibration can be found in \code{\link[rcarbon:calibrate]{rcarb
 \examples{
 x <- yr(10010:10001, "cal BP")
 yr_transform(x, era("BCE"))
+
+yr_transform(x, era("ka"), precision = 1)
 }
 \seealso{
 Other years with era functions: 

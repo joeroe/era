@@ -3,12 +3,14 @@
 Second beta / CRAN pre-release.
 
 * Added new era definitions:
-  * Islamic calendars (Lunar Hijri, Solar Hijri)
+  * Islamic calendars (Lunar Hijri, Solar Hijri).
 * Reworked era definition scheme:
   * Direction is now coded as `1` ("forwards") or `-1` ("backwards"). The previous character arguments still work but are deprecated.
-* `era` and `yr` objects are now validated when constructed, using new functions `validate_era()`/`is_valid_era()` and `validate_yr()`/`is_valid_yr()`. See #7 and #8.
+* Improved `yr_transform()`:
+  * Now has a `precision` argument, allowing the result to be rounded (#23).
+* `era` and `yr` objects are now validated when constructed, using new functions `validate_era()`/`is_valid_era()` and `validate_yr()`/`is_valid_yr()` (#7 and #8).
 * Bug fixes:
-  * `era(NA)` now returns an error, not a vector of all standard eras. See #20
+  * `era(NA)` now returns an error, not a vector of all standard eras (#20).
 
 # era 0.2.0
 
