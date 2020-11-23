@@ -11,6 +11,7 @@ test_that("Basic validation of yr objects works", {
   expect_false(is_yr(1))
   expect_true(is_valid_yr(good_yr))
   expect_false(is_valid_yr(bad_yr))
+  expect_false(is_valid_yr(NA))
   expect_silent(validate_yr(good_yr))
   expect_error(validate_yr(bad_yr), class = "era_invalid_yr")
 })

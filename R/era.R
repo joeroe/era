@@ -186,8 +186,16 @@ is_era <- function(x) {
 #' @rdname is_era
 #' @export
 validate_era <- function(x) {
-  problems <- era_problems(x)
+  if (!is_era(x)) {
+    abort("Invalid era:",
+          class = "era_invalid_era",
+          body = format_error_bullets(c(
+            x = "Must inherit from class era.",
+            i = "See ?era() for methods for defining eras."
+          )))
+  }
 
+  problems <- era_problems(x)
   if (any(problems)) {
     problems <- names(problems[problems])
     names(problems) <- rep("x", length(problems))
@@ -202,6 +210,10 @@ validate_era <- function(x) {
 #' @rdname is_era
 #' @export
 is_valid_era <- function(x) {
+  if (!is_era(x)) {
+    return(FALSE)
+  }
+
   problems <- era_problems(x)
   !any(problems)
 }

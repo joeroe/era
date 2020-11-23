@@ -39,6 +39,9 @@ yr <- function(x = numeric(), era) {
   if (is.character(era)) {
     era <- era(era)
   }
+  else {
+    validate_era(era)
+  }
 
   yr <- new_yr(x, era)
   validate_yr(yr)
@@ -88,8 +91,16 @@ is_yr <- function(x) {
 #' @rdname is_yr
 #' @export
 validate_yr <- function(x) {
-  problems <- yr_problems(x)
+  if (!is_yr(x)) {
+    abort("Invalid year vector:",
+          class = "era_invalid_yr",
+          body = format_error_bullets(c(
+            x = "Must inherit from class era_yr.",
+            i = "See ?yr() for methods for constructing year vectors."
+          )))
+  }
 
+  problems <- yr_problems(x)
   if (any(problems)) {
     problems <- names(problems[problems])
     names(problems) <- rep("x", length(problems))
@@ -104,6 +115,10 @@ validate_yr <- function(x) {
 #' @rdname is_yr
 #' @export
 is_valid_yr <- function(x) {
+  if (!is_yr(x)) {
+    return(FALSE)
+  }
+
   problems <- yr_problems(x)
   !any(problems)
 }

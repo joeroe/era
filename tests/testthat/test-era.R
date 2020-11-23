@@ -33,6 +33,7 @@ test_that("Basic validation of era objects works", {
   expect_false(is_era(1))
   expect_true(is_valid_era(good_era))
   expect_false(is_valid_era(bad_era))
+  expect_false(is_valid_era(NA))
   expect_silent(validate_era(good_era))
   expect_error(validate_era(bad_era), class = "era_invalid_era")
 })
