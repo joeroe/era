@@ -123,6 +123,7 @@
     <div id="era-021" class="section level1">
 <h1 class="page-header" data-toc-text="0.2.1">
 <a href="#era-021" class="anchor"></a>era 0.2.1</h1>
+<p>Second beta / CRAN pre-release.</p>
 <ul>
 <li>Added new era definitions:
 <ul>
@@ -132,6 +133,14 @@
 <li>Reworked era definition scheme:
 <ul>
 <li>Direction is now coded as <code>1</code> (“forwards”) or <code>-1</code> (“backwards”). The previous character arguments still work but are deprecated.</li>
+</ul>
+</li>
+<li>
+<code>era</code> and <code>yr</code> objects are now validated when constructed, using new functions <code>validate_era()</code>/<code>is_valid_era()</code> and <code>validate_yr()</code>/<code>is_valid_yr()</code>. See <a href='https://github.com/joeroe/era/issues/7'>#7</a> and <a href='https://github.com/joeroe/era/issues/8'>#8</a>.</li>
+<li>Bug fixes:
+<ul>
+<li>
+<code><a href="../reference/era.html">era(NA)</a></code> now returns an error, not a vector of all standard eras. See <a href='https://github.com/joeroe/era/issues/20'>#20</a></li>
 </ul>
 </li>
 </ul>
