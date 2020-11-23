@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Is this a yr vector? — is_yr • era</title>
+<title>Validation functions for yr objects — is_yr • era</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,12 @@
 
 
 
-<meta property="og:title" content="Is this a yr vector? — is_yr" />
-<meta property="og:description" content="Tests whether an object is a yr; a vector of years with era." />
+<meta property="og:title" content="Validation functions for yr objects — is_yr" />
+<meta property="og:description" content="Tests whether an object is a vector of years with an era (a yr object).
+is_yr() tests whether the object inherits from the S3 class era_yr.
+is_valid_yr() performs additional checks to determine whether the object
+is well-formed (see details).
+validate_yr() throws an informative error message for invalid yrs." />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@joeroe90" />
 <meta name="twitter:site" content="@joeroe90" />
@@ -117,16 +121,24 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Is this a <code>yr</code> vector?</h1>
+    <h1>Validation functions for <code>yr</code> objects</h1>
     <small class="dont-index">Source: <a href='https://github.com/joeroe/era/blob/master/R/yr.R'><code>R/yr.R</code></a></small>
     <div class="hidden name"><code>is_yr.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Tests whether an object is a <code>yr</code>; a vector of years with era.</p>
+    <p>Tests whether an object is a vector of years with an era (a <code>yr</code> object).
+<code>is_yr()</code> tests whether the object inherits from the S3 class <code>era_yr</code>.
+<code>is_valid_yr()</code> performs additional checks to determine whether the object
+is well-formed (see details).
+<code>validate_yr()</code> throws an informative error message for invalid <code>yr</code>s.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>is_yr</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>is_yr</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>validate_yr</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>is_valid_yr</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -139,7 +151,18 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>TRUE</code> or <code>FALSE</code></p>
+    <p><code>is_yr()</code> and <code>is_valid_yr()</code> return <code>TRUE</code> or <code>FALSE</code>.
+<code>validate_yr()</code> returns <code>x</code> invisibly, and is used for its side-effect of
+throwing an informative error for invalid objects.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Valid <code>yr</code> objects:</p><ul>
+<li><p>Must contain numeric data (NAs are allowed)</p></li>
+<li><p>Must have the <code>era</code> attribute set and not NA</p></li>
+<li><p>Must not have more than one era</p></li>
+<li><p>Must have an <code>era</code> attribute that is a valid era object (see <code><a href='is_era.html'>validate_era()</a></code>)</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other era helper functions: 
@@ -149,9 +172,8 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='yr.html'>yr</a></span><span class='op'>(</span><span class='fl'>5000</span><span class='op'>:</span><span class='fl'>5050</span>, <span class='fu'><a href='era.html'>era</a></span><span class='op'>(</span><span class='st'>"cal BP"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>is_yr</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-<span class='co'>#x &lt;- as.integer(x)</span>
-<span class='co'>#is_yr(x)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>is_valid_yr</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>validate_yr</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

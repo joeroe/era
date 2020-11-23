@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Is this an era object? — is_era • era</title>
+<title>Validation functions for era objects — is_era • era</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,12 @@
 
 
 
-<meta property="og:title" content="Is this an era object? — is_era" />
-<meta property="og:description" content="Tests whether an object is an era; a calendar era definition constructed
-by era()." />
+<meta property="og:title" content="Validation functions for era objects — is_era" />
+<meta property="og:description" content="Tests whether an object is an era definition (an era object).
+is_era() tests whether the object inherits from the S3 class era_yr.
+is_valid_era() performs additional checks to determine whether the object
+is well-formed (see details).
+validate_era() throws an informative error message for invalid yrs." />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@joeroe90" />
 <meta name="twitter:site" content="@joeroe90" />
@@ -118,17 +121,24 @@ by era()." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Is this an <code>era</code> object?</h1>
+    <h1>Validation functions for <code>era</code> objects</h1>
     <small class="dont-index">Source: <a href='https://github.com/joeroe/era/blob/master/R/era.R'><code>R/era.R</code></a></small>
     <div class="hidden name"><code>is_era.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Tests whether an object is an <code>era</code>; a calendar era definition constructed
-by <code><a href='era.html'>era()</a></code>.</p>
+    <p>Tests whether an object is an era definition (an <code>era</code> object).
+<code>is_era()</code> tests whether the object inherits from the S3 class <code>era_yr</code>.
+<code>is_valid_era()</code> performs additional checks to determine whether the object
+is well-formed (see details).
+<code>validate_era()</code> throws an informative error message for invalid <code>yr</code>s.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>is_era</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>is_era</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>validate_era</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>is_valid_era</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -141,7 +151,21 @@ by <code><a href='era.html'>era()</a></code>.</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>TRUE</code> or <code>FALSE</code>.</p>
+    <p><code>is_era()</code> and <code>is_valid_era()</code> return <code>TRUE</code> or <code>FALSE</code>.
+<code>validate_era()</code> returns <code>x</code> invisibly, and is used for its side-effect of
+throwing an informative error for invalid objects.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Valid <code>era</code> objects:</p><ul>
+<li><p>Must have all parameters set and not NA</p></li>
+<li><p>Must have a character <code>label</code> parameter</p></li>
+<li><p>Must have a numeric <code>epoch</code> parameter</p></li>
+<li><p>Must have a character <code>name</code> parameter</p></li>
+<li><p>Must have a character <code>unit</code> parameter that is one of the defined units</p></li>
+<li><p>Must have a positive, integer <code>scale</code> parameter</p></li>
+<li><p>Must have a direction parameter that is -1 (backwards) or 1 (forwards)</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other era helper functions: 
