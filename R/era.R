@@ -191,7 +191,7 @@ validate_era <- function(x) {
           class = "era_invalid_era",
           body = format_error_bullets(c(
             x = "Must inherit from class era.",
-            i = "See ?era() for methods for defining eras."
+            i = "See ?era for methods for defining eras."
           )))
   }
 

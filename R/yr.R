@@ -96,7 +96,7 @@ validate_yr <- function(x) {
           class = "era_invalid_yr",
           body = format_error_bullets(c(
             x = "Must inherit from class era_yr.",
-            i = "See ?yr() for methods for constructing year vectors."
+            i = "See ?yr for methods for constructing year vectors."
           )))
   }
 
@@ -327,12 +327,14 @@ yr_era <- function(x) {
 #' @rdname yr_era
 #' @export
 yr_set_era <- function(x, era) {
+  validate_era(era)
   if (!is_yr(x)) {
     x <- new_yr(vec_cast(x, numeric()), era)
   }
   else {
     attr(x, "era") <- era
   }
+  validate_yr(x)
   return(x)
 }
 
