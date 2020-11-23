@@ -6,6 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Years with an era • era</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -13,6 +19,7 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Years with an era">
 <meta property="og:description" content="era">
+<meta property="og:image" content="https://era.joeroe.io/logo.svg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@joeroe90">
 <meta name="twitter:site" content="@joeroe90">
@@ -453,21 +460,26 @@
 <div id="transformation-precision" class="section level3">
 <h3 class="hasAnchor">
 <a href="#transformation-precision" class="anchor"></a>Transformation precision</h3>
-<p>era transformations are precise:</p>
+<p>By default, era transformations are exact:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">500000</span>, <span class="st">"BCE"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"ka"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # ka years &lt;yr[1]&gt;:</span>
 <span class="co">#&gt; [1] 501.95</span>
 <span class="co">#&gt; # Era: kiloannum (ka): calendar (×1000) years, counted backwards from 1950</span></code></pre></div>
-<p>Often, this precision is not necessary. For example, when converting years on a geologic time scale between calendar- and present-based eras, the 70 year difference between the formal definition of “Present” and the actual present is rarely significant. To get prettier results, simply use <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code>:</p>
+<p>Often, this precision is not necessary. For example, when converting years on a geologic time scale between calendar- and present-based eras, the 70 year difference between the formal definition of “Present” and the actual present is rarely significant. Use the <code>precision</code> argument of <code>yr_transform</code> to get prettier results:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">500000</span>, <span class="st">"BCE"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"ka"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; # ka years &lt;yr[1]&gt;:</span>
-<span class="co">#&gt; [1] 502</span>
-<span class="co">#&gt; # Era: kiloannum (ka): calendar (×1000) years, counted backwards from 1950</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="st">"BP"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BCE"</span><span class="op">)</span>, precision <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
+<span class="co">#&gt; # BCE years &lt;yr[1]&gt;:</span>
+<span class="co">#&gt; [1] 8000</span>
+<span class="co">#&gt; # Era: Before Common Era (BCE): calendar years, counted backwards from 0</span>
+
+<span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">500000</span>, <span class="st">"BCE"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"mya"</span><span class="op">)</span>, precision <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span>
+<span class="co">#&gt; # mya years &lt;yr[1]&gt;:</span>
+<span class="co">#&gt; [1] 0.5</span>
+<span class="co">#&gt; # Era: million years ago (mya): calendar (×1000000) years, counted backwards from 1950</span></code></pre></div>
 </div>
 </div>
 <div id="arithmetic" class="section level2">
