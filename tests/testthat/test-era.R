@@ -26,6 +26,45 @@ test_that("all eras defined in eras() are valid", {
   )
 })
 
+test_that("Basic validation of era objects works", {
+  good_era <- era("BP")
+  bad_era <- new_era()
+  expect_true(is_era(good_era))
+  expect_false(is_era(1))
+  expect_true(is_valid_era(good_era))
+  expect_false(is_valid_era(bad_era))
+  expect_silent(validate_era(good_era))
+  expect_error(validate_era(bad_era), class = "era_invalid_era")
+})
+
+test_that("validate_era() finds specific problems", {
+  bad_era_na <- new_era()
+  bad_era_label <- new_era(label = 14)
+  bad_era_epoch <- new_era(epoch = "bad epoch")
+  bad_era_name <- new_era(name = 47)
+  bad_era_unit <- new_era(unit = "bad unit")
+  bad_era_scale <- new_era(scale = "bad scale")
+  bad_era_negative_scale <- new_era(scale = -1)
+  bad_era_direction <- new_era(direction = 2)
+
+  expect_error(validate_era(bad_era_na), class = "era_invalid_era",
+               regexp = "not be NA")
+  expect_error(validate_era(bad_era_label), class = "era_invalid_era",
+               regexp = "label")
+  expect_error(validate_era(bad_era_epoch), class = "era_invalid_era",
+               regexp = "epoch")
+  expect_error(validate_era(bad_era_name), class = "era_invalid_era",
+               regexp = "name")
+  expect_error(validate_era(bad_era_unit), class = "era_invalid_era",
+               regexp = "unit")
+  expect_error(validate_era(bad_era_scale), class = "era_invalid_era",
+               regexp = "scale")
+  expect_error(validate_era(bad_era_negative_scale), class = "era_invalid_era",
+               regexp = "positive")
+  expect_error(validate_era(bad_era_direction), class = "era_invalid_era",
+               regexp = "direction")
+})
+
 test_that("format.era returns correct output", {
   expect_snapshot_output(era("BP"))
 })
