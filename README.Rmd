@@ -13,6 +13,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+# era <a href='https://era.joeroe.io'><img src='man/figures/logo.svg' align="right" height="139" /></a>
+
 <!-- badges: start -->
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build status](https://github.com/joeroe/era/workflows/R-CMD-check/badge.svg)](https://github.com/joeroe/era/actions)
