@@ -36,16 +36,17 @@ new_yr <- function(x = numeric(), era = new_era()) {
 yr <- function(x = numeric(), era) {
   x <- vec_cast(x, numeric())
 
-  if (vec_size(era) > 1) {
-    abort("yr vectors must have only one `era` attribute.",
-          class = "era_invalid_yr")
-  }
   if (is.character(era)) {
     era <- era(era)
   }
 
-  new_yr(x, era)
+  yr <- new_yr(x, era)
+  validate_yr(yr)
+  return(yr)
 }
+
+
+# Validators --------------------------------------------------------------
 
 #' Is this a `yr` vector?
 #'
@@ -68,6 +69,39 @@ yr <- function(x = numeric(), era) {
 #' #is_yr(x)
 is_yr <- function(x) {
   inherits(x, "era_yr")
+}
+
+validate_yr <- function(x) {
+  problems <- yr_problems(x)
+
+  if (any(problems)) {
+    problems <- names(problems[problems])
+    names(problems) <- rep("x", length(problems))
+    abort("Invalid year vector:",
+          class = "era_invalid_yr",
+          body = format_error_bullets(problems))
+  }
+
+  return(invisible(x))
+}
+
+is_valid_yr <- function(x) {
+  problems <- yr_problems(x)
+  !any(problems)
+}
+
+yr_problems <- function(x) {
+  !c(
+    "yr data must be numeric" =
+      vec_is(vec_data(x), integer()) || vec_is(vec_data(x), numeric()),
+    "`era` attribute must be set and not NA" =
+      !any(is.null(yr_era(x))) && !any(is.na(yr_era(x))),
+    "yr objects can only have one era" =
+      vec_size(yr_era(x)) <= 1,
+    "`era` attribute must be a valid era" =
+      ifelse(!any(is.null(yr_era(x))) && !any(is.na(yr_era(x))),
+             is_valid_era(yr_era(x)), TRUE)
+  )
 }
 
 # Casting/coercion --------------------------------------------------------
