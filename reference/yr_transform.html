@@ -128,7 +128,7 @@ are possible (see details)." />
 are possible (see details).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>yr_transform</span><span class='op'>(</span><span class='va'>x</span>, era <span class='op'>=</span> <span class='fu'><a href='yr_era.html'>yr_era</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>yr_transform</span><span class='op'>(</span><span class='va'>x</span>, era <span class='op'>=</span> <span class='fu'><a href='yr_era.html'>yr_era</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, precision <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,6 +140,13 @@ are possible (see details).</p>
     <tr>
       <th>era</th>
       <td><p>Target <code>era</code> object, see <code><a href='era.html'>era()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>precision</th>
+      <td><p>Desired precision of the transformation, i.e. the
+transformed values are rounded to the nearest <code>precision</code>. If <code>NA</code>
+(the default), no rounding is performed and the exact transformed value is
+returned.</p></td>
     </tr>
     </table>
 
@@ -174,7 +181,11 @@ for radiocarbon calibration can be found in <code>rcarbon::calibrate()</code> an
 <span class='fu'>yr_transform</span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'><a href='era.html'>era</a></span><span class='op'>(</span><span class='st'>"BCE"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; # BCE years &lt;yr[10]&gt;:
 #&gt;  [1] 8060 8059 8058 8057 8056 8055 8054 8053 8052 8051
-#&gt; # Era: Before Common Era (BCE): calendar years, counted backwards from 0</div></pre>
+#&gt; # Era: Before Common Era (BCE): calendar years, counted backwards from 0</div><div class='input'>
+<span class='fu'>yr_transform</span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'><a href='era.html'>era</a></span><span class='op'>(</span><span class='st'>"ka"</span><span class='op'>)</span>, precision <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; # ka years &lt;yr[10]&gt;:
+#&gt;  [1] 10 10 10 10 10 10 10 10 10 10
+#&gt; # Era: kiloannum (ka): calendar (×1000) years, counted backwards from 1950</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
