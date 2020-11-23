@@ -148,7 +148,7 @@ yr_transform(uncal, era("cal BP"))
 
 ### Transformation precision
 
-era transformations are precise:
+By default, era transformations are exact:
 
 ```{r yr-transform-precise}
 yr(500000, "BCE") %>% 
@@ -157,12 +157,14 @@ yr(500000, "BCE") %>%
 
 Often, this precision is not necessary.
 For example, when converting years on a geologic time scale between calendar- and present-based eras, the `r this_year - 1950` year difference between the formal definition of "Present" and the actual present is rarely significant.
-To get prettier results, simply use `round()`:
+Use the `precision` argument of `yr_transform` to get prettier results:
 
 ```{r yr-transform-pretty}
+yr(10000, "BP") %>% 
+  yr_transform(era("BCE"), precision = 1000)
+
 yr(500000, "BCE") %>% 
-  yr_transform(era("ka")) %>% 
-  round()
+  yr_transform(era("mya"), precision = 0.1)
 ```
 
 ## Arithmetic with years {#arithmetic}
