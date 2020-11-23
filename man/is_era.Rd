@@ -2,19 +2,42 @@
 % Please edit documentation in R/era.R
 \name{is_era}
 \alias{is_era}
-\title{Is this an \code{era} object?}
+\alias{validate_era}
+\alias{is_valid_era}
+\title{Validation functions for \code{era} objects}
 \usage{
 is_era(x)
+
+validate_era(x)
+
+is_valid_era(x, warn = TRUE)
 }
 \arguments{
 \item{x}{Object to test.}
 }
 \value{
-\code{TRUE} or \code{FALSE}.
+\code{is_era()} and \code{is_valid_era()} return \code{TRUE} or \code{FALSE}.
+\code{validate_era()} returns \code{x} invisibly, and is used for its side-effect of
+throwing an informative error for invalid objects.
 }
 \description{
-Tests whether an object is an \code{era}; a calendar era definition constructed
-by \code{\link[=era]{era()}}.
+Tests whether an object is an era definition (an \code{era} object).
+\code{is_era()} tests whether the object inherits from the S3 class \code{era_yr}.
+\code{is_valid_era()} performs additional checks to determine whether the object
+is well-formed (see details).
+\code{validate_era()} throws an informative error message for invalid \code{yr}s.
+}
+\details{
+Valid \code{era} objects:
+\itemize{
+\item Must have all parameters set and not NA
+\item Must have a character \code{label} parameter
+\item Must have a numeric \code{epoch} parameter
+\item Must have a character \code{name} parameter
+\item Must have a character \code{unit} parameter that is one of the defined units
+\item Must have a positive, integer \code{scale} parameter
+\item Must have a direction parameter that is -1 (backwards) or 1 (forwards)
+}
 }
 \seealso{
 Other era helper functions: 

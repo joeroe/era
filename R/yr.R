@@ -48,14 +48,29 @@ yr <- function(x = numeric(), era) {
 
 # Validators --------------------------------------------------------------
 
-#' Is this a `yr` vector?
+#' Validation functions for `yr` objects
 #'
-#' Tests whether an object is a `yr`; a vector of years with era.
+#' @description
+#' Tests whether an object is a vector of years with an era (a `yr` object).
+#' `is_yr()` tests whether the object inherits from the S3 class `era_yr`.
+#' `is_valid_yr()` performs additional checks to determine whether the object
+#' is well-formed (see details).
+#' `validate_yr()` throws an informative error message for invalid `yr`s.
 #'
 #' @param x  Object to test.
 #'
+#' @details
+#' Valid `yr` objects:
+#'
+#' * Must contain numeric data (NAs are allowed)
+#' * Must have the `era` attribute set and not NA
+#' * Must not have more than one era
+#' * Must have an `era` attribute that is a valid era object (see `validate_era()`)
+#'
 #' @return
-#' `TRUE` or `FALSE`
+#' `is_yr()` and `is_valid_yr()` return `TRUE` or `FALSE`.
+#' `validate_yr()` returns `x` invisibly, and is used for its side-effect of
+#' throwing an informative error for invalid objects.
 #'
 #' @family era helper functions
 #'
@@ -64,13 +79,14 @@ yr <- function(x = numeric(), era) {
 #' @examples
 #' x <- yr(5000:5050, era("cal BP"))
 #' is_yr(x)
-#'
-#' #x <- as.integer(x)
-#' #is_yr(x)
+#' is_valid_yr(x)
+#' validate_yr(x)
 is_yr <- function(x) {
   inherits(x, "era_yr")
 }
 
+#' @rdname is_yr
+#' @export
 validate_yr <- function(x) {
   problems <- yr_problems(x)
 
@@ -85,18 +101,33 @@ validate_yr <- function(x) {
   return(invisible(x))
 }
 
+#' @rdname is_yr
+#' @export
 is_valid_yr <- function(x) {
   problems <- yr_problems(x)
   !any(problems)
 }
 
+#' List problems with a yr object
+#'
+#' Internal function for testing validity of yr objects.
+#'
+#' @param x Object to test
+#'
+#' @return
+#' A named logical vector. The names describe invalid conditions (formatted as
+#' error messages that can be passed to vctrs::abort()) and `TRUE` indicates
+#' an invalid state.
+#'
+#' @noRd
+#' @keywords internal
 yr_problems <- function(x) {
   !c(
     "yr data must be numeric" =
       vec_is(vec_data(x), integer()) || vec_is(vec_data(x), numeric()),
     "`era` attribute must be set and not NA" =
       !any(is.null(yr_era(x))) && !any(is.na(yr_era(x))),
-    "yr objects can only have one era" =
+    "Must not have more than one era" =
       vec_size(yr_era(x)) <= 1,
     "`era` attribute must be a valid era" =
       ifelse(!any(is.null(yr_era(x))) && !any(is.na(yr_era(x))),

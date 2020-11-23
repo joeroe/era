@@ -2,25 +2,45 @@
 % Please edit documentation in R/yr.R
 \name{is_yr}
 \alias{is_yr}
-\title{Is this a \code{yr} vector?}
+\alias{validate_yr}
+\alias{is_valid_yr}
+\title{Validation functions for \code{yr} objects}
 \usage{
 is_yr(x)
+
+validate_yr(x)
+
+is_valid_yr(x)
 }
 \arguments{
 \item{x}{Object to test.}
 }
 \value{
-\code{TRUE} or \code{FALSE}
+\code{is_yr()} and \code{is_valid_yr()} return \code{TRUE} or \code{FALSE}.
+\code{validate_yr()} returns \code{x} invisibly, and is used for its side-effect of
+throwing an informative error for invalid objects.
 }
 \description{
-Tests whether an object is a \code{yr}; a vector of years with era.
+Tests whether an object is a vector of years with an era (a \code{yr} object).
+\code{is_yr()} tests whether the object inherits from the S3 class \code{era_yr}.
+\code{is_valid_yr()} performs additional checks to determine whether the object
+is well-formed (see details).
+\code{validate_yr()} throws an informative error message for invalid \code{yr}s.
+}
+\details{
+Valid \code{yr} objects:
+\itemize{
+\item Must contain numeric data (NAs are allowed)
+\item Must have the \code{era} attribute set and not NA
+\item Must not have more than one era
+\item Must have an \code{era} attribute that is a valid era object (see \code{validate_era()})
+}
 }
 \examples{
 x <- yr(5000:5050, era("cal BP"))
 is_yr(x)
-
-#x <- as.integer(x)
-#is_yr(x)
+is_valid_yr(x)
+validate_yr(x)
 }
 \seealso{
 Other era helper functions: 

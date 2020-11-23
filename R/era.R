@@ -149,15 +149,32 @@ eras <- function(label = NA) {
 
 # Validators --------------------------------------------------------------
 
-#' Is this an `era` object?
+#' Validation functions for `era` objects
 #'
-#' Tests whether an object is an `era`; a calendar era definition constructed
-#' by [era()].
+#' @description
+#' Tests whether an object is an era definition (an `era` object).
+#' `is_era()` tests whether the object inherits from the S3 class `era_yr`.
+#' `is_valid_era()` performs additional checks to determine whether the object
+#' is well-formed (see details).
+#' `validate_era()` throws an informative error message for invalid `yr`s.
 #'
 #' @param x  Object to test.
 #'
+#' @details
+#' Valid `era` objects:
+#'
+#' * Must have all parameters set and not NA
+#' * Must have a character `label` parameter
+#' * Must have a numeric `epoch` parameter
+#' * Must have a character `name` parameter
+#' * Must have a character `unit` parameter that is one of the defined units
+#' * Must have a positive, integer `scale` parameter
+#' * Must have a direction parameter that is -1 (backwards) or 1 (forwards)
+#'
 #' @return
-#' `TRUE` or `FALSE`.
+#' `is_era()` and `is_valid_era()` return `TRUE` or `FALSE`.
+#' `validate_era()` returns `x` invisibly, and is used for its side-effect of
+#' throwing an informative error for invalid objects.
 #'
 #' @family era helper functions
 #'
@@ -166,6 +183,8 @@ is_era <- function(x) {
   inherits(x, "era")
 }
 
+#' @rdname is_era
+#' @export
 validate_era <- function(x) {
   problems <- era_problems(x)
 
@@ -180,14 +199,29 @@ validate_era <- function(x) {
   return(invisible(x))
 }
 
+#' @rdname is_era
+#' @export
 is_valid_era <- function(x, warn = TRUE) {
   problems <- era_problems(x)
   !any(problems)
 }
 
+#' List problems with an era object
+#'
+#' Internal function for testing validity of era objects.
+#'
+#' @param x Object to test
+#'
+#' @return
+#' A named logical vector. The names describe invalid conditions (formatted as
+#' error messages that can be passed to vctrs::abort()) and `TRUE` indicates
+#' an invalid state.
+#'
+#' @noRd
+#' @keywords internal
 era_problems <- function(x) {
   !c(
-    "era attributes must not be NA" =
+    "era parameters must not be NA" =
       apply(vec_proxy(x), 1, function(x) !any(is.na(x))),
     "`label` must be a character" =
       vec_is(era_label(x), character()),
@@ -199,7 +233,7 @@ era_problems <- function(x) {
       all(era_unit(x) %in% c("calendar", "Islamic lunar", "radiocarbon")),
     "`scale` must be an integer" =
       vec_is(era_scale(x), integer()),
-    "`scale` must be positive and not NA" =
+    "`scale` must be positive" =
       all(era_scale(x) > 0) && !any(is.na(era_scale(x))),
     "`direction` must be -1 (backwards) or 1 (forwards)" =
       all(era_direction(x) %in% c(-1, 1))
