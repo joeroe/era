@@ -233,13 +233,9 @@ vec_arith.era_yr.era_yr <- function(op, x, y, ...) {
                          details = "Reconcile eras with yr_transform() first.")
   }
 
-  if (era_label(yr_era(x)) != era_label(yr_era(y))) {
-    warn("`era(x)` and `era(y)` have different label parameters.",
-         class = "era_lossy_coercion")
-  }
-
-  if (era_name(yr_era(x)) != era_name(yr_era(y))) {
-    warn("`era(x)` and `era(y)` have different name parameters.",
+  if (era_label(yr_era(x)) != era_label(yr_era(y)) |
+      era_name(yr_era(x)) != era_name(yr_era(y))) {
+    warn("`era(x)` and `era(y)` have different label or name parameters.",
          class = "era_lossy_coercion")
   }
 

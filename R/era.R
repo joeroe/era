@@ -282,7 +282,7 @@ format.era <- function(x, ...) {
 #' @method vec_proxy_equal era
 #' @export
 vec_proxy_equal.era <- function(x, ...) {
-  vec_data(x)[!names(vec_data(x)) %in% c("label", "unit")]
+  vec_data(x)[!names(vec_data(x)) %in% c("label", "name")]
 }
 
 # Getters and setters -----------------------------------------------------

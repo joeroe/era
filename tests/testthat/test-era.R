@@ -80,7 +80,11 @@ test_that("eras(label) returns correct partial match", {
 })
 
 test_that("vec_proxy_equal.era works correctly", {
+  # Different label, same name
   expect_true(era("BP") == era("cal BP"))
+  # Different label, different name
+  expect_true(era("BC") == era("BCE"))
+  # Incomparable
   expect_false(era("BP") == era("BC"))
 })
 
