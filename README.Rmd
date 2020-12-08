@@ -42,19 +42,18 @@ remotes::install_github("joeroe/era")
 
 ```{r eg-yr}
 library(era)
-yr(10010:10001, "cal BP")
+x <- yr(c(9000, 8000, 7000), "cal BP")
+x
 ```
 
-`yr` is a vector class is based on [vctrs](https://vctrs.r-lib.org/).
-This means it behaves in a consistent, type-stable way across base R and other packages, and fits neatly into tibbles and data frames.
-Many common calendar systems and time scales are built into the package (see `?eras()`) and can be referenced by simply passing their abbreviated label to `yr()`.
-Other eras can be defined using the `era()` function directly.
 
 Use `yr_transform()` to convert between eras:
 
 ```{r eg-transform}
-yr(10010:10001, "cal BP") %>% 
-  yr_transform(era("BCE"))
+yr_transform(x, "BCE")
 ```
+
+Many common calendar systems and time scales are predefined (see `?eras()`) and can be referenced by their abbreviated labels.
+Other eras can be defined using the `era()` function directly.
 
 For further usage, see the [package introduction](https://era.joeroe.io/articles/era.html) (`vignette("era")`).
