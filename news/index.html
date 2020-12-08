@@ -150,10 +150,13 @@
 </li>
 <li>
 <code>era</code> and <code>yr</code> objects are now validated when constructed, using new functions <code><a href="../reference/is_era.html">validate_era()</a></code>/<code><a href="../reference/is_era.html">is_valid_era()</a></code> and <code><a href="../reference/is_yr.html">validate_yr()</a></code>/<code><a href="../reference/is_yr.html">is_valid_yr()</a></code> (<a href='https://github.com/joeroe/era/issues/7'>#7</a> and <a href='https://github.com/joeroe/era/issues/8'>#8</a>).</li>
-<li>Bug fixes:
+<li>Minor changes/bug fixes:
 <ul>
 <li>
 <code><a href="../reference/era.html">era(NA)</a></code> now returns an error, not a vector of all standard eras (<a href='https://github.com/joeroe/era/issues/20'>#20</a>).</li>
+<li>All <code>era</code> arguments in functions can now accept a character vector (<a href='https://github.com/joeroe/era/issues/20'>#20</a>)</li>
+<li>
+<code>era(&lt;era&gt;)</code> now returns an era with the same parameters (to enable the above)</li>
 </ul>
 </li>
 </ul>
