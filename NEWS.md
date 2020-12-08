@@ -9,8 +9,10 @@ Second beta / CRAN pre-release.
 * Improved `yr_transform()`:
   * Now has a `precision` argument, allowing the result to be rounded (#23).
 * `era` and `yr` objects are now validated when constructed, using new functions `validate_era()`/`is_valid_era()` and `validate_yr()`/`is_valid_yr()` (#7 and #8).
-* Bug fixes:
+* Minor changes/bug fixes:
   * `era(NA)` now returns an error, not a vector of all standard eras (#20).
+  * All `era` arguments in functions can now accept a character vector (#20)
+  * `era(<era>)` now returns an era with the same parameters (to enable the above)
 
 # era 0.2.0
 

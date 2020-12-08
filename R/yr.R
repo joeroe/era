@@ -36,12 +36,7 @@ new_yr <- function(x = numeric(), era = new_era()) {
 yr <- function(x = numeric(), era) {
   x <- vec_cast(x, numeric())
 
-  if (is.character(era)) {
-    era <- era(era)
-  }
-  else {
-    validate_era(era)
-  }
+  era <- era(era)
 
   yr <- new_yr(x, era)
   validate_yr(yr)
@@ -327,7 +322,8 @@ yr_era <- function(x) {
 #' @rdname yr_era
 #' @export
 yr_set_era <- function(x, era) {
-  validate_era(era)
+  era <- era(era)
+
   if (!is_yr(x)) {
     x <- new_yr(vec_cast(x, numeric()), era)
   }

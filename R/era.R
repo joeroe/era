@@ -55,8 +55,14 @@ era <- function(label,
         ))
       )
     }
-    label <- vec_cast(label, character())
-    parameters <- as.list(eras(label))
+
+    if (is_era(label)) {
+      parameters <- as.list(vec_data(label))
+    }
+    else {
+      label <- vec_cast(label, character())
+      parameters <- as.list(eras(label))
+    }
   }
   else {
     # Backwards compatibility with era v.<=0.2.0
