@@ -6,7 +6,7 @@ Second beta / CRAN pre-release.
   * Islamic calendars (Lunar Hijri, Solar Hijri).
 * Reworked era definition scheme:
   * Direction is now coded as `1` ("forwards") or `-1` ("backwards"). The previous character arguments still work but are deprecated.
-  * Equality tests for eras now only check significant parameters (i.e. not "label" or "name"), allowing for coercion between functionally equivalent eras, e.g. `yr(1, "BP") + yr(1, "cal BP")` now works (with a warning).
+  * Equality tests for eras now only check significant parameters (i.e. not "label" or "name"), allowing for coercion between functionally equivalent eras, e.g. `yr(1, "BP") + yr(1, "cal BP")` now works (with a warning) (#3).
 * Improved `yr_transform()`:
   * Now has a `precision` argument, allowing the result to be rounded (#23).
 * `era` and `yr` objects are now validated when constructed, using new functions `validate_era()`/`is_valid_era()` and `validate_yr()`/`is_valid_yr()` (#7 and #8).
