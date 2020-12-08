@@ -36,8 +36,12 @@ test_that("validate_yr() finds specific problems", {
                regexp = "valid era")
 })
 
-test_that("format.yr returns correct output", {
+test_that("format.era_yr returns expected output", {
   expect_snapshot_output(yr(1, "BP"))
+})
+
+test_that("tibble formatter pillar_shaft.era_yr returns expected output", {
+  expect_snapshot_output(tibble::tibble(x = yr(1:10, "BP")))
 })
 
 test_that("yr arithmetic respects era equality", {

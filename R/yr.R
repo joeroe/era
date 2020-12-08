@@ -211,6 +211,18 @@ obj_print_footer.era_yr <- function(x, ...) {
 }
 
 
+# Printing in tibbles -----------------------------------------------------
+
+#' @importFrom pillar pillar_shaft
+#' @export
+pillar_shaft.era_yr <- function(x, ...) {
+  out <- format(
+    paste(vec_data(x), pillar::style_subtle(era_label(yr_era(x)))),
+    justify = "right"
+  )
+  pillar::new_pillar_shaft_simple(out, align = "right")
+}
+
 # Maths generics ----------------------------------------------------------
 
 #' @method vec_arith era_yr

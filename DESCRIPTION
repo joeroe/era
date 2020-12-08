@@ -24,7 +24,8 @@ Imports:
     vctrs (>= 0.3.0),
     methods,
     rlang,
-    magrittr
+    magrittr,
+    pillar
 Suggests: 
     tibble,
     testthat,
@@ -34,4 +35,3 @@ Suggests:
     dplyr
 VignetteBuilder: knitr
 Config/testthat/edition: 3
-
