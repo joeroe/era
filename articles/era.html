@@ -499,8 +499,20 @@
 <span class="va">b</span> <span class="op">-</span> <span class="va">c</span>
 <span class="co">#&gt; Error: &lt;yr (CE)&gt; - &lt;yr (ka)&gt; is not permitted</span>
 <span class="co">#&gt; Reconcile eras with yr_transform() first.</span></code></pre></div>
-<p>And years will be coerced to a plain numeric vector if a computation means their era attribute is no longer accurate:</p>
+<p>Note that, when comparing eras, only the parameters significant to the transformation are considered (i.e. not <code>label</code> or <code>name</code>). This means that it is possible to combine yrs with differently named but functionally equivalent eras, for example <code><a href="../reference/era.html">era("BP")</a></code> and <code><a href="../reference/era.html">era("cal BP")</a></code>, although doing so will cause a warning about the loss of information:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BP"</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BC"</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE</span>
+<span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BP"</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"cal BP"</span><span class="op">)</span>
+<span class="co">#&gt; [1] TRUE</span>
+
+<span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"BP"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">2</span>, <span class="st">"cal BP"</span><span class="op">)</span>
+<span class="co">#&gt; Warning: `era(x)` and `era(y)` have different label parameters.</span>
+<span class="co">#&gt; # BP years &lt;yr[1]&gt;:</span>
+<span class="co">#&gt; [1] 3</span>
+<span class="co">#&gt; # Era: Before Present (BP): calendar years, counted backwards from 1950</span></code></pre></div>
+<p>And years will be coerced to a plain numeric vector if a computation means their era attribute is no longer accurate:</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span>
 <span class="co">#&gt; [1] 3030000</span></code></pre></div>
 </div>

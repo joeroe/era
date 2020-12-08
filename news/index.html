@@ -141,6 +141,7 @@
 <li>Reworked era definition scheme:
 <ul>
 <li>Direction is now coded as <code>1</code> (“forwards”) or <code>-1</code> (“backwards”). The previous character arguments still work but are deprecated.</li>
+<li>Equality tests for eras now only check significant parameters (i.e. not “label” or “name”), allowing for coercion between functionally equivalent eras, e.g. <code>yr(1, "BP") + yr(1, "cal BP")</code> now works (with a warning).</li>
 </ul>
 </li>
 <li>Improved <code><a href="../reference/yr_transform.html">yr_transform()</a></code>:
