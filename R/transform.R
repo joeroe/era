@@ -42,7 +42,7 @@
 #' yr_transform(x, era("ka"), precision = 1)
 yr_transform <- function(x, era = yr_era(x), precision = NA) {
   src_era <- yr_era(x)
-  dst_era <- era
+  dst_era <- era(era)
 
   # Check comparable units
   if (era_unit(src_era) != era_unit(dst_era)) {
