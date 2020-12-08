@@ -185,6 +185,16 @@ c <- yr(0.5, "ka")
 b - c
 ```
 
+Note that, when comparing eras, only the parameters significant to the transformation are considered (i.e. not `label` or `name`).
+This means that it is possible to combine yrs with differently named but functionally equivalent eras, for example `era("BP")` and `era("cal BP")`, although doing so will cause a warning about the loss of information:
+
+```{r eg-flexible-compare}
+era("BP") == era("BC")
+era("BP") == era("cal BP")
+
+yr(1, "BP") + yr(2, "cal BP")
+```
+
 And years will be coerced to a plain numeric vector if a computation means their era attribute is no longer accurate:
 
 ```{r eg-coerce}

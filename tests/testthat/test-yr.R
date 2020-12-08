@@ -40,6 +40,12 @@ test_that("format.yr returns correct output", {
   expect_snapshot_output(yr(1, "BP"))
 })
 
+test_that("yr arithmetic respects era equality", {
+  expect_condition(yr(1, "BP") + yr(1, "BP"), NA)
+  expect_warning(yr(1, "BP") + yr(1, "cal BP"), class = "era_lossy_coercion")
+  expect_error(yr(1, "BP") + yr(1, "BC"), class = "vctrs_error_incompatible_op")
+})
+
 test_that("yr get and set functions work", {
   x <- yr(1, "BP")
   expect_equal(yr_era(x), era("BP"))

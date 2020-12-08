@@ -276,6 +276,15 @@ format.era <- function(x, ...) {
   return(out)
 }
 
+
+# Equality and comparison -------------------------------------------------
+
+#' @method vec_proxy_equal era
+#' @export
+vec_proxy_equal.era <- function(x, ...) {
+  vec_data(x)[!names(vec_data(x)) %in% c("label", "unit")]
+}
+
 # Getters and setters -----------------------------------------------------
 
 #' Get parameters of an era

@@ -79,6 +79,11 @@ test_that("eras(label) returns correct partial match", {
   expect_match(eras("cal")[["label"]], "cal BP", fixed = TRUE)
 })
 
+test_that("vec_proxy_equal.era works correctly", {
+  expect_true(era("BP") == era("cal BP"))
+  expect_false(era("BP") == era("BC"))
+})
+
 test_that("era_parameters getter functions return correct value", {
   tera <- era("TE", epoch = 5000, name = "Test Era", unit = "calendar",
               scale = 1e6, direction = 1)
