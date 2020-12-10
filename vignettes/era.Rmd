@@ -150,16 +150,16 @@ yr_transform(uncal, era("cal BP"))
 
 By default, era transformations are exact:
 
-```{r yr-transform-precise}
+```{r yr-transform-precision1}
 yr(500000, "BCE") %>% 
   yr_transform(era("ka"))
 ```
 
 Often, this precision is not necessary.
-For example, when converting years on a geologic time scale between calendar- and present-based eras, the `r this_year - 1950` year difference between the formal definition of "Present" and the actual present is rarely significant.
-Use the `precision` argument of `yr_transform` to get prettier results:
+For example, when converting years between calendar- and present-based eras, the `r this_year - 1950` year difference between the formal definition of "Present" and the actual present is not significan geologic time scale.
+Use the `precision` argument of `yr_transform` to get rounded results:
 
-```{r yr-transform-pretty}
+```{r yr-transform-precision2}
 yr(10000, "BP") %>% 
   yr_transform(era("BCE"), precision = 1000)
 
@@ -167,12 +167,12 @@ yr(500000, "BCE") %>%
   yr_transform(era("mya"), precision = 0.1)
 ```
 
-## Arithmetic with years {#arithmetic}
+## Arithmetic with year vectors {#arithmetic}
 
-The `yr` class ensures type- and size-stable computations with years.
-For example, you can perform arithmetic:
+The `yr` class is based on [vctrs](https://vctrs.r-lib.org/), ensuring type- and size-stable computations.
+For example, you can do arithmetic with year vectors:
 
-```{r eg-arith}
+```{r yr-arith}
 a <- yr(1500, "CE")
 b <- yr(2020, "CE")
 b - a
@@ -180,23 +180,24 @@ b - a
 
 But only when they have the same era:
 
-```{r eg-arith-error, error=TRUE}
+```{r yr-arith-error, error=TRUE}
 c <- yr(0.5, "ka")
 b - c
 ```
 
 Note that, when comparing eras, only the parameters significant to the transformation are considered (i.e. not `label` or `name`).
-This means that it is possible to combine yrs with differently named but functionally equivalent eras, for example `era("BP")` and `era("cal BP")`, although doing so will cause a warning about the loss of information:
+This means that it is possible to combine year vectors with differently-named but functionally equivalent eras, for example `era("BP")` and `era("cal BP")`, although doing so will print a warning about the loss of information:
 
-```{r eg-flexible-compare}
+```{r era-equality}
 era("BP") == era("BC")
 era("BP") == era("cal BP")
 
-yr(1, "BP") + yr(2, "cal BP")
+yr(1000, "BP") + yr(1000, "cal BP")
 ```
 
-And years will be coerced to a plain numeric vector if a computation means their era attribute is no longer accurate:
 
-```{r eg-coerce}
+Years will be coerced to a plain numeric vector if a computation means their era no longer makes sense:
+
+```{r yr-multiply}
 a * b
 ```
