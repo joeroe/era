@@ -171,9 +171,9 @@ vec_cast.era_yr.era_yr <- function(x, to, ..., x_arg = "", to_arg = "") {
 }
 
 #' @export
-vec_ptype2.integer.era_yr <- function(x, y, ...) integer()
+vec_ptype2.integer.era_yr <- function(x, y, ...) new_yr(era = yr_era(y))
 #' @export
-vec_ptype2.era_yr.integer <- function(x, y, ...) integer()
+vec_ptype2.era_yr.integer <- function(x, y, ...) new_yr(era = yr_era(x))
 
 #' @export
 vec_cast.integer.era_yr <- function(x, to, ...) {
@@ -182,13 +182,13 @@ vec_cast.integer.era_yr <- function(x, to, ...) {
 
 #' @export
 vec_cast.era_yr.integer <- function(x, to, ...) {
-  new_yr(x, yr_era(to))
+  new_yr(vec_cast(x, numeric()), yr_era(to))
 }
 
 #' @export
-vec_ptype2.double.era_yr <- function(x, y, ...) double()
+vec_ptype2.double.era_yr <- function(x, y, ...) new_yr(era = yr_era(y))
 #' @export
-vec_ptype2.era_yr.double <- function(x, y, ...) double()
+vec_ptype2.era_yr.double <- function(x, y, ...) new_yr(era = yr_era(x))
 
 #' @export
 vec_cast.double.era_yr <- function(x, to, ...) {

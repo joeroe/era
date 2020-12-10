@@ -43,12 +43,12 @@ test_that("era_yr coercion is correct and symmetrical", {
                class = "vctrs_error_incompatible_type")
 
   # integer <-> era_yr
-  expect_type(vec_c(1L, yr(2L, "BP")), "integer")
-  expect_type(vec_c(yr(1L, "BP"), 2L), "integer")
+  expect_s3_class(vec_c(1L, yr(2L, "BP")), "era_yr")
+  expect_s3_class(vec_c(yr(1L, "BP"), 2L), "era_yr")
 
   # double <-> era_yr
-  expect_type(vec_c(1.0, yr(2.0, "BP")), "double")
-  expect_type(vec_c(yr(1.0, "BP"), 2.0), "double")
+  expect_s3_class(vec_c(1.0, yr(2.0, "BP")), "era_yr")
+  expect_s3_class(vec_c(yr(1.0, "BP"), 2.0), "era_yr")
 })
 
 test_that("era_yr cast methods return correct class", {
