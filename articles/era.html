@@ -467,7 +467,7 @@
 <span class="co">#&gt; # ka years &lt;yr[1]&gt;:</span>
 <span class="co">#&gt; [1] 501.95</span>
 <span class="co">#&gt; # Era: kiloannum (ka): calendar (×1000) years, counted backwards from 1950</span></code></pre></div>
-<p>Often, this precision is not necessary. For example, when converting years on a geologic time scale between calendar- and present-based eras, the 70 year difference between the formal definition of “Present” and the actual present is rarely significant. Use the <code>precision</code> argument of <code>yr_transform</code> to get prettier results:</p>
+<p>Often, this precision is not necessary. For example, when converting years between calendar- and present-based eras, the 70 year difference between the formal definition of “Present” and the actual present is rarely significant on a geologic time scale. Use the <code>precision</code> argument of <code>yr_transform</code> to get rounded results:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="st">"BP"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BCE"</span><span class="op">)</span>, precision <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
@@ -484,8 +484,8 @@
 </div>
 <div id="arithmetic" class="section level2">
 <h2 class="hasAnchor">
-<a href="#arithmetic" class="anchor"></a>Arithmetic with years</h2>
-<p>The <code>yr</code> class ensures type- and size-stable computations with years. For example, you can perform arithmetic:</p>
+<a href="#arithmetic" class="anchor"></a>Arithmetic with year vectors</h2>
+<p>The <code>yr</code> class is based on <a href="https://vctrs.r-lib.org/">vctrs</a>, ensuring type- and size-stable computations. For example, you can do arithmetic with year vectors:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">1500</span>, <span class="st">"CE"</span><span class="op">)</span>
 <span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">2020</span>, <span class="st">"CE"</span><span class="op">)</span>
@@ -499,19 +499,19 @@
 <span class="va">b</span> <span class="op">-</span> <span class="va">c</span>
 <span class="co">#&gt; Error: &lt;yr (CE)&gt; - &lt;yr (ka)&gt; is not permitted</span>
 <span class="co">#&gt; Reconcile eras with yr_transform() first.</span></code></pre></div>
-<p>Note that, when comparing eras, only the parameters significant to the transformation are considered (i.e. not <code>label</code> or <code>name</code>). This means that it is possible to combine yrs with differently named but functionally equivalent eras, for example <code><a href="../reference/era.html">era("BP")</a></code> and <code><a href="../reference/era.html">era("cal BP")</a></code>, although doing so will cause a warning about the loss of information:</p>
+<p>Note that, when comparing eras, only the parameters significant to the transformation are considered (i.e. not <code>label</code> or <code>name</code>). This means that it is possible to combine year vectors with differently-named but functionally equivalent eras, for example <code><a href="../reference/era.html">era("BP")</a></code> and <code><a href="../reference/era.html">era("cal BP")</a></code>, although doing so will print a warning about the loss of information:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BP"</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BC"</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE</span>
 <span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BP"</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"cal BP"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"BP"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">2</span>, <span class="st">"cal BP"</span><span class="op">)</span>
+<span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="st">"BP"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="st">"cal BP"</span><span class="op">)</span>
 <span class="co">#&gt; Warning: `era(x)` and `era(y)` have different label or name parameters.</span>
 <span class="co">#&gt; # BP years &lt;yr[1]&gt;:</span>
-<span class="co">#&gt; [1] 3</span>
+<span class="co">#&gt; [1] 2000</span>
 <span class="co">#&gt; # Era: Before Present (BP): calendar years, counted backwards from 1950</span></code></pre></div>
-<p>And years will be coerced to a plain numeric vector if a computation means their era attribute is no longer accurate:</p>
+<p>Years will be coerced to a plain numeric vector if a computation means their era no longer makes sense:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span>
 <span class="co">#&gt; [1] 3030000</span></code></pre></div>
