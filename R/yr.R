@@ -162,7 +162,7 @@ vec_ptype2.era_yr.era_yr <- function(x, y, ..., x_arg = "", y_arg = "") {
 #' @export
 vec_cast.era_yr.era_yr <- function(x, to, ..., x_arg = "", y_arg = "") {
   if (yr_era(x) != yr_era(to)) {
-    stop_incompatible_type(x, to,
+    stop_incompatible_cast(x, to,
                            x_arg = x_arg, y_arg = y_arg,
                            action = "convert",
                            details = "Reconcile eras with yr_transform() first.")
@@ -173,6 +173,8 @@ vec_cast.era_yr.era_yr <- function(x, to, ..., x_arg = "", y_arg = "") {
 
 #' @export
 vec_ptype2.integer.era_yr <- function(x, y, ...) integer()
+#' @export
+vec_ptype2.era_yr.integer <- function(x, y, ...) integer()
 
 #' @export
 vec_cast.integer.era_yr <- function(x, to, ...) {
@@ -180,11 +182,23 @@ vec_cast.integer.era_yr <- function(x, to, ...) {
 }
 
 #' @export
+vec_cast.era_yr.integer <- function(x, to, ...) {
+  new_yr(x, yr_era(to))
+}
+
+#' @export
 vec_ptype2.double.era_yr <- function(x, y, ...) double()
+#' @export
+vec_ptype2.era_yr.double <- function(x, y, ...) double()
 
 #' @export
 vec_cast.double.era_yr <- function(x, to, ...) {
   vec_cast(vec_data(x), double())
+}
+
+#' @export
+vec_cast.era_yr.double <- function(x, to, ...) {
+  new_yr(x, yr_era(to))
 }
 
 # Print generics ---------------------------------------------------------

@@ -36,6 +36,21 @@ test_that("validate_yr() finds specific problems", {
                regexp = "valid era")
 })
 
+test_that("era_yr coercion is correct and symmetrical", {
+  # era_yr <-> era_yr
+  expect_s3_class(vec_c(yr(1, "BP"), yr(2, "BP")), "era_yr")
+  expect_error(vec_c(yr(1, "BP"), yr(2, "BC")),
+               class = "vctrs_error_incompatible_type")
+
+  # integer <-> era_yr
+  expect_type(vec_c(1L, yr(2L, "BP")), "integer")
+  expect_type(vec_c(yr(1L, "BP"), 2L), "integer")
+
+  # double <-> era_yr
+  expect_type(vec_c(1.0, yr(2.0, "BP")), "double")
+  expect_type(vec_c(yr(1.0, "BP"), 2.0), "double")
+})
+
 test_that("format.era_yr returns expected output", {
   expect_snapshot_output(yr(1, "BP"))
 })

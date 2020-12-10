@@ -277,6 +277,15 @@ format.era <- function(x, ...) {
 }
 
 
+# Casting/coercion --------------------------------------------------------
+
+#' @export
+vec_ptype2.era.era <- function(x, y, ...) new_era()
+
+#' @export
+vec_cast.era.era <- function(x, to, ...) x
+
+
 # Equality and comparison -------------------------------------------------
 
 #' @method vec_proxy_equal era
