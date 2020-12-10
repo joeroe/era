@@ -156,7 +156,7 @@ yr(500000, "BCE") %>%
 ```
 
 Often, this precision is not necessary.
-For example, when converting years between calendar- and present-based eras, the `r this_year - 1950` year difference between the formal definition of "Present" and the actual present is not significan geologic time scale.
+For example, when converting years between calendar- and present-based eras, the `r this_year - 1950` year difference between the formal definition of "Present" and the actual present is rarely significant on a geologic time scale.
 Use the `precision` argument of `yr_transform` to get rounded results:
 
 ```{r yr-transform-precision2}
