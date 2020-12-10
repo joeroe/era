@@ -14,6 +14,7 @@ Second beta / CRAN pre-release.
   * `era(NA)` now returns an error, not a vector of all standard eras (#20).
   * All `era` arguments in functions can now accept a character vector (#20)
   * `era(<era>)` now returns an era with the same parameters (to enable the above)
+  * Various additions to make the [coercion hierarchy](https://vctrs.r-lib.org/reference/theory-faq-coercion.html) for era_yrs more consistent; most notably, the common prototype of era_yr, integer, and double, is now era_yr.
 
 # era 0.2.0
 
