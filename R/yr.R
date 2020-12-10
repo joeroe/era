@@ -160,11 +160,10 @@ vec_ptype2.era_yr.era_yr <- function(x, y, ..., x_arg = "", y_arg = "") {
 }
 
 #' @export
-vec_cast.era_yr.era_yr <- function(x, to, ..., x_arg = "", y_arg = "") {
+vec_cast.era_yr.era_yr <- function(x, to, ..., x_arg = "", to_arg = "") {
   if (yr_era(x) != yr_era(to)) {
     stop_incompatible_cast(x, to,
-                           x_arg = x_arg, y_arg = y_arg,
-                           action = "convert",
+                           x_arg = x_arg, to_arg = to_arg,
                            details = "Reconcile eras with yr_transform() first.")
   }
 
