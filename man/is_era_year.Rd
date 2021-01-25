@@ -25,6 +25,7 @@ Other era helper functions:
 \code{\link{era_year}()},
 \code{\link{era}()},
 \code{\link{is_era}()},
-\code{\link{is_yr}()}
+\code{\link{is_yr}()},
+\code{\link{this_year}()}
 }
 \concept{era helper functions}
