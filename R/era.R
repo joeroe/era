@@ -18,7 +18,9 @@
 #'  Era).
 #' @param name  Character. Full name of the era. Defaults to the value of
 #'  `label`.
-#' @param unit  Character. Type of years used. Default: `"calendar"`.
+#' @param unit  An [era_year()] object describing the name of the year unit and
+#'  its average length in solar days. Defaults to a Gregorian year
+#'  (365.2425 days).
 #' @param scale  Integer. Number of years represented by one unit, e.g. `1000`
 #'  for ka. Default: 1.
 #' @param direction  Are years counted backwards (`-1`) (the default) or forwards (`1`)
@@ -28,6 +30,7 @@
 #' An object of class `era`.
 #'
 #' @family era definition functions
+#' @family era helper functions
 #'
 #' @export
 #'
@@ -38,7 +41,7 @@
 era <- function(label,
                 epoch = NULL,
                 name = label,
-                unit = c("calendar", "Islamic lunar", "radiocarbon"),
+                unit = era_year("Gregorian"),
                 scale = 1,
                 direction = -1) {
   if (missing(epoch) &&
@@ -77,7 +80,7 @@ era <- function(label,
       label = vec_cast(label, character()),
       epoch = vec_cast(epoch, numeric()),
       name = vec_cast(name, character()),
-      unit = arg_match(unit),
+      unit = vec_assert(unit, new_era_year()),
       scale = vec_cast(scale, integer()),
       direction = vec_cast(direction, integer()),
       stringsAsFactors = FALSE
@@ -239,16 +242,18 @@ is_valid_era <- function(x) {
 #' @keywords internal
 era_problems <- function(x) {
   !c(
-    "era parameters must not be NA" =
-      apply(vec_proxy(x), 1, function(x) !any(is.na(x))),
+    # TODO: Do we need this? Breaks now unit is a rcrd, and maybe some fields
+    #  could be NA?
+    # "era parameters must not be NA" =
+    #   apply(vec_proxy(x), 1, function(x) !any(is.na(x))),
     "`label` must be a character" =
       vec_is(era_label(x), character()),
     "`epoch` must be a numeric" =
       vec_is(era_epoch(x), numeric()),
     "`name` must be a character" =
       vec_is(era_name(x), character()),
-    "`unit` must be one of 'calendar', 'Islamic lunar', 'radiocarbon'" =
-      all(era_unit(x) %in% c("calendar", "Islamic lunar", "radiocarbon")),
+    "`unit` must be an `era_year` object" =
+      is_era_year(era_unit(x)),
     "`scale` must be an integer" =
       vec_is(era_scale(x), integer()),
     "`scale` must be positive" =
@@ -265,13 +270,13 @@ format.era <- function(x, ...) {
   nameout <- paste0(era_name(x), " (", era_label(x), ")")
   nameout[era_name(x) == era_label(x)] <- era_name(x)[era_name(x) == era_label(x)]
 
-  unitout <- paste0(era_unit(x), " (\u00d7", era_scale(x), ")")
-  unitout[era_scale(x) == 1] <- era_unit(x)[era_scale(x) == 1]
+  scaleout <- paste0(era_scale(x), " ")
+  scaleout[era_scale(x) == 1] <- ""
 
   dirout <- c("backwards", "forwards")[(era_direction(x) > 0) + 1]
 
-  out <- paste0(nameout, ": ", unitout, " years, counted ", dirout, " from ",
-                era_epoch(x))
+  out <- paste0(nameout, ": ", scaleout, format(era_unit(x)),
+                ", counted ", dirout, " from ", era_epoch(x))
 
   return(out)
 }
@@ -310,7 +315,7 @@ vec_proxy_equal.era <- function(x, ...) {
 #' * **label** – unique, abbreviated label of the era, e.g. "cal BP"
 #' * **epoch** – year of origin of the era, e.g. 1950 for years Before Present
 #' * **name** – full name of the era, e.g. "calendar years Before Present"
-#' * **unit** – unit of years used, e.g. "calendar years", "radiocarbon years"
+#' * **unit** – unit of years used, an [era_year()] object
 #' * **scale** – multiple of years used, e.g. 1000 for ka/kiloannum
 #' * **direction** – whether years are counted "backwards" or "forwards" from the epoch
 #' #'

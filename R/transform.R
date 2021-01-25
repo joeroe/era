@@ -50,8 +50,8 @@ yr_transform <- function(x, era = yr_era(x), precision = NA) {
       paste0("Can't transform era ", era_label(src_era), " to ", era_label(dst_era), ":"),
       class = "era_invalid_transform",
       body = format_error_bullets(c(
-        x = paste0("Can't convert ", era_unit(src_era), " to ",
-                   era_unit(dst_era), " years.")
+        x = paste0("Can't convert ", era_year_label(era_unit(src_era)), " to ",
+                   era_year_label(era_unit(dst_era)), " years.")
         ))
       )
   }

@@ -41,7 +41,7 @@ x <- yr(c(9000, 8000, 7000), "cal BP")
 x
 #> # cal BP years <yr[3]>:
 #> [1] 9000 8000 7000
-#> # Era: Before Present (cal BP): calendar years, counted backwards from 1950
+#> # Era: Before Present (cal BP): Gregorian years (365.2425 days), counted backwards from 1950
 ```
 
 Use `yr_transform()` to convert between eras:
@@ -50,7 +50,7 @@ Use `yr_transform()` to convert between eras:
 yr_transform(x, "BCE")
 #> # BCE years <yr[3]>:
 #> [1] 7050 6050 5050
-#> # Era: Before Common Era (BCE): calendar years, counted backwards from 0
+#> # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0
 ```
 
 Many common calendar systems and time scales are predefined (see

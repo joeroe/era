@@ -2,7 +2,7 @@
 
     # BP years <yr[1]>:
     [1] 1
-    # Era: Before Present (BP): calendar years, counted backwards from 1950
+    # Era: Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950
 
 # tibble formatter pillar_shaft.era_yr returns expected output
 

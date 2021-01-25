@@ -37,7 +37,7 @@ The available parameters are:
 \item \strong{label} – unique, abbreviated label of the era, e.g. "cal BP"
 \item \strong{epoch} – year of origin of the era, e.g. 1950 for years Before Present
 \item \strong{name} – full name of the era, e.g. "calendar years Before Present"
-\item \strong{unit} – unit of years used, e.g. "calendar years", "radiocarbon years"
+\item \strong{unit} – unit of years used, an \code{\link[=era_year]{era_year()}} object
 \item \strong{scale} – multiple of years used, e.g. 1000 for ka/kiloannum
 \item \strong{direction} – whether years are counted "backwards" or "forwards" from the epoch
 #'
@@ -49,6 +49,10 @@ era_name(x)
 }
 \seealso{
 Other era helper functions: 
+\code{\link{era_year_parameters}},
+\code{\link{era_year}()},
+\code{\link{era}()},
+\code{\link{is_era_year}()},
 \code{\link{is_era}()},
 \code{\link{is_yr}()}
 }

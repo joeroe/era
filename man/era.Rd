@@ -8,7 +8,7 @@ era(
   label,
   epoch = NULL,
   name = label,
-  unit = c("calendar", "Islamic lunar", "radiocarbon"),
+  unit = era_year("Gregorian"),
   scale = 1,
   direction = -1
 )
@@ -25,7 +25,9 @@ Era).}
 \item{name}{Character. Full name of the era. Defaults to the value of
 \code{label}.}
 
-\item{unit}{Character. Type of years used. Default: \code{"calendar"}.}
+\item{unit}{An \code{\link[=era_year]{era_year()}} object describing the name of the year unit and
+its average length in solar days. Defaults to a Gregorian year
+(365.2425 days).}
 
 \item{scale}{Integer. Number of years represented by one unit, e.g. \code{1000}
 for ka. Default: 1.}
@@ -51,5 +53,14 @@ era("T.A.", epoch = -9021, name = "Third Age", direction = 1)
 \seealso{
 Other era definition functions: 
 \code{\link{eras}()}
+
+Other era helper functions: 
+\code{\link{era_parameters}},
+\code{\link{era_year_parameters}},
+\code{\link{era_year}()},
+\code{\link{is_era_year}()},
+\code{\link{is_era}()},
+\code{\link{is_yr}()}
 }
 \concept{era definition functions}
+\concept{era helper functions}
