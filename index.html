@@ -55,7 +55,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -72,7 +72,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/joeroe/era/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -113,13 +113,13 @@
 <span class="va">x</span>
 <span class="co">#&gt; # cal BP years &lt;yr[3]&gt;:</span>
 <span class="co">#&gt; [1] 9000 8000 7000</span>
-<span class="co">#&gt; # Era: Before Present (cal BP): calendar years, counted backwards from 1950</span></code></pre></div>
+<span class="co">#&gt; # Era: Before Present (cal BP): Gregorian years (365.2425 days), counted backwards from 1950</span></code></pre></div>
 <p>Use <code><a href="reference/yr_transform.html">yr_transform()</a></code> to convert between eras:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"BCE"</span><span class="op">)</span>
 <span class="co">#&gt; # BCE years &lt;yr[3]&gt;:</span>
 <span class="co">#&gt; [1] 7050 6050 5050</span>
-<span class="co">#&gt; # Era: Before Common Era (BCE): calendar years, counted backwards from 0</span></code></pre></div>
+<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0</span></code></pre></div>
 <p>Many common calendar systems and time scales are predefined (see <code>?eras()</code>) and can be referenced by their abbreviated labels. Other eras can be defined using the <code><a href="reference/era.html">era()</a></code> function directly.</p>
 <p>For further usage, see the <a href="https://era.joeroe.io/articles/era.html">package introduction</a> (<code><a href="articles/era.html">vignette("era")</a></code>).</p>
 </div>

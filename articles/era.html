@@ -49,7 +49,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -66,7 +66,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/joeroe/era/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -80,8 +80,7 @@
 
       
 
-      </header><script src="era_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="era_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="era_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="era_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Years with an era</h1>
@@ -113,35 +112,35 @@
 <code class="sourceCode R"><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">11000</span>, <span class="fl">12000</span><span class="op">)</span>, <span class="st">"BP"</span><span class="op">)</span>
 <span class="co">#&gt; # BP years &lt;yr[3]&gt;:</span>
 <span class="co">#&gt; [1] 10000 11000 12000</span>
-<span class="co">#&gt; # Era: Before Present (BP): calendar years, counted backwards from 1950</span></code></pre></div>
+<span class="co">#&gt; # Era: Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span></code></pre></div>
 <p>The first argument is a numeric vector of years. These can be integers or doubles.</p>
 <p>The second argument, <code>era</code>, defines the numbering system associated with the years. This is an object of class <code>era</code> which defines the <a href="#era">parameters of the calendar, epoch and time scale</a>. Most of the time, you can simply specify the abbreviated label of the era, which will be looked up in the standard eras defined by <code><a href="../reference/eras.html">eras()</a></code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">11000</span>, <span class="fl">12000</span><span class="op">)</span>, <span class="st">"BCE"</span><span class="op">)</span>
 <span class="co">#&gt; # BCE years &lt;yr[3]&gt;:</span>
 <span class="co">#&gt; [1] 10000 11000 12000</span>
-<span class="co">#&gt; # Era: Before Common Era (BCE): calendar years, counted backwards from 0</span>
+<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0</span>
 <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">11000</span>, <span class="fl">12000</span><span class="op">)</span>, <span class="st">"uncal BP"</span><span class="op">)</span>
 <span class="co">#&gt; # uncal BP years &lt;yr[3]&gt;:</span>
 <span class="co">#&gt; [1] 10000 11000 12000</span>
-<span class="co">#&gt; # Era: uncalibrated Before Present (uncal BP): radiocarbon years, counted backwards from 1950</span>
+<span class="co">#&gt; # Era: uncalibrated Before Present (uncal BP): radiocarbon years (NA days), counted backwards from 1950</span>
 <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">11000</span>, <span class="fl">12000</span><span class="op">)</span>, <span class="st">"ka"</span><span class="op">)</span>
 <span class="co">#&gt; # ka years &lt;yr[3]&gt;:</span>
 <span class="co">#&gt; [1] 10000 11000 12000</span>
-<span class="co">#&gt; # Era: kiloannum (ka): calendar (×1000) years, counted backwards from 1950</span></code></pre></div>
+<span class="co">#&gt; # Era: kiloannum (ka): 1000 Gregorian years (365.2425 days), counted backwards from 1950</span></code></pre></div>
 <p><code><a href="../reference/yr_era.html">yr_era()</a></code> returns details of the era associated with a <code>yr</code> vector:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">neolithic</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">11700</span><span class="op">:</span><span class="fl">7500</span>, <span class="st">"BP"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/yr_era.html">yr_era</a></span><span class="op">(</span><span class="va">neolithic</span><span class="op">)</span>
 <span class="co">#&gt; &lt;era[1]&gt;</span>
-<span class="co">#&gt; [1] Before Present (BP): calendar years, counted backwards from 1950</span></code></pre></div>
+<span class="co">#&gt; [1] Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span></code></pre></div>
 <p><code><a href="../reference/yr_era.html">yr_era()</a></code>, and its pipe-friendly alias <code><a href="../reference/yr_era.html">yr_set_era()</a></code>, can also be used to set the era of an existing object:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">chalcolithic</span> <span class="op">&lt;-</span> <span class="fl">7500</span><span class="op">:</span><span class="fl">6000</span>
 <span class="fu"><a href="../reference/yr_era.html">yr_era</a></span><span class="op">(</span><span class="va">chalcolithic</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/yr_era.html">yr_era</a></span><span class="op">(</span><span class="va">neolithic</span><span class="op">)</span>
 <span class="fu"><a href="../reference/yr_era.html">yr_era</a></span><span class="op">(</span><span class="va">chalcolithic</span><span class="op">)</span>
 <span class="co">#&gt; &lt;era[1]&gt;</span>
-<span class="co">#&gt; [1] Before Present (BP): calendar years, counted backwards from 1950</span></code></pre></div>
+<span class="co">#&gt; [1] Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span></code></pre></div>
 <p>Note that this only updates the vector’s era attribute; it doesn’t change the data itself. To <em>convert</em> years from one era to another, you need to use <a href="#yr_transform">the <code>yr_transform()</code> function</a>.</p>
 <p><code>yr</code> vectors fit nicely into tables, both base data frames and tibbles:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -174,6 +173,14 @@
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/eras.html">eras</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <table class="table">
+<colgroup>
+<col width="8%">
+<col width="6%">
+<col width="34%">
+<col width="34%">
+<col width="5%">
+<col width="9%">
+</colgroup>
 <thead><tr class="header">
 <th align="left">label</th>
 <th align="right">epoch</th>
@@ -187,7 +194,7 @@
 <td align="left">BP</td>
 <td align="right">1950</td>
 <td align="left">Before Present</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -195,7 +202,7 @@
 <td align="left">cal BP</td>
 <td align="right">1950</td>
 <td align="left">Before Present</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -203,7 +210,7 @@
 <td align="left">BC</td>
 <td align="right">0</td>
 <td align="left">Before Christ</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -211,7 +218,7 @@
 <td align="left">BCE</td>
 <td align="right">0</td>
 <td align="left">Before Common Era</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -219,7 +226,7 @@
 <td align="left">AD</td>
 <td align="right">0</td>
 <td align="left">Anno Domini</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
 </tr>
@@ -227,7 +234,7 @@
 <td align="left">CE</td>
 <td align="right">0</td>
 <td align="left">Common Era</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
 </tr>
@@ -235,7 +242,7 @@
 <td align="left">ka</td>
 <td align="right">1950</td>
 <td align="left">kiloannum</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+03</td>
 <td align="right">-1</td>
 </tr>
@@ -243,7 +250,7 @@
 <td align="left">Ma</td>
 <td align="right">1950</td>
 <td align="left">megaannum</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+06</td>
 <td align="right">-1</td>
 </tr>
@@ -251,7 +258,7 @@
 <td align="left">Ga</td>
 <td align="right">1950</td>
 <td align="left">gigaannum</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+09</td>
 <td align="right">-1</td>
 </tr>
@@ -259,7 +266,7 @@
 <td align="left">kya</td>
 <td align="right">1950</td>
 <td align="left">thousand years ago</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+03</td>
 <td align="right">-1</td>
 </tr>
@@ -267,7 +274,7 @@
 <td align="left">mya</td>
 <td align="right">1950</td>
 <td align="left">million years ago</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+06</td>
 <td align="right">-1</td>
 </tr>
@@ -275,7 +282,7 @@
 <td align="left">bya</td>
 <td align="right">1950</td>
 <td align="left">billion years ago</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+09</td>
 <td align="right">-1</td>
 </tr>
@@ -283,7 +290,7 @@
 <td align="left">b2k</td>
 <td align="right">2000</td>
 <td align="left">years before 2000</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -291,7 +298,7 @@
 <td align="left">uncal BP</td>
 <td align="right">1950</td>
 <td align="left">uncalibrated Before Present</td>
-<td align="left">radiocarbon</td>
+<td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -299,7 +306,7 @@
 <td align="left">RCYBP</td>
 <td align="right">1950</td>
 <td align="left">Radiocarbon Years Before Present</td>
-<td align="left">radiocarbon</td>
+<td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -307,7 +314,7 @@
 <td align="left">bp</td>
 <td align="right">1950</td>
 <td align="left">Before Present (uncalibrated)</td>
-<td align="left">radiocarbon</td>
+<td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -315,7 +322,7 @@
 <td align="left">bc</td>
 <td align="right">1950</td>
 <td align="left">Before Christ (uncalibrated)</td>
-<td align="left">radiocarbon</td>
+<td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -323,7 +330,7 @@
 <td align="left">bce</td>
 <td align="right">1950</td>
 <td align="left">Before Common Era (uncalibrated)</td>
-<td align="left">radiocarbon</td>
+<td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -331,7 +338,7 @@
 <td align="left">ad</td>
 <td align="right">1950</td>
 <td align="left">Anno Domini (uncalibrated)</td>
-<td align="left">radiocarbon</td>
+<td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
 </tr>
@@ -339,7 +346,7 @@
 <td align="left">ce</td>
 <td align="right">1950</td>
 <td align="left">Common Era (uncalibrated)</td>
-<td align="left">radiocarbon</td>
+<td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
 </tr>
@@ -347,7 +354,7 @@
 <td align="left">AH</td>
 <td align="right">622</td>
 <td align="left">Anno Hegirae</td>
-<td align="left">Islamic lunar</td>
+<td align="left">Islamic lunar years (354.36708 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
 </tr>
@@ -355,7 +362,7 @@
 <td align="left">BH</td>
 <td align="right">622</td>
 <td align="left">Before the Hijra</td>
-<td align="left">Islamic lunar</td>
+<td align="left">Islamic lunar years (354.36708 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -363,7 +370,7 @@
 <td align="left">SH</td>
 <td align="right">622</td>
 <td align="left">Solar Hijri</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
 </tr>
@@ -371,7 +378,7 @@
 <td align="left">BSH</td>
 <td align="right">622</td>
 <td align="left">Before Solar Hijri</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
 </tr>
@@ -379,7 +386,7 @@
 <td align="left">HE</td>
 <td align="right">-10000</td>
 <td align="left">Holocene Era</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
 </tr>
@@ -387,7 +394,7 @@
 <td align="left">BHE</td>
 <td align="right">-10000</td>
 <td align="left">Before Holocene Era</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
 </tr>
@@ -395,7 +402,7 @@
 <td align="left">AL</td>
 <td align="right">-4000</td>
 <td align="left">Anno Lucis</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
 </tr>
@@ -403,7 +410,7 @@
 <td align="left">ADA</td>
 <td align="right">-8000</td>
 <td align="left">After the Development of Agriculture</td>
-<td align="left">calendar</td>
+<td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
 </tr>
@@ -418,7 +425,7 @@
 <li>
 <strong>epoch</strong>: the origin year from which years are counted</li>
 <li>
-<strong>unit</strong>: the type of years counted, e.g. “calendar” or “radiocarbon”</li>
+<strong>unit</strong>: the unit of years counted, defined as its length in solar days</li>
 <li>
 <strong>scale</strong>: the number of years represented by one unit</li>
 <li>
@@ -429,7 +436,7 @@
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"T.A."</span>, epoch <span class="op">=</span> <span class="op">-</span><span class="fl">9021</span>, name <span class="op">=</span> <span class="st">"Third Age"</span>, direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="co">#&gt; &lt;era[1]&gt;</span>
-<span class="co">#&gt; [1] Third Age (T.A.): calendar years, counted forwards from -9021</span></code></pre></div>
+<span class="co">#&gt; [1] Third Age (T.A.): Gregorian years (365.2425 days), counted forwards from -9021</span></code></pre></div>
 <p>As long as all the parameters are specified correctly, user-defined eras can also be used in <code><a href="../reference/yr_transform.html">yr_transform()</a></code>.</p>
 </div>
 <div id="yr_transform" class="section level2">
@@ -456,7 +463,7 @@
 <code class="sourceCode R"><span class="va">uncal</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">9000</span>, <span class="st">"uncal BP"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="va">uncal</span>, <span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"cal BP"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Error: Can't transform era uncal BP to cal BP:</span>
-<span class="co">#&gt; ✖ Can't convert radiocarbon to calendar years.</span></code></pre></div>
+<span class="co">#&gt; ✖ Can't convert radiocarbon to Gregorian years.</span></code></pre></div>
 <div id="transformation-precision" class="section level3">
 <h3 class="hasAnchor">
 <a href="#transformation-precision" class="anchor"></a>Transformation precision</h3>
@@ -466,20 +473,20 @@
   <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"ka"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # ka years &lt;yr[1]&gt;:</span>
 <span class="co">#&gt; [1] 501.95</span>
-<span class="co">#&gt; # Era: kiloannum (ka): calendar (×1000) years, counted backwards from 1950</span></code></pre></div>
-<p>Often, this precision is not necessary. For example, when converting years between calendar- and present-based eras, the 70 year difference between the formal definition of “Present” and the actual present is rarely significant on a geologic time scale. Use the <code>precision</code> argument of <code>yr_transform</code> to get rounded results:</p>
+<span class="co">#&gt; # Era: kiloannum (ka): 1000 Gregorian years (365.2425 days), counted backwards from 1950</span></code></pre></div>
+<p>Often, this precision is not necessary. For example, when converting years between calendar- and present-based eras, the 71 year difference between the formal definition of “Present” and the actual present is rarely significant on a geologic time scale. Use the <code>precision</code> argument of <code>yr_transform</code> to get rounded results:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="st">"BP"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BCE"</span><span class="op">)</span>, precision <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
 <span class="co">#&gt; # BCE years &lt;yr[1]&gt;:</span>
 <span class="co">#&gt; [1] 8000</span>
-<span class="co">#&gt; # Era: Before Common Era (BCE): calendar years, counted backwards from 0</span>
+<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0</span>
 
 <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">500000</span>, <span class="st">"BCE"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"mya"</span><span class="op">)</span>, precision <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span>
 <span class="co">#&gt; # mya years &lt;yr[1]&gt;:</span>
 <span class="co">#&gt; [1] 0.5</span>
-<span class="co">#&gt; # Era: million years ago (mya): calendar (×1000000) years, counted backwards from 1950</span></code></pre></div>
+<span class="co">#&gt; # Era: million years ago (mya): 1000000 Gregorian years (365.2425 days), counted backwards from 1950</span></code></pre></div>
 </div>
 </div>
 <div id="arithmetic" class="section level2">
@@ -492,7 +499,7 @@
 <span class="va">b</span> <span class="op">-</span> <span class="va">a</span>
 <span class="co">#&gt; # CE years &lt;yr[1]&gt;:</span>
 <span class="co">#&gt; [1] 520</span>
-<span class="co">#&gt; # Era: Common Era (CE): calendar years, counted forwards from 0</span></code></pre></div>
+<span class="co">#&gt; # Era: Common Era (CE): Gregorian years (365.2425 days), counted forwards from 0</span></code></pre></div>
 <p>But only when they have the same era:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="st">"ka"</span><span class="op">)</span>
@@ -510,7 +517,7 @@
 <span class="co">#&gt; Warning: `era(x)` and `era(y)` have different label or name parameters.</span>
 <span class="co">#&gt; # BP years &lt;yr[1]&gt;:</span>
 <span class="co">#&gt; [1] 2000</span>
-<span class="co">#&gt; # Era: Before Present (BP): calendar years, counted backwards from 1950</span></code></pre></div>
+<span class="co">#&gt; # Era: Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span></code></pre></div>
 <p>Years will be coerced to a plain numeric vector if a computation means their era no longer makes sense:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">*</span> <span class="va">b</span>

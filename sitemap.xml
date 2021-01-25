@@ -16,10 +16,19 @@
     <loc>https://era.joeroe.io/reference/era_parameters.html</loc>
   </url>
   <url>
+    <loc>https://era.joeroe.io/reference/era_year.html</loc>
+  </url>
+  <url>
+    <loc>https://era.joeroe.io/reference/era_year_parameters.html</loc>
+  </url>
+  <url>
     <loc>https://era.joeroe.io/reference/eras.html</loc>
   </url>
   <url>
     <loc>https://era.joeroe.io/reference/is_era.html</loc>
+  </url>
+  <url>
+    <loc>https://era.joeroe.io/reference/is_era_year.html</loc>
   </url>
   <url>
     <loc>https://era.joeroe.io/reference/is_yr.html</loc>

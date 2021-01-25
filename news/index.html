@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -107,7 +107,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/joeroe/era/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,6 +140,7 @@
 </li>
 <li>Reworked era definition scheme:
 <ul>
+<li>Unit is now represented by the <code>era_year</code> class, which describes its length in solar days as well as its name. Added functions for constructing and working with <code>era_year</code> objects: <code><a href="../reference/era_year.html">era_year()</a></code>, <code><a href="../reference/is_era_year.html">is_era_year()</a></code>, <code><a href="../reference/era_year_parameters.html">era_year_label()</a></code>, <code><a href="../reference/era_year_parameters.html">era_year_days()</a></code>.</li>
 <li>Direction is now coded as <code>1</code> (“forwards”) or <code>-1</code> (“backwards”). The previous character arguments still work but are deprecated.</li>
 <li>Equality tests for eras now only check significant parameters (i.e. not “label” or “name”), allowing for coercion between functionally equivalent eras, e.g. <code>yr(1, "BP") + yr(1, "cal BP")</code> now works (with a warning) (<a href='https://github.com/joeroe/era/issues/3'>#3</a>).</li>
 </ul>
@@ -159,6 +160,7 @@
 <li>
 <code>era(&lt;era&gt;)</code> now returns an era with the same parameters (to enable the above)</li>
 <li>Various additions to make the <a href="https://vctrs.r-lib.org/reference/theory-faq-coercion.html">coercion hierarchy</a> for era_yrs more consistent; most notably, the common prototype of era_yr, integer, and double, is now era_yr.</li>
+<li>Fixed printing of NA eras (<a href='https://github.com/joeroe/era/issues/9'>#9</a>)</li>
 </ul>
 </li>
 </ul>
