@@ -34,8 +34,8 @@ radiocarbon dates preserving the \code{era} attribute.
 
 The transformation function is exact and treats years as a real number
 scale. This means that transformations between eras with different year
-units (e.g. Gregorian ↔ Julian) and/or epochs not aligned to 1 January
-in the Gregorian calendar (e.g. Common Era ↔ Islamic calendars) will likely
+units (e.g. Gregorian to Julian) and/or epochs not aligned to 1 January
+in the Gregorian calendar (e.g. Common Era to Islamic calendars) will likely
 return non-integer values. The \code{precision} argument provides a
 convenient way to round the result if you do not need this level of
 precision. It is also useful for working around the ambiguous definition of
