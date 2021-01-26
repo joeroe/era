@@ -64,7 +64,21 @@ era <- function(label,
     }
     else {
       label <- vec_cast(label, character())
-      parameters <- as.list(eras(label))
+      parameters <- eras(label)
+      if (any(apply(is.na(parameters), 1, all))) {
+        unknown_label <- label[apply(is.na(parameters), 1, all)]
+        unknown_label <- paste0("\"", unknown_label, "\"")
+        names(unknown_label) <- rep("x", length(unknown_label))
+        abort(
+          "Some values of `label` do not match an era defined in eras():",
+          class = "era_invalid_era",
+          body = format_error_bullets(c(
+            unknown_label,
+            i = "Use eras() to get a list of known era labels."
+          ))
+        )
+      }
+      parameters <- as.list(parameters)
     }
   }
   else {
@@ -138,13 +152,11 @@ new_era <- function(label = NA,
 #' # Look up a specific era by label
 #' eras("cal BP")
 #'
-#' #  uses partial matching
+#' # With partial matching
 #' eras("cal")
 eras <- function(label = NA) {
   # era_table is an internal dataset generated in data-raw/era_table.R
-  if (requireNamespace("tibble", quietly = TRUE)) {
-    era_table <- tibble::as_tibble(era_table)
-  }
+  era_table <- era_table
 
   # Partial matching
   if (!all(is.na(label))) {

@@ -2,6 +2,10 @@ test_that("era(NA) throws an error", {
   expect_error(era(NA), class = "era_invalid_era")
 })
 
+test_that("era() throws an error with unknown era", {
+  expect_error(era(c("BP", "BCE", "unknown era")), class = "era_invalid_era")
+})
+
 test_that("direction argument of era() is backwards compatible with v. <= 0.2.0", {
   frwd_new <- era("test frwd", epoch = 0, direction = 1)
   frwd_old <- era("test frwd", epoch = 0, direction = "forwards")

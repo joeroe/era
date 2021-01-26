@@ -29,7 +29,7 @@ eras()
 # Look up a specific era by label
 eras("cal BP")
 
-#  uses partial matching
+# With partial matching
 eras("cal")
 }
 \seealso{
