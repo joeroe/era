@@ -7,9 +7,9 @@
 yr_transform(x, era = yr_era(x), precision = NA)
 }
 \arguments{
-\item{x}{A \code{yr} object to be transformed.}
+\item{x}{\code{yr} object. A vector of years with an era, see \code{\link[=yr]{yr()}}.}
 
-\item{era}{Target \code{era} object, see \code{\link[=era]{era()}}.}
+\item{era}{\code{era} object describing the target era, see \code{\link[=era]{era()}}.}
 
 \item{precision}{Desired precision of the transformation, i.e. the
 transformed values are rounded to the nearest \code{precision}. If \code{NA}
@@ -20,26 +20,26 @@ returned.}
 A \code{yr} object in the era specified by \code{era}.
 }
 \description{
-Transform a vector of years from one era to another. Not all transformations
-are possible (see details).
+Transform a vector of years from one era to another.
 }
 \details{
-Era transformations currently supported:
-\itemize{
-\item Between scales
-\item Between epochs
-\item Between directions
-}
+Transformation between eras uses the \code{scale}, \code{epoch}, \code{direction} and \code{unit}
+parameters of the era definition. \code{NA} values for any of these parameters in
+the source or destination era will cause an error. This is most often
+encountered when either are measured in 'radiocarbon years', which cannot be
+related to a calendar time scale without
+\href{https://en.wikipedia.org/wiki/Radiocarbon_calibration}{calibration} or
+un-calibration. \code{\link[stratigraphr:c14_calibrate]{stratigraphr::c14_calibrate()}} can be used to calibrate
+radiocarbon dates preserving the \code{era} attribute.
 
-Not supported:
-\itemize{
-\item Between different units (to be implemented).
-\item units: \code{calendar} ↔ \code{radiocarbon} years. This requires
-\href{https://en.wikipedia.org/wiki/Radiocarbon_calibration}{calibration}
-or un-calibration, which is outside the scope of this package. Functions
-for radiocarbon calibration can be found in \code{\link[rcarbon:calibrate]{rcarbon::calibrate()}} and
-\code{\link[Bchron:BchronCalibrate]{Bchron::BchronCalibrate()}}.
-}
+The transformation function is exact and treats years as a real number
+scale. This means that transformations between eras with different year
+units (e.g. Gregorian ↔ Julian) and/or epochs not aligned to 1 January
+in the Gregorian calendar (e.g. Common Era ↔ Islamic calendars) will likely
+return non-integer values. The \code{precision} argument provides a
+convenient way to round the result if you do not need this level of
+precision. It is also useful for working around the ambiguous definition of
+'present' in various geological time-scales.
 }
 \examples{
 x <- yr(10010:10001, "cal BP")
