@@ -128,9 +128,9 @@ era("T.A.", epoch = -9021, name = "Third Age", direction = 1)
 
 As long as all the parameters are specified correctly, user-defined eras can also be used in `yr_transform()`.
 
-## Converting years between eras: `yr_transform()` {#yr_transform}
+## Converting between eras: `yr_transform()` {#yr_transform}
 
-Use `yr_transform()` to convert years between eras:
+Use `yr_transform()` to convert between eras:
 
 ```{r transform}
 postglacial %>% 
@@ -139,12 +139,8 @@ postglacial %>%
          start_bce = yr_transform(start_ka, era("BCE")))
 ```
 
-Transformations are only possible when the two eras have the same unit:
-
-```{r transform-unit, error=TRUE}
-uncal <- yr(9000, "uncal BP")
-yr_transform(uncal, era("cal BP"))
-```
+This function implements a generic algorithm for transforming years based on the era parameters described above.
+This means that, with a few exceptions (see [invalid transformations](#invalidtransform), you can transform between any two eras that can be described by the `era` class.
 
 ### Transformation precision
 
@@ -166,6 +162,23 @@ yr(10000, "BP") %>%
 yr(500000, "BCE") %>% 
   yr_transform(era("mya"), precision = 0.1)
 ```
+
+### Invalid transformations {#invalidtransform}
+
+Some transformations are not possible.
+Notably, the length of a 'radiocarbon year' is not well defined on a calendar time scale without [calibration](https://en.wikipedia.org/wiki/Radiocarbon_calibration).
+Eras that use non-calendar year unit are represented with an `NA` and will cause an error if passed to `yr_transform()`:
+
+```{r transform-unit, error=TRUE}
+era_unit(era("uncal BP"))
+yr_transform(yr(9000, "uncal BP"), era("cal BP"))
+```
+
+`c14_calibrate()` from the [stratigraphr](https://stratigraphr.joeroe.io) package implements radiocarbon calibration with `yr` objects.
+
+Conversion between eras that both have an `NA` unit are also an error, following the R convention that `NA == NA` is `NA`.
+In other words, we don't know whether two non-calendar units are the *same* non-calendar unit.
+This means that it is not possible to use `yr_transform()` to convert bp (radiocarbon years Before Present) to bce (radiocarbon years before the Common Era) years, for example.
 
 ## Arithmetic with year vectors {#arithmetic}
 
