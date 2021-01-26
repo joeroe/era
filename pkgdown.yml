@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   era: era.html
-last_built: 2021-01-26T18:55Z
+last_built: 2021-01-26T20:50Z
 urls:
   reference: https://era.joeroe.io/reference
   article: https://era.joeroe.io/articles

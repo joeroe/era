@@ -83,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -101,8 +101,22 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../news/index.html">Changelog</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Releases</li>
+    <li>
+      <a href="https://joeroe.io/2020/11/12/era-beta.html">era 0.2.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Changelog</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -167,12 +181,11 @@ the source or destination era will cause an error. This is most often
 encountered when either are measured in 'radiocarbon years', which cannot be
 related to a calendar time scale without
 <a href='https://en.wikipedia.org/wiki/Radiocarbon_calibration'>calibration</a> or
-un-calibration. <code>stratigraphr::c14_calibrate()</code> can be used to calibrate
-radiocarbon dates preserving the <code>era</code> attribute.</p>
+un-calibration.</p>
 <p>The transformation function is exact and treats years as a real number
 scale. This means that transformations between eras with different year
-units (e.g. Gregorian ↔ Julian) and/or epochs not aligned to 1 January
-in the Gregorian calendar (e.g. Common Era ↔ Islamic calendars) will likely
+units (e.g. Gregorian to Julian) and/or epochs not aligned to 1 January
+in the Gregorian calendar (e.g. Common Era to Islamic calendars) will likely
 return non-integer values. The <code>precision</code> argument provides a
 convenient way to round the result if you do not need this level of
 precision. It is also useful for working around the ambiguous definition of
