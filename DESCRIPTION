@@ -8,9 +8,10 @@ Description: Provides a consistent vector representation of years with an
     associated calendar era or time scale. It includes built-in definitions of 
     many contemporary and historic calendars; time scales commonly used in
     archaeology, astronomy, geology, and other palaeosciences (e.g. Before 
-    Present, SI-prefixed annus); and support for arbitrary user-defined eras. 
+    Present, SI-prefixed 'annus'); and support for arbitrary user-defined eras. 
     Functions for converting between eras and for type-stable arithmetic with 
     years are also provided.
+Language: en-GB
 License: MIT + file LICENSE
 URL: https://era.joeroe.io, https://github.com/joeroe/era
 BugReports: https://github.com/joeroe/era/issues
