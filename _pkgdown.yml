@@ -23,3 +23,8 @@ reference:
   desc: "Miscellaneous utility functions for working with `yr` and `era` objects."
 - contents:
   - has_concept("era helper functions")
+
+news:
+  releases:
+  - text: "era 0.2.0"
+    href: https://joeroe.io/2020/11/12/era-beta.html
