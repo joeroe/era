@@ -22,6 +22,7 @@ era_table <- tribble(
   "AD",        0,       "Anno Domini",                           gregorian,      1L,    1,
   "CE",        0,       "Common Era",                            gregorian,      1L,    1,
   # SI annus
+  "a",         1950,    "annum",                                 gregorian,      1L,    -1,
   "ka",        1950,    "kiloannum",                             gregorian,      1000L, -1,
   "Ma",        1950,    "megaannum",                             gregorian,      1e6L,  -1,
   "Ga",        1950,    "gigaannum",                             gregorian,      1e9L,  -1,
@@ -43,6 +44,9 @@ era_table <- tribble(
   "ce",        1950,    "Common Era (uncalibrated)",             radiocarbon,    1L,    1,
   # Common Era aliases and translations
   # Contemporary calendars
+  # Julian calendar (English)
+  "AD O.S.",   0,       "Anno Domini (Old Style)",               julian,         1L,    1,
+  "BC O.S.",   0,        "Before Christ (New Style)",            julian,         1L,    1,
   # Islamic calendars
   "AH",        622,     "Anno Hegirae",                          islamic_lunar,  1L,    1,
   "BH",        622,     "Before the Hijra",                      islamic_lunar,  1L,    -1,
