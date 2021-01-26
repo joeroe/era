@@ -47,8 +47,7 @@
 
 
 <meta property="og:title" content="Convert years from one era to another — yr_transform" />
-<meta property="og:description" content="Transform a vector of years from one era to another. Not all transformations
-are possible (see details)." />
+<meta property="og:description" content="Transform a vector of years from one era to another." />
 <meta property="og:image" content="https://era.joeroe.io/logo.svg" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@joeroe90" />
@@ -132,8 +131,7 @@ are possible (see details)." />
     </div>
 
     <div class="ref-description">
-    <p>Transform a vector of years from one era to another. Not all transformations
-are possible (see details).</p>
+    <p>Transform a vector of years from one era to another.</p>
     </div>
 
     <pre class="usage"><span class='fu'>yr_transform</span><span class='op'>(</span><span class='va'>x</span>, era <span class='op'>=</span> <span class='fu'><a href='yr_era.html'>yr_era</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, precision <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span></pre>
@@ -143,11 +141,11 @@ are possible (see details).</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A <code>yr</code> object to be transformed.</p></td>
+      <td><p><code>yr</code> object. A vector of years with an era, see <code><a href='yr.html'>yr()</a></code>.</p></td>
     </tr>
     <tr>
       <th>era</th>
-      <td><p>Target <code>era</code> object, see <code><a href='era.html'>era()</a></code>.</p></td>
+      <td><p><code>era</code> object describing the target era, see <code><a href='era.html'>era()</a></code>.</p></td>
     </tr>
     <tr>
       <th>precision</th>
@@ -163,21 +161,22 @@ returned.</p></td>
     <p>A <code>yr</code> object in the era specified by <code>era</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Era transformations currently supported:</p><ul>
-<li><p>Between scales</p></li>
-<li><p>Between epochs</p></li>
-<li><p>Between directions</p></li>
-</ul>
-
-<p>Not supported:</p><ul>
-<li><p>Between different units (to be implemented).</p></li>
-<li><p>units: <code>calendar</code> ↔ <code>radiocarbon</code> years. This requires
-<a href='https://en.wikipedia.org/wiki/Radiocarbon_calibration'>calibration</a>
-or un-calibration, which is outside the scope of this package. Functions
-for radiocarbon calibration can be found in <code>rcarbon::calibrate()</code> and
-<code>Bchron::BchronCalibrate()</code>.</p></li>
-</ul>
-
+    <p>Transformation between eras uses the <code>scale</code>, <code>epoch</code>, <code>direction</code> and <code>unit</code>
+parameters of the era definition. <code>NA</code> values for any of these parameters in
+the source or destination era will cause an error. This is most often
+encountered when either are measured in 'radiocarbon years', which cannot be
+related to a calendar time scale without
+<a href='https://en.wikipedia.org/wiki/Radiocarbon_calibration'>calibration</a> or
+un-calibration. <code>stratigraphr::c14_calibrate()</code> can be used to calibrate
+radiocarbon dates preserving the <code>era</code> attribute.</p>
+<p>The transformation function is exact and treats years as a real number
+scale. This means that transformations between eras with different year
+units (e.g. Gregorian ↔ Julian) and/or epochs not aligned to 1 January
+in the Gregorian calendar (e.g. Common Era ↔ Islamic calendars) will likely
+return non-integer values. The <code>precision</code> argument provides a
+convenient way to round the result if you do not need this level of
+precision. It is also useful for working around the ambiguous definition of
+'present' in various geological time-scales.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other years with era functions: 
