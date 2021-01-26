@@ -73,7 +73,7 @@ yr_transform <- function(x, era = yr_era(x), precision = NA) {
   dy <- era_direction(dst_era)
   ex <- era_epoch(src_era)
   ey <- era_epoch(dst_era)
-  y <- (ux/uy) * (x * (dx*dy) + dy * (ex - ey))
+  y <- ((ux * dx * dy * x) + (365.2425 * dy * (ex - ey))) / uy
 
   # Apply destination scale
   y <- y / era_scale(dst_era)
