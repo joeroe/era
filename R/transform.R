@@ -18,8 +18,7 @@
 #' encountered when either are measured in 'radiocarbon years', which cannot be
 #' related to a calendar time scale without
 #' [calibration](https://en.wikipedia.org/wiki/Radiocarbon_calibration) or
-#' un-calibration. [stratigraphr::c14_calibrate()] can be used to calibrate
-#' radiocarbon dates preserving the `era` attribute.
+#' un-calibration.
 #'
 #' The transformation function is exact and treats years as a real number
 #' scale. This means that transformations between eras with different year
