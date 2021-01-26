@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
       </span>
     </div>
 
@@ -128,14 +128,15 @@
       <small>Source: <a href='https://github.com/joeroe/era/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="era-021" class="section level1">
-<h1 class="page-header" data-toc-text="0.2.1">
-<a href="#era-021" class="anchor"></a>era 0.2.1</h1>
+    <div id="era-030" class="section level1">
+<h1 class="page-header" data-toc-text="0.3.0">
+<a href="#era-030" class="anchor"></a>era 0.3.0</h1>
 <p>Second beta / CRAN pre-release.</p>
 <ul>
 <li>Added new era definitions:
 <ul>
 <li>Islamic calendars (Lunar Hijri, Solar Hijri).</li>
+<li>Julian calendar</li>
 </ul>
 </li>
 <li>Reworked era definition scheme:
@@ -163,6 +164,7 @@
 <code>era(&lt;era&gt;)</code> now returns an era with the same parameters (to enable the above)</li>
 <li>Various additions to make the <a href="https://vctrs.r-lib.org/reference/theory-faq-coercion.html">coercion hierarchy</a> for era_yrs more consistent; most notably, the common prototype of era_yr, integer, and double, is now era_yr.</li>
 <li>Fixed printing of NA eras (<a href='https://github.com/joeroe/era/issues/9'>#9</a>)</li>
+<li>Errors now use the rlang format and are in general more informative (<a href='https://github.com/joeroe/era/issues/26'>#26</a> and <a href='https://github.com/joeroe/era/issues/28'>#28</a>)</li>
 </ul>
 </li>
 </ul>
