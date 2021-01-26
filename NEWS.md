@@ -1,9 +1,10 @@
-# era 0.2.1
+# era 0.3.0
 
 Second beta / CRAN pre-release.
 
 * Added new era definitions:
   * Islamic calendars (Lunar Hijri, Solar Hijri).
+  * Julian calendar
 * Reworked era definition scheme:
   * Unit is now represented by the `era_year` class, which describes its length in solar days as well as its name. Added functions for constructing and working with `era_year` objects: `era_year()`, `is_era_year()`, `era_year_label()`, `era_year_days()`.
   * Direction is now coded as `1` ("forwards") or `-1` ("backwards"). The previous character arguments still work but are deprecated.
@@ -19,6 +20,7 @@ Second beta / CRAN pre-release.
   * `era(<era>)` now returns an era with the same parameters (to enable the above)
   * Various additions to make the [coercion hierarchy](https://vctrs.r-lib.org/reference/theory-faq-coercion.html) for era_yrs more consistent; most notably, the common prototype of era_yr, integer, and double, is now era_yr.
   * Fixed printing of NA eras (#9)
+  * Errors now use the rlang format and are in general more informative (#26 and #28)
 
 # era 0.2.0
 
