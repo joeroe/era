@@ -11,7 +11,6 @@ Description: Provides a consistent vector representation of years with an
     Present, SI-prefixed annus); and support for arbitrary user-defined eras. 
     Functions for converting between eras and for type-stable arithmetic with 
     years are also provided.
-Language: en-GB
 License: MIT + file LICENSE
 URL: https://era.joeroe.io, https://github.com/joeroe/era
 BugReports: https://github.com/joeroe/era/issues
