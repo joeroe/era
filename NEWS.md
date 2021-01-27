@@ -1,3 +1,9 @@
+# era 0.3.1
+
+CRAN release.
+
+* Fixed moved link in README.md
+
 # era 0.3.0
 
 Second beta / CRAN pre-release.
