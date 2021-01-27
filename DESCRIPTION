@@ -36,6 +36,7 @@ Suggests:
     dplyr,
     spelling,
     purrr,
-    tidyr
+    tidyr,
+    lubridate
 VignetteBuilder: knitr
 Config/testthat/edition: 3
