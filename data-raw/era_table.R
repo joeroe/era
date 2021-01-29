@@ -5,8 +5,10 @@ library("usethis")
 
 # Epochs
 # Remember to subtract 1 from the epoch of calendar systems that don't have a year 0
-# https://www.soundvision.com/article/the-beginning-of-hijri-calendar
+# Hijra <https://www.soundvision.com/article/the-beginning-of-hijri-calendar>
 hijra <- era:::frac_year(as.Date("622-07-16")) - 1
+# Hijra (Nowruz) <https://web.archive.org/web/20050311055900/http://wwwusr.obspm.fr/~heydari/divers/ir-cal-eng.html>
+nhijra <- era:::frac_year(as.Date("622-03-22"))
 
 # Year units
 # Mostly from https://en.wikipedia.org/wiki/Year
@@ -14,10 +16,12 @@ gregorian <- era_year("Gregorian", 365.2425)
 julian <- era_year("Julian", 365.25)
 solar <- era_year("solar", 365.24219)
 islamic_lunar <- era_year("Islamic lunar", 354.36708)
+nowruz <- era_year("Nowruz", 365.2424) # https://web.archive.org/web/20050311055900/http://wwwusr.obspm.fr/~heydari/divers/ir-cal-eng.html
 radiocarbon <- era_year("radiocarbon", NA)
 sidereal <- era_year("sidereal", 365.256363004)
 tropical <- era_year("tropical", 365.24219)
 anomalistic <- era_year("anomalistic", 365.259636)
+
 
 era_table <- tribble(
   # label must be unique
@@ -60,8 +64,8 @@ era_table <- tribble(
   "H",         hijra,  "Hijra",                                 islamic_lunar,  1L,    1,
   "AH",        hijra,  "Anno Hegirae",                          islamic_lunar,  1L,    1,
   "BH",        hijra,  "Before the Hijra",                      islamic_lunar,  1L,    -1,
-  "SH",        hijra,  "Solar Hijri",                           gregorian,      1L,    1,
-  "BSH",       hijra,  "Before Solar Hijri",                    gregorian,      1L,     1,
+  "SH",        nhijra, "Solar Hijri",                           nowruz,         1L,    1,
+  "BSH",       nhijra, "Before Solar Hijri",                    nowruz,         1L,    -1,
   # Historic calendars
   # Ancient calendars
   # Quirky calendars
