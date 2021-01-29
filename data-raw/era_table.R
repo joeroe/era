@@ -4,11 +4,15 @@ library("tibble")
 library("usethis")
 
 # Unit definitions
+# Mostly from https://en.wikipedia.org/wiki/Year
 gregorian <- era_year("Gregorian", 365.2425)
 julian <- era_year("Julian", 365.25)
 solar <- era_year("solar", 365.24219)
 islamic_lunar <- era_year("Islamic lunar", 354.36708)
 radiocarbon <- era_year("radiocarbon", NA)
+sidereal <- era_year("sidereal", 365.256363004)
+tropical <- era_year("tropical", 365.24219)
+anomalistic <- era_year("anomalistic", 365.259636)
 
 era_table <- tribble(
   # label must be unique
