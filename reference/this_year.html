@@ -48,6 +48,8 @@
 
 <meta property="og:title" content="Current year — this_year" />
 <meta property="og:description" content="Returns the current year as a year vector, in the era system specified by
+era.
+Returns the current year as a year vector, in the era system specified by
 era." />
 <meta property="og:image" content="https://era.joeroe.io/logo.svg" />
 <meta name="twitter:card" content="summary" />
@@ -141,16 +143,20 @@ era." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Current year</h1>
-    <small class="dont-index">Source: <a href='https://github.com/joeroe/era/blob/master/R/examples.R'><code>R/examples.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/joeroe/era/blob/master/R/date_utils.R'><code>R/date_utils.R</code></a>, <a href='https://github.com/joeroe/era/blob/master/R/examples.R'><code>R/examples.R</code></a></small>
     <div class="hidden name"><code>this_year.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Returns the current year as a year vector, in the era system specified by
 <code>era</code>.</p>
+<p>Returns the current year as a year vector, in the era system specified by
+<code>era</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>this_year</span><span class='op'>(</span>era <span class='op'>=</span> <span class='st'>"CE"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>this_year</span><span class='op'>(</span>era <span class='op'>=</span> <span class='st'>"CE"</span><span class='op'>)</span>
+
+<span class='fu'>this_year</span><span class='op'>(</span>era <span class='op'>=</span> <span class='st'>"CE"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,9 +171,18 @@ Common Era (<code><a href='era.html'>era("CE")</a></code>).</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code>yr</code> vector with the current year.</p>
+<p>A <code>yr</code> vector with the current year.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other era helper functions: 
+<code><a href='era_parameters.html'>era_parameters</a></code>,
+<code><a href='era_year_parameters.html'>era_year_parameters</a></code>,
+<code><a href='era_year.html'>era_year</a>()</code>,
+<code><a href='era.html'>era</a>()</code>,
+<code><a href='is_era_year.html'>is_era_year</a>()</code>,
+<code><a href='is_era.html'>is_era</a>()</code>,
+<code><a href='is_yr.html'>is_yr</a>()</code></p>
+<p>Other era helper functions: 
 <code><a href='era_parameters.html'>era_parameters</a></code>,
 <code><a href='era_year_parameters.html'>era_year_parameters</a></code>,
 <code><a href='era_year.html'>era_year</a>()</code>,
@@ -178,6 +193,14 @@ Common Era (<code><a href='era.html'>era("CE")</a></code>).</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># This year in the Common Era</span>
+<span class='fu'>this_year</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; # CE years &lt;yr[1]&gt;:
+#&gt; [1] 2021
+#&gt; # Era: Common Era (CE): Gregorian years (365.2425 days), counted forwards from 0</div><div class='input'><span class='co'># This year in the Holocene Epoch</span>
+<span class='fu'>this_year</span><span class='op'>(</span><span class='st'>"HE"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; # HE years &lt;yr[1]&gt;:
+#&gt; [1] 12021
+#&gt; # Era: Holocene Era (HE): Gregorian years (365.2425 days), counted forwards from -10000</div><div class='input'><span class='co'># This year in the Common Era</span>
 <span class='fu'>this_year</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; # CE years &lt;yr[1]&gt;:
 #&gt; [1] 2021
