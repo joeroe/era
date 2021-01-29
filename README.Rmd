@@ -29,11 +29,17 @@ Functions for converting between eras and for type-stable arithmetic with years 
 
 ## Installation
 
-You can install the development version of era from GitHub with the [remotes](https://remotes.r-lib.org/) package.
+You can install the released version of era from [CRAN](https://CRAN.R-project.org) with:
 
 ```{r install, eval=FALSE}
-# install.packages("remotes")
-remotes::install_github("joeroe/era")
+install.packages("era")
+```
+
+Or the development version from [GitHub](https://github.com/) with:
+
+```{r install-dev, eval=FALSE}
+# install.packages("devtools")
+devtools::install_github("joeroe/era")
 ```
 
 ## Basic usage

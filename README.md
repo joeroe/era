@@ -24,12 +24,18 @@ and for type-stable arithmetic with years are also provided.
 
 ## Installation
 
-You can install the development version of era from GitHub with the
-[remotes](https://remotes.r-lib.org/) package.
+You can install the released version of era from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("joeroe/era")
+install.packages("era")
+```
+
+Or the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("joeroe/era")
 ```
 
 ## Basic usage
