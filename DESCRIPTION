@@ -1,7 +1,7 @@
 Package: era
 Type: Package
 Title: Years with an Era
-Version: 0.3.1
+Version: 0.3.1.9000
 Authors@R: person("Joe", "Roe", email = "joe@joeroe.io",
   role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1011-1244"))
 Description: Provides a consistent vector representation of years with an 
