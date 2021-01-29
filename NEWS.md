@@ -1,5 +1,7 @@
 # era (development version)
 
+* `this_year()` now considers the current date
+
 # era 0.3.1
 
 CRAN release.
