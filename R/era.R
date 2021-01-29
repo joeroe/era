@@ -1,4 +1,9 @@
-# Functions and methods for eras
+# era.R
+# S3 record class `era`: era definitions
+
+# Register formal class for S4 compatibility
+# https://vctrs.r-lib.org/articles/s3-vector.html#implementing-a-vctrs-s3-class-in-a-package-1
+methods::setOldClass(c("era", "vctrs_rcrd"))
 
 # Constructors ------------------------------------------------------------
 

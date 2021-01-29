@@ -34,6 +34,6 @@ eras("cal")
 }
 \seealso{
 Other era definition functions: 
-\code{\link{era}()}
+\code{\link{era}}
 }
 \concept{era definition functions}

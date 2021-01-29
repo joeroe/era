@@ -1,15 +1,11 @@
-# Functions and methods for years with era
+# yr.R
+# S3 vector class `era_yr` (`yr`): years with an era
 
+# Register formal class for S4 compatibility
+# https://vctrs.r-lib.org/articles/s3-vector.html#implementing-a-vctrs-s3-class-in-a-package-1
+methods::setOldClass(c("era_yr", "vctrs_vctr"))
 
 # Constructors ------------------------------------------------------------
-
-new_yr <- function(x = numeric(), era = new_era()) {
-  new_vctr(x, era = era, class = "era_yr")
-  # S4 compatibility as suggested in:
-  # https://vctrs.r-lib.org/articles/s3-vector.html#low-level-and-user-friendly-constructors-1
-  # See https://github.com/joeroe/era/issues/12
-  # methods::setOldClass(c("era_yr", "vctrs_vctr"))
-}
 
 #' Create a vector of years with era
 #'
@@ -41,6 +37,10 @@ yr <- function(x = numeric(), era) {
   yr <- new_yr(x, era)
   validate_yr(yr)
   return(yr)
+}
+
+new_yr <- function(x = numeric(), era = new_era()) {
+  new_vctr(x, era = era, class = "era_yr")
 }
 
 

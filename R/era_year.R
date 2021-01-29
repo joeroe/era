@@ -1,5 +1,9 @@
-# era_unit.R
-# Functions and methods for S3 class era_year
+# era_year.R
+# S3 record class `era_year`: year unit definition
+
+# Register formal class for S4 compatibility
+# https://vctrs.r-lib.org/articles/s3-vector.html#implementing-a-vctrs-s3-class-in-a-package-1
+methods::setOldClass(c("era_year", "vctrs_rcrd"))
 
 # Constructors ------------------------------------------------------------
 

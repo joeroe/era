@@ -46,8 +46,8 @@ validate_yr(x)
 Other era helper functions: 
 \code{\link{era_parameters}},
 \code{\link{era_year_parameters}},
-\code{\link{era_year}()},
-\code{\link{era}()},
+\code{\link{era_year}},
+\code{\link{era}},
 \code{\link{is_era_year}()},
 \code{\link{is_era}()},
 \code{\link{this_year}()}
