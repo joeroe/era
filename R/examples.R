@@ -22,15 +22,7 @@
 #' # This year in the Holocene Epoch
 #' this_year("HE")
 this_year <- function(era = "CE") {
-  dst_era <- era(era)
-  this_year <- as.numeric(format(Sys.Date(), "%Y"))
-  this_year <- yr(this_year, "CE")
-
-  # N.B. this_year("AD") still returns era("CE")
-  # See https://github.com/joeroe/era/issues/31
-  if (dst_era != era("CE")) {
-    this_year <- yr_transform(this_year, era(dst_era))
-  }
-
+  this_year <- yr(as.numeric(format(Sys.Date(), "%Y")), "CE")
+  this_year <- yr_transform(this_year, era)
   return(this_year)
 }
