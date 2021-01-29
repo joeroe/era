@@ -4,7 +4,7 @@
 
 CRAN release.
 
-* Fixed moved link in README.md
+* Fixed moved link in README
 
 # era 0.3.0
 

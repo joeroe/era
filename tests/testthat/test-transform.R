@@ -1,3 +1,7 @@
+test_that("yr_transform() returns the destination era exactly", {
+  expect_equal(yr_era(yr_transform(yr(1, "BP"), "BCE")), era("BCE"))
+})
+
 test_that("Valid transformations for all defined eras exist and are symmetrical", {
   xeras <- expect_error({
     tibble::tibble(
