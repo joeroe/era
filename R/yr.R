@@ -200,7 +200,7 @@ vec_cast.era_yr.double <- function(x, to, ...) {
   new_yr(x, yr_era(to))
 }
 
-# Print generics ---------------------------------------------------------
+# Format/print ---------------------------------------------------------
 #' @export
 vec_ptype_full.era_yr <- function(x, ...) {
   paste0("yr (", era_label(yr_era(x)), ")")
@@ -223,9 +223,6 @@ obj_print_footer.era_yr <- function(x, ...) {
   cat("# Era: ", format(yr_era(x)), "\n", sep = "")
 }
 
-
-# Printing in tibbles -----------------------------------------------------
-
 #' @importFrom pillar pillar_shaft
 #' @export
 pillar_shaft.era_yr <- function(x, ...) {
@@ -236,7 +233,7 @@ pillar_shaft.era_yr <- function(x, ...) {
   pillar::new_pillar_shaft_simple(out, align = "right")
 }
 
-# Maths generics ----------------------------------------------------------
+# Maths ----------------------------------------------------------
 
 #' @method vec_arith era_yr
 #' @export
@@ -319,7 +316,7 @@ vec_arith.numeric.era_yr <- function(op, x, y, ...) {
   )
 }
 
-# Getters and setters -----------------------------------------------------
+# Get/set attributes -----------------------------------------------------
 
 #' Get or set the era of a vector of years
 #'

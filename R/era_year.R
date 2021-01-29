@@ -59,7 +59,7 @@ is_era_year <- function(x) {
 }
 
 
-# Print and format --------------------------------------------------------
+# Print/format --------------------------------------------------------
 
 #' @export
 format.era_year <- function(x, ...) {
@@ -67,7 +67,7 @@ format.era_year <- function(x, ...) {
 }
 
 
-# Getters and setters -----------------------------------------------------
+# Get/set attributes -----------------------------------------------------
 
 #' Get the parameters of an `era_year` object.
 #'

@@ -280,7 +280,7 @@ era_problems <- function(x) {
   )
 }
 
-# S3 methods --------------------------------------------------------------
+# Format/print --------------------------------------------------------------
 
 #' @export
 format.era <- function(x, ...) {
@@ -308,7 +308,7 @@ vec_ptype2.era.era <- function(x, y, ...) new_era()
 vec_cast.era.era <- function(x, to, ...) x
 
 
-# Equality and comparison -------------------------------------------------
+# Equality/comparison -------------------------------------------------
 
 #' @method vec_proxy_equal era
 #' @export
@@ -316,7 +316,7 @@ vec_proxy_equal.era <- function(x, ...) {
   vec_data(x)[!names(vec_data(x)) %in% c("label", "name")]
 }
 
-# Getters and setters -----------------------------------------------------
+# Get/set attributes -----------------------------------------------------
 
 #' Get parameters of an era
 #'
