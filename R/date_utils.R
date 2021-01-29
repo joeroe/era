@@ -22,21 +22,9 @@
 #' # This year in the Holocene Epoch
 #' this_year("HE")
 this_year <- function(era = "CE") {
-  this_year <- yr(frac_year(Sys.Date()), "CE")
-  yr_transform(this_year, era, precision = 1)
+  # this_year <- yr(as.numeric(format(Sys.Date(), "%Y")), "CE")
+  this_year <-
+  this_year <- yr_transform(this_year, era, precision = 1)
+  return(this_year)
 }
 
-#' Fractional years
-#'
-#' Converts a (Gregorian) date to a fractional year.
-#'
-#' @param x A Date object, e.g. `Sys.Date()`
-#'
-#' @return
-#' Numeric.
-#'
-#' @noRd
-#' @keywords internal
-frac_year <- function(x) {
-  as.numeric(format(x, "%Y")) + (as.numeric(format(x, "%j")) / 365.2425)
-}
