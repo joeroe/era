@@ -47,7 +47,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
       </span>
     </div>
 
@@ -112,16 +112,19 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the development version of era from GitHub with the <a href="https://remotes.r-lib.org/">remotes</a> package.</p>
+<p>You can install the released version of era from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"joeroe/era"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"era"</span><span class="op">)</span></code></pre></div>
+<p>Or the development version from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"joeroe/era"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="basic-usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#basic-usage" class="anchor"></a>Basic usage</h2>
 <p><code><a href="reference/yr.html">yr()</a></code> defines the era associated with a vector of years:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://era.joeroe.io">era</a></span><span class="op">)</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/yr.html">yr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9000</span>, <span class="fl">8000</span>, <span class="fl">7000</span><span class="op">)</span>, <span class="st">"cal BP"</span><span class="op">)</span>
 <span class="va">x</span>
@@ -129,7 +132,7 @@
 <span class="co">#&gt; [1] 9000 8000 7000</span>
 <span class="co">#&gt; # Era: Before Present (cal BP): Gregorian years (365.2425 days), counted backwards from 1950</span></code></pre></div>
 <p>Use <code><a href="reference/yr_transform.html">yr_transform()</a></code> to convert between eras:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"BCE"</span><span class="op">)</span>
 <span class="co">#&gt; # BCE years &lt;yr[3]&gt;:</span>
 <span class="co">#&gt; [1] 7050 6050 5050</span>
@@ -144,6 +147,8 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=era">https://​cloud.r-project.org/​package=era</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/joeroe/era/">https://​github.com/​joeroe/​era/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/joeroe/era/issues">https://​github.com/​joeroe/​era/​issues</a>
@@ -169,6 +174,8 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://www.repostatus.org/#active"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed."></a></li>
+<li><a href="https://CRAN.R-project.org/package=era"><img src="https://www.r-pkg.org/badges/version/era" alt="CRAN status"></a></li>
+<li><a href="https://cranchecks.info/pkgs/era"><img src="https://cranchecks.info/badges/worst/era" alt="CRAN checks"></a></li>
 <li><a href="https://github.com/joeroe/era/actions"><img src="https://github.com/joeroe/era/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 <li><a href="https://codecov.io/gh/joeroe/era?branch=master"><img src="https://codecov.io/gh/joeroe/era/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
