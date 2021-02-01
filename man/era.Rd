@@ -5,7 +5,7 @@
 \title{Create an era object}
 \usage{
 era(
-  label,
+  label = character(),
   epoch = NULL,
   name = label,
   unit = era_year("Gregorian"),
@@ -19,7 +19,7 @@ abbreviated label of a standard era defined in \code{\link[=eras]{eras()}}.
 Otherwise, the label to give to the era constructed using the following
 arguments.}
 
-\item{epoch}{Integer. Epoch year from which years are counted (in the Common
+\item{epoch}{Numeric. Epoch year from which years are counted (in the Common
 Era).}
 
 \item{name}{Character. Full name of the era. Defaults to the value of

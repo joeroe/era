@@ -19,7 +19,7 @@ methods::setOldClass(c("era", "vctrs_rcrd"))
 #'  abbreviated label of a standard era defined in [eras()].
 #'  Otherwise, the label to give to the era constructed using the following
 #'  arguments.
-#' @param epoch  Integer. Epoch year from which years are counted (in the Common
+#' @param epoch  Numeric. Epoch year from which years are counted (in the Common
 #'  Era).
 #' @param name  Character. Full name of the era. Defaults to the value of
 #'  `label`.
@@ -43,7 +43,7 @@ methods::setOldClass(c("era", "vctrs_rcrd"))
 #' era("cal BP")
 #'
 #' era("T.A.", epoch = -9021, name = "Third Age", direction = 1)
-era <- function(label,
+era <- function(label = character(),
                 epoch = NULL,
                 name = label,
                 unit = era_year("Gregorian"),
@@ -54,6 +54,10 @@ era <- function(label,
       missing(unit) &&
       missing(scale) &&
       missing(direction)) {
+    if (vec_is_empty(label)) {
+      return(new_era())
+    }
+
     if (any(is.na(label))) {
       abort(
         "`label` must not contain NAs.",
@@ -112,12 +116,12 @@ era <- function(label,
   return(era)
 }
 
-new_era <- function(label = NA,
-                    epoch = NA,
-                    name = NA,
-                    unit = NA,
-                    scale = NA,
-                    direction = NA) {
+new_era <- function(label = character(),
+                    epoch = numeric(),
+                    name = character(),
+                    unit = era_year(),
+                    scale = integer(),
+                    direction = integer()) {
   new_rcrd(
     list(label = label,
          epoch = epoch,

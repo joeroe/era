@@ -4,7 +4,7 @@
 \alias{era_year}
 \title{Year units}
 \usage{
-era_year(label, days = 365.2425)
+era_year(label = character(), days = 365.2425)
 }
 \arguments{
 \item{label}{Character. Name of the year unit.}

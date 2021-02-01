@@ -4,7 +4,7 @@
 \alias{yr}
 \title{Create a vector of years with era}
 \usage{
-yr(x = numeric(), era)
+yr(x = numeric(), era = character())
 }
 \arguments{
 \item{x}{A numeric vector of years.}

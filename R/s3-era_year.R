@@ -26,10 +26,16 @@ methods::setOldClass(c("era_year", "vctrs_rcrd"))
 #'
 #' @examples
 #' era_year("Julian", 365.25)
-era_year <- function(label, days = 365.2425) {
-  label <- vec_cast(label, character())
-  days <- vec_cast(days, numeric())
-  new_era_year(label, days)
+era_year <- function(label = character(), days = 365.2425) {
+  if (vec_is_empty(label) && missing(days)) {
+    new_era_year()
+  }
+  else {
+    label <- vec_cast(label, character())
+    days <- vec_cast(days, numeric())
+
+    new_era_year(label, days)
+  }
 }
 
 new_era_year <- function(label = character(), days = numeric()) {

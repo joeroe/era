@@ -29,7 +29,7 @@ methods::setOldClass(c("era_yr", "vctrs_vctr"))
 #'
 #' # A bad movie
 #' yr(10000, "BC")
-yr <- function(x = numeric(), era) {
+yr <- function(x = numeric(), era = character()) {
   x <- vec_cast(x, numeric())
 
   era <- era(era)

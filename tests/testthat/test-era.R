@@ -1,3 +1,8 @@
+test_that("era() returns a zero-length era", {
+  expect_s3_class(era(), "era")
+  expect_length(era(), 0)
+})
+
 test_that("era(NA) throws an error", {
   expect_error(era(NA), class = "era_invalid_era")
 })
@@ -30,28 +35,47 @@ test_that("all eras defined in eras() are valid", {
   )
 })
 
-test_that("Basic validation of era objects works", {
+test_that("era validation functions work", {
   good_era <- era("BP")
-  bad_era <- new_era()
+  bad_era <- new_era("x", "x", "x", "x", "x", "x")
+  not_era <- NA
+
   expect_true(is_era(good_era))
-  expect_false(is_era(1))
   expect_true(is_valid_era(good_era))
-  expect_false(is_valid_era(bad_era))
-  expect_false(is_valid_era(NA))
   expect_silent(validate_era(good_era))
+
+  expect_true(is_era(bad_era))
+  expect_false(is_valid_era(bad_era))
   expect_error(validate_era(bad_era), class = "era_invalid_era")
-  expect_error(validate_era(NA), class = "era_invalid_era")
+
+  expect_false(is_era(not_era))
+  expect_false(is_valid_era(not_era))
+  expect_error(validate_era(not_era), class = "era_invalid_era")
 })
 
 test_that("validate_era() finds specific problems", {
-  bad_era_na <- new_era()
-  bad_era_label <- new_era(label = 14)
-  bad_era_epoch <- new_era(epoch = "bad epoch")
-  bad_era_name <- new_era(name = 47)
-  bad_era_unit <- new_era(unit = "bad unit")
-  bad_era_scale <- new_era(scale = "bad scale")
-  bad_era_negative_scale <- new_era(scale = -1)
-  bad_era_direction <- new_era(direction = 2)
+  good_era <- era("BP")
+
+  bad_era_label <- good_era
+  field(bad_era_label, "label") <- NA
+
+  bad_era_epoch <- good_era
+  field(bad_era_epoch, "epoch") <- NA
+
+  bad_era_name <- good_era
+  field(bad_era_name, "name") <- NA
+
+  bad_era_unit <- good_era
+  field(bad_era_unit, "unit") <- NA
+
+  bad_era_scale <- good_era
+  field(bad_era_scale, "scale") <- NA
+
+  bad_era_negative_scale <- good_era
+  field(bad_era_negative_scale, "scale") <- -1
+
+  bad_era_direction <- good_era
+  field(bad_era_direction, "direction") <- 2
 
   # See TODO in era_problems()
   # expect_error(validate_era(bad_era_na), class = "era_invalid_era",
