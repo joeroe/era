@@ -18,13 +18,25 @@ status](https://github.com/joeroe/era/workflows/R-CMD-check/badge.svg)](https://
 coverage](https://codecov.io/gh/joeroe/era/branch/master/graph/badge.svg)](https://codecov.io/gh/joeroe/era?branch=master)
 <!-- badges: end -->
 
-**era** is an R package that provides a consistent vector representation
-of years with an associated calendar era or time scale. It includes
-built-in definitions of many contemporary and historic calendars; time
-scales commonly used in archaeology, astronomy, geology, and other
-palaeosciences (e.g. Before Present, SI-prefixed *annus*); and support
-for arbitrary user-defined eras. Functions for converting between eras
-and for type-stable arithmetic with years are also provided.
+**era** is an R package that provides a consistent representation of
+year-based time scales as a numeric vector with an associated *era* –
+the [yr class](https://era.joeroe.io/reference/yr.html).
+
+It includes built-in [era
+definitions](https://era.joeroe.io/reference/eras.html) for many year
+numbering systems used in contemporary and historic calendars
+(e.g. Common Era, Islamic ‘Hijri’ years); year-based time scales used in
+archaeology, astronomy, geology, and other palaeosciences (e.g. Before
+Present, SI-prefixed *annus*); and support for [arbitrary user-defined
+eras](https://era.joeroe.io/reference/era.html). Years can converted
+from any one era to another using the generalised transformation
+function
+[yr\_transform()](https://era.joeroe.io/reference/yr_transform.html).
+
+era’s classes are based on [vctrs](https://vctrs.r-lib.org/), and come
+with methods for robust casting and coercion between years and other
+numeric types, type-stable arithmetic with years, and pretty-printing in
+tables.
 
 ## Installation
 

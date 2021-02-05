@@ -1,16 +1,19 @@
 Package: era
 Type: Package
-Title: Years with an Era
+Title: Year-based Time Scales
 Version: 0.3.1.9000
 Authors@R: person("Joe", "Roe", email = "joe@joeroe.io",
   role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1011-1244"))
-Description: Provides a consistent vector representation of years with an 
-    associated calendar era or time scale. It includes built-in definitions of 
-    many contemporary and historic calendars; time scales commonly used in
-    archaeology, astronomy, geology, and other palaeosciences (e.g. Before 
-    Present, SI-prefixed 'annus'); and support for arbitrary user-defined eras. 
-    Functions for converting between eras and for type-stable arithmetic with 
-    years are also provided.
+Description: Provides a consistent representation of year-based time scales as a
+    numeric vector with an associated 'era'. There are built-in era definitions
+    for many year numbering systems used in contemporary and historic calendars 
+    (e.g. Common Era, Islamic 'Hijri' years); year-based time scales used in 
+    archaeology, astronomy, geology, and other palaeosciences (e.g. 
+    Before Present, SI-prefixed 'annus'); and support for arbitrary user-defined
+    eras. Years can converted from any one era to another using a generalised 
+    transformation function. Methods are also provided for robust casting and 
+    coercion between years and other numeric types, type-stable arithmetic with 
+    years, and pretty-printing in tables.
 Language: en-GB
 License: MIT + file LICENSE
 URL: https://era.joeroe.io, https://github.com/joeroe/era
