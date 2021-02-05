@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Years with an Era • era</title>
+<title>Year-based Time Scales • era</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -17,14 +17,17 @@
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Years with an Era">
-<meta property="og:description" content="Provides a consistent vector representation of years with an 
-    associated calendar era or time scale. It includes built-in definitions of 
-    many contemporary and historic calendars; time scales commonly used in
-    archaeology, astronomy, geology, and other palaeosciences (e.g. Before 
-    Present, SI-prefixed annus); and support for arbitrary user-defined eras. 
-    Functions for converting between eras and for type-stable arithmetic with 
-    years are also provided.">
+<script src="pkgdown.js"></script><meta property="og:title" content="Year-based Time Scales">
+<meta property="og:description" content="Provides a consistent representation of year-based time scales as a
+    numeric vector with an associated era. There are built-in era definitions
+    for many year numbering systems used in contemporary and historic calendars 
+    (e.g. Common Era, Islamic Hijri years); year-based time scales used in 
+    archaeology, astronomy, geology, and other palaeosciences (e.g. 
+    Before Present, SI-prefixed annus); and support for arbitrary user-defined
+    eras. Years can converted from any one era to another using a generalised 
+    transformation function. Methods are also provided for robust casting and 
+    coercion between years and other numeric types, type-stable arithmetic with 
+    years, and pretty-printing in tables.">
 <meta property="og:image" content="https://era.joeroe.io/logo.svg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@joeroe90">
@@ -108,7 +111,9 @@
 </h1></div>
 <!-- badges: start -->
 
-<p><strong>era</strong> is an R package that provides a consistent vector representation of years with an associated calendar era or time scale. It includes built-in definitions of many contemporary and historic calendars; time scales commonly used in archaeology, astronomy, geology, and other palaeosciences (e.g. Before Present, SI-prefixed <em>annus</em>); and support for arbitrary user-defined eras. Functions for converting between eras and for type-stable arithmetic with years are also provided.</p>
+<p><strong>era</strong> is an R package that provides a consistent representation of year-based time scales as a numeric vector with an associated <em>era</em> – the <a href="https://era.joeroe.io/reference/yr.html">yr class</a>.</p>
+<p>It includes built-in <a href="https://era.joeroe.io/reference/eras.html">era definitions</a> for many year numbering systems used in contemporary and historic calendars (e.g. Common Era, Islamic ‘Hijri’ years); year-based time scales used in archaeology, astronomy, geology, and other palaeosciences (e.g. Before Present, SI-prefixed <em>annus</em>); and support for <a href="https://era.joeroe.io/reference/era.html">arbitrary user-defined eras</a>. Years can converted from any one era to another using the generalised transformation function <a href="https://era.joeroe.io/reference/yr_transform.html">yr_transform()</a>.</p>
+<p>era’s classes are based on <a href="https://vctrs.r-lib.org/">vctrs</a>, and come with methods for robust casting and coercion between years and other numeric types, type-stable arithmetic with years, and pretty-printing in tables.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
