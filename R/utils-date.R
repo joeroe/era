@@ -23,7 +23,8 @@
 #' this_year("HE")
 this_year <- function(era = "CE") {
   this_year <- yr(frac_year(Sys.Date()), "CE")
-  yr_transform(this_year, era, precision = 1)
+  this_year <- yr_transform(this_year, era)
+  floor(this_year)
 }
 
 #' Fractional years
