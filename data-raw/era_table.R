@@ -8,7 +8,7 @@ library("usethis")
 # Hijra <https://www.soundvision.com/article/the-beginning-of-hijri-calendar>
 hijra <- era:::frac_year(as.Date("622-07-16")) - 1
 # Hijra (Nowruz) <https://web.archive.org/web/20050311055900/http://wwwusr.obspm.fr/~heydari/divers/ir-cal-eng.html>
-nhijra <- era:::frac_year(as.Date("622-03-22"))
+nhijra <- era:::frac_year(as.Date("622-03-22")) - 1
 
 # Year units
 # Mostly from https://en.wikipedia.org/wiki/Year
