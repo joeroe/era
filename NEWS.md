@@ -1,6 +1,6 @@
 # era (development version)
 
-* `this_year()` now considers the current date
+* `this_year()` now considers the current date, returns a floored integer (i.e. the actual current calendar year), and is vectorised over `era`.
 
 # era 0.3.1
 
