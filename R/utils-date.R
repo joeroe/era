@@ -23,8 +23,10 @@
 #' this_year("HE")
 this_year <- function(era = "CE") {
   this_year <- yr(frac_year(Sys.Date()), "CE")
-  this_year <- yr_transform(this_year, era)
-  floor(this_year)
+  this_year <- purrr::map(era, ~yr_transform(this_year, .x))
+  this_year <- purrr::map(this_year, floor)
+  if (vec_size(this_year) > 1) this_year
+  else this_year[[1]]
 }
 
 #' Fractional years
