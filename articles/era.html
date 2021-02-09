@@ -123,7 +123,7 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://dplyr.tidyverse.org">"dplyr"</a></span><span class="op">)</span></code></pre></div>
 <div id="yr" class="section level2">
 <h2 class="hasAnchor">
-<a href="#yr" class="anchor"></a>Years with an era: the <code>yr</code> class</h2>
+<a href="#yr" class="anchor"></a>Years with an era</h2>
 <p>Vectors of years with an era are represented by the <code>yr</code> (<code>era_yr</code>) class, which is constructed with <code><a href="../reference/yr.html">yr()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">11000</span>, <span class="fl">12000</span><span class="op">)</span>, <span class="st">"BP"</span><span class="op">)</span>
@@ -185,18 +185,35 @@
 </div>
 <div id="era" class="section level2">
 <h2 class="hasAnchor">
-<a href="#era" class="anchor"></a>Era definitions: the <code>era</code> class</h2>
-<p>Eras are defined by the <code>era</code> class. Many common eras are defined by the <code><a href="../reference/eras.html">eras()</a></code> function and can be referenced in <code><a href="../reference/yr.html">yr()</a></code> or <code><a href="../reference/era.html">era()</a></code> by their abbreviated <code>label</code>:</p>
+<a href="#era" class="anchor"></a>Era definitions</h2>
+<p>era includes built-in definitions of many time scales and year numbering systems from contemporary and historic calendars. <code><a href="../reference/eras.html">eras()</a></code> returns the <a href="#era-list">full list</a> of built-in definitions. You can use any definition in this list by passing its abbreviated <code>label</code> to <code><a href="../reference/era.html">era()</a></code> or as the <code>era</code> argument of <code><a href="../reference/yr.html">yr()</a></code> or any other function in the package:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/eras.html">eras</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BP"</span><span class="op">)</span>
+<span class="co">#&gt; &lt;era[1]&gt;</span>
+<span class="co">#&gt; [1] Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span>
+
+<span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="st">"BP"</span><span class="op">)</span>
+<span class="co">#&gt; # BP years &lt;yr[1]&gt;:</span>
+<span class="co">#&gt; [1] 10000</span>
+<span class="co">#&gt; # Era: Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span>
+
+<span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="st">"BP"</span><span class="op">)</span>, <span class="st">"BCE"</span><span class="op">)</span>
+<span class="co">#&gt; # BCE years &lt;yr[1]&gt;:</span>
+<span class="co">#&gt; [1] 8050</span>
+<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0</span></code></pre></div>
+<p>If you need to use a time scale that is not in this list, you can <a href="#era-definition">define it yourself</a> with <code><a href="../reference/era.html">era()</a></code>. Suggestions for new eras to include in the package are also welcome; please <a href="https://github.com/joeroe/era/issues">create an issue</a> on GitHub with suggestions.</p>
+<div id="era-list" class="section level3">
+<h3 class="hasAnchor">
+<a href="#era-list" class="anchor"></a>List of built-in eras</h3>
 <table class="table">
 <colgroup>
-<col width="8%">
-<col width="10%">
-<col width="33%">
-<col width="33%">
-<col width="5%">
+<col width="7%">
 <col width="9%">
+<col width="30%">
+<col width="30%">
+<col width="4%">
+<col width="8%">
+<col width="8%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">label</th>
@@ -205,6 +222,7 @@
 <th align="left">unit</th>
 <th align="right">scale</th>
 <th align="right">direction</th>
+<th align="left">this_year</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -214,6 +232,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-71</td>
 </tr>
 <tr class="even">
 <td align="left">cal BP</td>
@@ -222,6 +241,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-71</td>
 </tr>
 <tr class="odd">
 <td align="left">BC</td>
@@ -230,6 +250,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-2021</td>
 </tr>
 <tr class="even">
 <td align="left">BCE</td>
@@ -238,6 +259,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-2021</td>
 </tr>
 <tr class="odd">
 <td align="left">AD</td>
@@ -246,6 +268,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">2021</td>
 </tr>
 <tr class="even">
 <td align="left">CE</td>
@@ -254,6 +277,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">2021</td>
 </tr>
 <tr class="odd">
 <td align="left">a</td>
@@ -262,6 +286,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-71</td>
 </tr>
 <tr class="even">
 <td align="left">ka</td>
@@ -270,6 +295,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+03</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="odd">
 <td align="left">Ma</td>
@@ -278,6 +304,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+06</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="even">
 <td align="left">Ga</td>
@@ -286,6 +313,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+09</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="odd">
 <td align="left">kya</td>
@@ -294,6 +322,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+03</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="even">
 <td align="left">mya</td>
@@ -302,6 +331,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+06</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="odd">
 <td align="left">bya</td>
@@ -310,6 +340,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+09</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="even">
 <td align="left">b2k</td>
@@ -318,6 +349,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-21</td>
 </tr>
 <tr class="odd">
 <td align="left">uncal BP</td>
@@ -326,6 +358,7 @@
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
 <td align="left">RCYBP</td>
@@ -334,6 +367,7 @@
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">bp</td>
@@ -342,6 +376,7 @@
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
 <td align="left">bc</td>
@@ -350,6 +385,7 @@
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">bce</td>
@@ -358,6 +394,7 @@
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
 <td align="left">ad</td>
@@ -366,6 +403,7 @@
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">ce</td>
@@ -374,6 +412,7 @@
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
 <td align="left">AD O.S.</td>
@@ -382,6 +421,7 @@
 <td align="left">Julian years (365.25 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">2021</td>
 </tr>
 <tr class="odd">
 <td align="left">BC O.S.</td>
@@ -390,6 +430,7 @@
 <td align="left">Julian years (365.25 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">2021</td>
 </tr>
 <tr class="even">
 <td align="left">H</td>
@@ -398,6 +439,7 @@
 <td align="left">Islamic lunar years (354.36708 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">1442</td>
 </tr>
 <tr class="odd">
 <td align="left">AH</td>
@@ -406,6 +448,7 @@
 <td align="left">Islamic lunar years (354.36708 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">1442</td>
 </tr>
 <tr class="even">
 <td align="left">BH</td>
@@ -414,6 +457,7 @@
 <td align="left">Islamic lunar years (354.36708 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-1442</td>
 </tr>
 <tr class="odd">
 <td align="left">SH</td>
@@ -422,6 +466,7 @@
 <td align="left">Nowruz years (365.2424 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">1399</td>
 </tr>
 <tr class="even">
 <td align="left">BSH</td>
@@ -430,6 +475,7 @@
 <td align="left">Nowruz years (365.2424 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-1399</td>
 </tr>
 <tr class="odd">
 <td align="left">HE</td>
@@ -438,6 +484,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">12021</td>
 </tr>
 <tr class="even">
 <td align="left">BHE</td>
@@ -446,6 +493,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-12021</td>
 </tr>
 <tr class="odd">
 <td align="left">AL</td>
@@ -454,6 +502,7 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">6021</td>
 </tr>
 <tr class="even">
 <td align="left">ADA</td>
@@ -462,10 +511,15 @@
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">10021</td>
 </tr>
 </tbody>
 </table>
-<p>Eras are defined by the following parameters:</p>
+</div>
+<div id="defining-other-eras" class="section level3">
+<h3 class="hasAnchor">
+<a href="#defining-other-eras" class="anchor"></a>Defining other eras</h3>
+<p>Eras are defined by the <code>era</code> class with the following parameters:</p>
 <ul>
 <li>
 <strong>label</strong>: an abbreviated label that uniquely identifies the era</li>
@@ -487,6 +541,7 @@
 <span class="co">#&gt; &lt;era[1]&gt;</span>
 <span class="co">#&gt; [1] Third Age (T.A.): Gregorian years (365.2425 days), counted forwards from -9021</span></code></pre></div>
 <p>As long as all the parameters are specified correctly, user-defined eras can also be used in <code><a href="../reference/yr_transform.html">yr_transform()</a></code>.</p>
+</div>
 </div>
 <div id="yr_transform" class="section level2">
 <h2 class="hasAnchor">
