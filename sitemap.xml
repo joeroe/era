@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://era.joeroe.io/404.html</loc>
+  </url>
+  <url>
+    <loc>https://era.joeroe.io/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://era.joeroe.io/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://era.joeroe.io/articles/era.html</loc>
+  </url>
+  <url>
+    <loc>https://era.joeroe.io/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://era.joeroe.io/authors.html</loc>
+  </url>
+  <url>
     <loc>https://era.joeroe.io/index.html</loc>
+  </url>
+  <url>
+    <loc>https://era.joeroe.io/news/index.html</loc>
   </url>
   <url>
     <loc>https://era.joeroe.io/reference/era-rlang.html</loc>
@@ -23,6 +44,9 @@
   </url>
   <url>
     <loc>https://era.joeroe.io/reference/eras.html</loc>
+  </url>
+  <url>
+    <loc>https://era.joeroe.io/reference/index.html</loc>
   </url>
   <url>
     <loc>https://era.joeroe.io/reference/is_era.html</loc>
@@ -47,8 +71,5 @@
   </url>
   <url>
     <loc>https://era.joeroe.io/reference/yr_transform.html</loc>
-  </url>
-  <url>
-    <loc>https://era.joeroe.io/articles/era.html</loc>
   </url>
 </urlset>
