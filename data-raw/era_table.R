@@ -9,6 +9,8 @@ library("usethis")
 hijra <- era:::frac_year(as.Date("622-07-16")) - 1
 # Hijra (Nowruz) <https://web.archive.org/web/20050311055900/http://wwwusr.obspm.fr/~heydari/divers/ir-cal-eng.html>
 nhijra <- era:::frac_year(as.Date("622-03-22")) - 1
+# Era Mundi
+mundi <- era:::frac_year(as.Date("1-10-6")) - 3762
 
 # Year units
 # Mostly from https://en.wikipedia.org/wiki/Year
@@ -17,6 +19,7 @@ julian <- era_year("Julian", 365.25)
 solar <- era_year("solar", 365.24219)
 islamic_lunar <- era_year("Islamic lunar", 354.36708)
 nowruz <- era_year("Nowruz", 365.2424) # https://web.archive.org/web/20050311055900/http://wwwusr.obspm.fr/~heydari/divers/ir-cal-eng.html
+hebrew <- era_year("Hebrew lunisolar", 365 + (24311/98496)) # http://individual.utoronto.ca/kalendis/hebrew/Hebrew-Possible-Weekdays-view.htm
 radiocarbon <- era_year("radiocarbon", NA)
 sidereal <- era_year("sidereal", 365.256363004)
 tropical <- era_year("tropical", 365.24219)
@@ -66,6 +69,8 @@ era_table <- tribble(
   "BH",        hijra,  "Before the Hijra",                      islamic_lunar,  1L,    -1,
   "SH",        nhijra, "Solar Hijri",                           nowruz,         1L,    1,
   "BSH",       nhijra, "Before Solar Hijri",                    nowruz,         1L,    -1,
+  # Jewish calendars
+  "AM",        mundi,  "Anno Mundi",                            hebrew,         1L,    1,
   # Historic calendars
   # Ancient calendars
   # Quirky calendars
