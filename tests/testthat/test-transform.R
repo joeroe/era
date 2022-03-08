@@ -40,3 +40,15 @@ test_that("yr_transform() considers all significant parameters", {
   dozen_years <- era("12YBCE", 1, unit = era_year("dozen", 365.2425 * 12))
   expect_equal(yr_transform(yr(144, "BCE"), dozen_years), yr(12, dozen_years))
 })
+
+test_that("transforms involving BCE and CE account for year zero", {
+  ce10 <- yr(10, "CE")
+  bce10 <- yr(10, "BCE")
+
+  expect_equal(yr_transform(ce10, "BCE"), yr(-9, "BCE"))
+  expect_equal(yr_transform(bce10, "CE"), yr(-9, "CE"))
+  expect_equal(ce10 - yr_transform(bce10, "CE"), yr(19, "CE"))
+
+  expect_equal(yr_transform(ce10, "BP"), yr(1940, "BP"))
+  expect_equal(yr_transform(bce10, "BP"), yr(1959, "BP"))
+})
