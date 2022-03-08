@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# era <a href='https://era.joeroe.io'><img src='man/figures/logo.svg' align="right" height="139" /></a>
+# era <a href='https://era.joeroe.io'><img src='man/figures/logo.svg' style="float: right; height: 139px" /></a>
 
 <!-- badges: start -->
 
@@ -31,7 +31,7 @@ Present, SI-prefixed *annus*); and support for [arbitrary user-defined
 eras](https://era.joeroe.io/reference/era.html). Years can converted
 from any one era to another using the generalised transformation
 function
-[yr\_transform()](https://era.joeroe.io/reference/yr_transform.html).
+[yr_transform()](https://era.joeroe.io/reference/yr_transform.html).
 
 era’s classes are based on [vctrs](https://vctrs.r-lib.org/), and come
 with methods for robust casting and coercion between years and other
