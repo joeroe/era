@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# era <a href='https://era.joeroe.io'><img src='man/figures/logo.svg' style="float: right; height: 139px" /></a>
+# era <a href='https://era.joeroe.io'><img src='man/figures/logo.svg' align="right" style="float: right; height: 139px" /></a>
 
 <!-- badges: start -->
 
