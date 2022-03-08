@@ -12,7 +12,7 @@
 * Class constructors `era()` and `yr()` return a zero-length vector when called with no arguments (instead of an error), allowing them to be used as [prototypes](https://vctrs.r-lib.org/articles/type-size.html)
 * `era_yr` objects can be cast to character vectors (e.g. `as.character(yr(1, "BP"))`)
 * `era` no longer exports `magrittr`'s pipe operator (`%>%`)
-* Fixed recurring issues related to the absence of a year 0 in BCE/CE #2
+* Fixed recurring issues related to the absence of a year 0 in BCE/CE #4
 
 # era 0.3.1
 
