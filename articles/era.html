@@ -133,7 +133,7 @@
 <code class="sourceCode R"><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">11000</span>, <span class="fl">12000</span><span class="op">)</span>, <span class="st">"BCE"</span><span class="op">)</span>
 <span class="co">#&gt; # BCE years &lt;yr[3]&gt;:</span>
 <span class="co">#&gt; [1] 10000 11000 12000</span>
-<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0</span>
+<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 1</span>
 <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">11000</span>, <span class="fl">12000</span><span class="op">)</span>, <span class="st">"uncal BP"</span><span class="op">)</span>
 <span class="co">#&gt; # uncal BP years &lt;yr[3]&gt;:</span>
 <span class="co">#&gt; [1] 10000 11000 12000</span>
@@ -196,8 +196,8 @@
 
 <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="st">"BP"</span><span class="op">)</span>, <span class="st">"BCE"</span><span class="op">)</span>
 <span class="co">#&gt; # BCE years &lt;yr[1]&gt;:</span>
-<span class="co">#&gt; [1] 8050</span>
-<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0</span></code></pre></div>
+<span class="co">#&gt; [1] 8051</span>
+<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 1</span></code></pre></div>
 <p>If you need to use a time scale that is not in this list, you can <a href="#defining-other-eras">define it yourself</a> with <code><a href="../reference/era.html">era()</a></code>. Suggestions for new eras to include in the package are also welcome; please <a href="https://github.com/joeroe/era/issues" class="external-link">create an issue</a> on GitHub with suggestions.</p>
 <div class="section level3">
 <h3 id="era-list">List of built-in eras<a class="anchor" aria-label="anchor" href="#era-list"></a>
@@ -242,21 +242,21 @@
 </tr>
 <tr class="odd">
 <td align="left">BC</td>
-<td align="right">0.0000</td>
+<td align="right">1.0000</td>
 <td align="left">Before Christ</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
-<td align="left">-2022</td>
+<td align="left">-2021</td>
 </tr>
 <tr class="even">
 <td align="left">BCE</td>
-<td align="right">0.0000</td>
+<td align="right">1.0000</td>
 <td align="left">Before Common Era</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
-<td align="left">-2022</td>
+<td align="left">-2021</td>
 </tr>
 <tr class="odd">
 <td align="left">AD</td>
@@ -422,66 +422,66 @@
 </tr>
 <tr class="odd">
 <td align="left">BC O.S.</td>
-<td align="right">0.0000</td>
+<td align="right">1.0000</td>
 <td align="left">Before Christ (New Style)</td>
 <td align="left">Julian years (365.25 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
-<td align="left">2022</td>
+<td align="left">2021</td>
 </tr>
 <tr class="even">
 <td align="left">H</td>
-<td align="right">621.5394</td>
+<td align="right">622.5366</td>
 <td align="left">Hijra</td>
 <td align="left">Islamic lunar years (354.36708 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
-<td align="left">1443</td>
+<td align="left">1442</td>
 </tr>
 <tr class="odd">
 <td align="left">AH</td>
-<td align="right">621.5394</td>
+<td align="right">622.5366</td>
 <td align="left">Anno Hegirae</td>
 <td align="left">Islamic lunar years (354.36708 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
-<td align="left">1443</td>
+<td align="left">1442</td>
 </tr>
 <tr class="even">
 <td align="left">BH</td>
-<td align="right">621.5394</td>
+<td align="right">622.5366</td>
 <td align="left">Before the Hijra</td>
 <td align="left">Islamic lunar years (354.36708 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
-<td align="left">-1443</td>
+<td align="left">-1442</td>
 </tr>
 <tr class="odd">
 <td align="left">SH</td>
-<td align="right">621.2218</td>
+<td align="right">622.2190</td>
 <td align="left">Solar Hijri</td>
 <td align="left">Nowruz years (365.2424 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
-<td align="left">1400</td>
+<td align="left">1399</td>
 </tr>
 <tr class="even">
 <td align="left">BSH</td>
-<td align="right">621.2218</td>
+<td align="right">622.2190</td>
 <td align="left">Before Solar Hijri</td>
 <td align="left">Nowruz years (365.2424 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
-<td align="left">-1400</td>
+<td align="left">-1399</td>
 </tr>
 <tr class="odd">
 <td align="left">AM</td>
-<td align="right">-3760.2361</td>
+<td align="right">-3759.2361</td>
 <td align="left">Anno Mundi</td>
 <td align="left">Hebrew lunisolar years (365.246822205978 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
-<td align="left">5782</td>
+<td align="left">5781</td>
 </tr>
 <tr class="even">
 <td align="left">HE</td>
@@ -532,7 +532,7 @@
 <li>
 <strong>name</strong>: the full name of the era</li>
 <li>
-<strong>epoch</strong>: the origin year from which years are counted</li>
+<strong>epoch</strong>: the origin year from which years are counted (in Gregorian astronomical years)</li>
 <li>
 <strong>unit</strong>: the unit of years counted, defined as its length in solar days</li>
 <li>
@@ -561,12 +561,12 @@
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 4</span></span>
 <span class="co">#&gt;   period          start_ka start_bp start_bce</span>
 <span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;yr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;yr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;yr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Late Holocene     4.2 <span style="color: #949494;">ka</span>  4200 <span style="color: #949494;">BP</span>  2250 <span style="color: #949494;">BCE</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Mid Holocene    8.326 <span style="color: #949494;">ka</span>  8326 <span style="color: #949494;">BP</span>  6376 <span style="color: #949494;">BCE</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Early Holocene   11.7 <span style="color: #949494;">ka</span> 11700 <span style="color: #949494;">BP</span>  9750 <span style="color: #949494;">BCE</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Younger Dryas    12.9 <span style="color: #949494;">ka</span> 12900 <span style="color: #949494;">BP</span> 10950 <span style="color: #949494;">BCE</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Bølling-Allerød  14.7 <span style="color: #949494;">ka</span> 14700 <span style="color: #949494;">BP</span> 12750 <span style="color: #949494;">BCE</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Heinrich 1         17 <span style="color: #949494;">ka</span> 17000 <span style="color: #949494;">BP</span> 15050 <span style="color: #949494;">BCE</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Late Holocene     4.2 <span style="color: #949494;">ka</span>  4200 <span style="color: #949494;">BP</span>  2251 <span style="color: #949494;">BCE</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Mid Holocene    8.326 <span style="color: #949494;">ka</span>  8326 <span style="color: #949494;">BP</span>  6377 <span style="color: #949494;">BCE</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Early Holocene   11.7 <span style="color: #949494;">ka</span> 11700 <span style="color: #949494;">BP</span>  9751 <span style="color: #949494;">BCE</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Younger Dryas    12.9 <span style="color: #949494;">ka</span> 12900 <span style="color: #949494;">BP</span> 10951 <span style="color: #949494;">BCE</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Bølling-Allerød  14.7 <span style="color: #949494;">ka</span> 14700 <span style="color: #949494;">BP</span> 12751 <span style="color: #949494;">BCE</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Heinrich 1         17 <span style="color: #949494;">ka</span> 17000 <span style="color: #949494;">BP</span> 15051 <span style="color: #949494;">BCE</span></span></code></pre></div>
 <p>This function implements a generic algorithm for transforming years based on the era parameters described above. This means that, with a few exceptions (see <a href="#invalidtransform">invalid transformations</a>, you can transform between any two eras that can be described by the <code>era</code> class.</p>
 <div class="section level3">
 <h3 id="transformation-precision">Transformation precision<a class="anchor" aria-label="anchor" href="#transformation-precision"></a>
@@ -576,7 +576,7 @@
 <code class="sourceCode R"><span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">500000</span>, <span class="st">"BCE"</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"ka"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # ka years &lt;yr[1]&gt;:</span>
-<span class="co">#&gt; [1] 501.95</span>
+<span class="co">#&gt; [1] 501.949</span>
 <span class="co">#&gt; # Era: kiloannum (ka): 1000 Gregorian years (365.2425 days), counted backwards from 1950</span></code></pre></div>
 <p>Often, this precision is not necessary. For example, when converting years between calendar- and present-based eras, the 72 year difference between the formal definition of “Present” and the actual present is rarely significant on a geologic time scale. Use the <code>precision</code> argument of <code>yr_transform</code> to get rounded results:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -584,7 +584,7 @@
   <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"BCE"</span><span class="op">)</span>, precision <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
 <span class="co">#&gt; # BCE years &lt;yr[1]&gt;:</span>
 <span class="co">#&gt; [1] 8000</span>
-<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0</span>
+<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 1</span>
 
 <span class="fu"><a href="../reference/yr.html">yr</a></span><span class="op">(</span><span class="fl">500000</span>, <span class="st">"BCE"</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="../reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="fu"><a href="../reference/era.html">era</a></span><span class="op">(</span><span class="st">"mya"</span><span class="op">)</span>, precision <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span>
