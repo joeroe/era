@@ -5,6 +5,7 @@
 * More precise epoch value for Nowruz (Solar Hijri) eras: `621.2218` instead of `622`.
 * `this_year()` now considers the current date, returns a floored integer (i.e. the actual current calendar year), and is vectorised over `era`.
 * Class constructors `era()` and `yr()` return a zero-length vector when called with no arguments (instead of an error), allowing them to be used as [prototypes](https://vctrs.r-lib.org/articles/type-size.html)
+* `era_yr` objects can be cast to character vectors (e.g. `as.character(yr(1, "BP"))`)
 
 # era 0.3.1
 

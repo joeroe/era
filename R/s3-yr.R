@@ -200,6 +200,16 @@ vec_cast.era_yr.double <- function(x, to, ...) {
   new_yr(x, yr_era(to))
 }
 
+#' @export
+vec_cast.character.era_yr <- function(x, to, ...) {
+  paste(vec_data(x), era_label(yr_era(x)))
+}
+
+#' @export
+vec_cast.era_yr.character <- function(x, to, ...,  x_arg = "", to_arg = "") {
+  stop_incompatible_cast(x, to, x_arg = x_arg, to_arg = to_arg)
+}
+
 # Format/print ---------------------------------------------------------
 #' @export
 vec_ptype_full.era_yr <- function(x, ...) {

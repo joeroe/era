@@ -74,6 +74,15 @@ test_that("era_yr cast methods return correct class", {
   # double <-> era_yr
   expect_type(vec_cast(new_yr(), double()), "double")
   expect_s3_class(vec_cast(double(), new_yr()), "era_yr")
+
+  # character <-> era_yr
+  expect_type(vec_cast(new_yr(), character()), "character")
+  expect_error(vec_cast(character(), new_yr()),
+               class = "vctrs_error_incompatible_type")
+})
+
+test_that("casting era_yr to character returns expected output", {
+  expect_equal(vec_cast(yr(1:3, "BP"), character()), c("1 BP", "2 BP", "3 BP"))
 })
 
 test_that("format.era_yr returns expected output", {
