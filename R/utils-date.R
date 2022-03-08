@@ -22,9 +22,13 @@
 #' # This year in the Holocene Epoch
 #' this_year("HE")
 this_year <- function(era = "CE") {
-  this_year <- yr(frac_year(Sys.Date()), "CE")
+  whole_year <- as.numeric(format(Sys.Date(), "%Y"))
+  frac_date <- frac_year(format(Sys.Date(), "%m-%d"))
+  this_year <- yr(whole_year + frac_date, "CE")
+
   this_year <- purrr::map(era, ~yr_transform(this_year, .x))
   this_year <- purrr::map(this_year, floor_or_ceiling)
+
   if (vec_size(this_year) > 1) this_year
   else this_year[[1]]
 }
@@ -36,9 +40,10 @@ floor_or_ceiling <- function(x) {
 
 #' Fractional years
 #'
-#' Converts a (Gregorian) date to a fractional year.
+#' Calculates the fraction of a year represented by a (Gregorian) date. Doesn't
+#' account for leap years.
 #'
-#' @param x A Date object, e.g. `Sys.Date()`
+#' @param x Character. Partial date in format `"%m-%d"`.
 #'
 #' @return
 #' Numeric.
@@ -46,5 +51,7 @@ floor_or_ceiling <- function(x) {
 #' @noRd
 #' @keywords internal
 frac_year <- function(x) {
-  as.numeric(format(x, "%Y")) + (as.numeric(format(x, "%j")) / 365.2425)
+  base <- as.Date("1970-01-01")
+  date <- as.Date(paste("1970", x, sep = "-"), format = "%Y-%m-%d")
+  as.numeric(date - base) / 365.2425
 }

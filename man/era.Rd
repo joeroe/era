@@ -19,8 +19,8 @@ abbreviated label of a standard era defined in \code{\link[=eras]{eras()}}.
 Otherwise, the label to give to the era constructed using the following
 arguments.}
 
-\item{epoch}{Numeric. Epoch year from which years are counted (in the Common
-Era).}
+\item{epoch}{Numeric. Epoch year from which years are counted in Gregorian
+astronomical years (i.e. there is a "year zero").}
 
 \item{name}{Character. Full name of the era. Defaults to the value of
 \code{label}.}

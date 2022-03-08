@@ -35,7 +35,7 @@ Extracts a specific parameter from an era object.
 The available parameters are:
 \itemize{
 \item \strong{label} – unique, abbreviated label of the era, e.g. "cal BP"
-\item \strong{epoch} – year of origin of the era, e.g. 1950 for years Before Present
+\item \strong{epoch} – year of origin of the era, e.g. 1950 for Before Present
 \item \strong{name} – full name of the era, e.g. "calendar years Before Present"
 \item \strong{unit} – unit of years used, an \code{\link[=era_year]{era_year()}} object
 \item \strong{scale} – multiple of years used, e.g. 1000 for ka/kiloannum

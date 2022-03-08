@@ -19,8 +19,8 @@ methods::setOldClass(c("era", "vctrs_rcrd"))
 #'  abbreviated label of a standard era defined in [eras()].
 #'  Otherwise, the label to give to the era constructed using the following
 #'  arguments.
-#' @param epoch  Numeric. Epoch year from which years are counted (in the Common
-#'  Era).
+#' @param epoch  Numeric. Epoch year from which years are counted in Gregorian
+#'  astronomical years (i.e. there is a "year zero").
 #' @param name  Character. Full name of the era. Defaults to the value of
 #'  `label`.
 #' @param unit  An [era_year()] object describing the name of the year unit and
@@ -334,7 +334,7 @@ vec_proxy_equal.era <- function(x, ...) {
 #' The available parameters are:
 #'
 #' * **label** – unique, abbreviated label of the era, e.g. "cal BP"
-#' * **epoch** – year of origin of the era, e.g. 1950 for years Before Present
+#' * **epoch** – year of origin of the era, e.g. 1950 for Before Present
 #' * **name** – full name of the era, e.g. "calendar years Before Present"
 #' * **unit** – unit of years used, an [era_year()] object
 #' * **scale** – multiple of years used, e.g. 1000 for ka/kiloannum

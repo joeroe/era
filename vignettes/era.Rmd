@@ -128,7 +128,7 @@ Eras are defined by the `era` class with the following parameters:
 
 * **label**: an abbreviated label that uniquely identifies the era
 * **name**: the full name of the era
-* **epoch**: the origin year from which years are counted
+* **epoch**: the origin year from which years are counted (in Gregorian astronomical years)
 * **unit**: the unit of years counted, defined as its length in solar days
 * **scale**: the number of years represented by one unit
 * **direction**: whether years are counted forwards (`1`) or backwards (`-1`) from the epoch
