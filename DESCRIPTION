@@ -28,7 +28,6 @@ Imports:
     vctrs (>= 0.3.0),
     methods,
     rlang,
-    magrittr,
     pillar
 Suggests: 
     tibble,

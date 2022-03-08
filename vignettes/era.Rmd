@@ -90,7 +90,7 @@ postglacial <- tribble(
   "Heinrich 1",      17.0
 )
 
-postglacial %>% 
+postglacial |> 
   mutate(start_ka = yr(start_ka, "ka"))
 ```
 
@@ -150,8 +150,8 @@ As long as all the parameters are specified correctly, user-defined eras can als
 Use `yr_transform()` to convert between eras:
 
 ```{r transform}
-postglacial %>% 
-  mutate(start_ka = yr(start_ka, "ka")) %>% 
+postglacial |> 
+  mutate(start_ka = yr(start_ka, "ka")) |> 
   mutate(start_bp = yr_transform(start_ka, era("BP")),
          start_bce = yr_transform(start_ka, era("BCE")))
 ```
@@ -164,7 +164,7 @@ This means that, with a few exceptions (see [invalid transformations](#invalidtr
 By default, era transformations are exact:
 
 ```{r yr-transform-precision1}
-yr(500000, "BCE") %>% 
+yr(500000, "BCE") |> 
   yr_transform(era("ka"))
 ```
 
@@ -173,10 +173,10 @@ For example, when converting years between calendar- and present-based eras, the
 Use the `precision` argument of `yr_transform` to get rounded results:
 
 ```{r yr-transform-precision2}
-yr(10000, "BP") %>% 
+yr(10000, "BP") |> 
   yr_transform(era("BCE"), precision = 1000)
 
-yr(500000, "BCE") %>% 
+yr(500000, "BCE") |> 
   yr_transform(era("mya"), precision = 0.1)
 ```
 
