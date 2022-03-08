@@ -108,7 +108,7 @@ yr(10000, "BP")
 yr_transform(yr(10000, "BP"), "BCE")
 ```
 
-If you need to use a time scale that is not in this list, you can [define it yourself](#era-definition) with `era()`.
+If you need to use a time scale that is not in this list, you can [define it yourself](#defining-other-eras) with `era()`.
 Suggestions for new eras to include in the package are also welcome; please [create an issue](https://github.com/joeroe/era/issues) on GitHub with suggestions.
 
 ### List of built-in eras {#era-list}
