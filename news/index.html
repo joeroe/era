@@ -67,15 +67,25 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="development version" id="era-development-version">era (development version)<a class="anchor" aria-label="anchor" href="#era-development-version"></a></h2>
-<ul><li>New year units: sidereal, tropical, and anomalistic astronomic years <a href="https://github.com/joeroe/era/issues/15" class="external-link">#15</a></li>
-<li>More precise epoch value for Hijri eras: <code>621.5394</code> instead of <code>622</code>.</li>
+<ul><li>New eras:
+<ul><li>Anno Mundi (Hebrew calendar)</li>
+</ul></li>
+<li>New year units:
+<ul><li>Sidereal, tropical, and anomalistic astronomic years <a href="https://github.com/joeroe/era/issues/15" class="external-link">#15</a></li>
+<li>Hebrew lunisolar years</li>
+</ul></li>
+<li>Changes to existing eras:
+<ul><li>More precise epoch value for Hijri eras: <code>621.5394</code> instead of <code>622</code>.</li>
 <li>More precise epoch value for Nowruz (Solar Hijri) eras: <code>621.2218</code> instead of <code>622</code>.</li>
+</ul></li>
 <li>
 <code><a href="../reference/this_year.html">this_year()</a></code> now considers the current date, returns a floored integer (i.e. the actual current calendar year), and is vectorised over <code>era</code>.</li>
 <li>Class constructors <code><a href="../reference/era.html">era()</a></code> and <code><a href="../reference/yr.html">yr()</a></code> return a zero-length vector when called with no arguments (instead of an error), allowing them to be used as <a href="https://vctrs.r-lib.org/articles/type-size.html" class="external-link">prototypes</a>
 </li>
 <li>
 <code>era_yr</code> objects can be cast to character vectors (e.g. <code>as.character(yr(1, "BP"))</code>)</li>
+<li>
+<code>era</code> no longer exports <code>magrittr</code>’s pipe operator (<code>%&gt;%</code>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.1" id="era-031">era 0.3.1<small>2021-01-29</small><a class="anchor" aria-label="anchor" href="#era-031"></a></h2>
