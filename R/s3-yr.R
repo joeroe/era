@@ -3,6 +3,7 @@
 
 # Register formal class for S4 compatibility
 # https://vctrs.r-lib.org/articles/s3-vector.html#implementing-a-vctrs-s3-class-in-a-package-1
+#' @importFrom methods setOldClass
 methods::setOldClass(c("era_yr", "vctrs_vctr"))
 
 # Constructors ------------------------------------------------------------
