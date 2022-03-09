@@ -1,4 +1,4 @@
-# era (development version)
+# era 0.4.0
 
 * New eras:
   * Anno Mundi (Hebrew calendar)
