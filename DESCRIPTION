@@ -1,6 +1,6 @@
 Package: era
 Type: Package
-Title: Year-based Time Scales
+Title: Year-Based Time Scales
 Version: 0.3.1.9000
 Authors@R: person("Joe", "Roe", email = "joe@joeroe.io",
   role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1011-1244"))
