@@ -78,15 +78,16 @@
 <ul><li>More precise epoch value for Hijri eras: <code>621.5394</code> instead of <code>622</code>.</li>
 <li>More precise epoch value for Nowruz (Solar Hijri) eras: <code>621.2218</code> instead of <code>622</code>.</li>
 </ul></li>
+<li>Fixed recurring issues related to the absence of a year 0 in BCE/CE <a href="https://github.com/joeroe/era/issues/4" class="external-link">#4</a></li>
 <li>
 <code><a href="../reference/this_year.html">this_year()</a></code> now considers the current date, returns a floored integer (i.e. the actual current calendar year), and is vectorised over <code>era</code>.</li>
-<li>Class constructors <code><a href="../reference/era.html">era()</a></code> and <code><a href="../reference/yr.html">yr()</a></code> return a zero-length vector when called with no arguments (instead of an error), allowing them to be used as <a href="https://vctrs.r-lib.org/articles/type-size.html" class="external-link">prototypes</a>
+<li>Added pillar printing methods for <code>era</code> (<a href="https://github.com/joeroe/era/issues/33" class="external-link">#33</a>) and <code>era_year</code> (<a href="https://github.com/joeroe/era/issues/34" class="external-link">#34</a>) in tibbles</li>
+<li>Class constructors <code><a href="../reference/era.html">era()</a></code> and <code><a href="../reference/yr.html">yr()</a></code> now return a zero-length vector when called with no arguments (instead of an error), allowing them to be used as <a href="https://vctrs.r-lib.org/articles/type-size.html" class="external-link">prototypes</a>
 </li>
 <li>
-<code>era_yr</code> objects can be cast to character vectors (e.g. <code>as.character(yr(1, "BP"))</code>)</li>
+<code>era_yr</code> objects can now be cast to character vectors (e.g. <code>as.character(yr(1, "BP"))</code>)</li>
 <li>
 <code>era</code> no longer exports <code>magrittr</code>’s pipe operator (<code>%&gt;%</code>)</li>
-<li>Fixed recurring issues related to the absence of a year 0 in BCE/CE <a href="https://github.com/joeroe/era/issues/2" class="external-link">#2</a></li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.1" id="era-031">era 0.3.1<small>2021-01-29</small><a class="anchor" aria-label="anchor" href="#era-031"></a></h2>
