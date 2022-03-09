@@ -9,13 +9,15 @@ library("usethis")
 #   the start of the year.
 # - Use era:::frac_year("MM-DD") to roughly align calendars where the year
 #   doesn't begin on 1 January.
+# - If the year numbering starts with 1 (e.g. 1 CE, 1 AH), the epoch is one year
+#   *before* the start of that year.
 present <- 1950
 # Hijra <https://www.soundvision.com/article/the-beginning-of-hijri-calendar>
-hijra <- 622 + era:::frac_year("07-16")
+hijra <- 621 + era:::frac_year("07-16")
 # Hijra (Nowruz) <https://web.archive.org/web/20050311055900/http://wwwusr.obspm.fr/~heydari/divers/ir-cal-eng.html>
-nhijra <- 622 + era:::frac_year("03-22")
+nhijra <- 621 + era:::frac_year("03-22")
 # Anno Mundi
-mundi <- -3760 + era:::frac_year("10-07")
+mundi <- -3761 + era:::frac_year("10-07")
 
 # YEAR UNITS
 # - Defined as the *mean* length in days; accounting for the differing lengths
@@ -72,11 +74,11 @@ era_table <- tribble(
   "AD O.S.",   0,       "Anno Domini (Old Style)",               julian,         1L,    1,
   "BC O.S.",   1,       "Before Christ (New Style)",             julian,         1L,    1,
   # Islamic calendars
-  "H",         hijra,   "Hijra",                                 islamic_lunar,  1L,    1,
-  "AH",        hijra,   "Anno Hegirae",                          islamic_lunar,  1L,    1,
-  "BH",        hijra,   "Before the Hijra",                      islamic_lunar,  1L,    -1,
-  "SH",        nhijra,  "Solar Hijri",                           nowruz,         1L,    1,
-  "BSH",       nhijra,  "Before Solar Hijri",                    nowruz,         1L,    -1,
+  "H",         hijra,    "Hijra",                                 islamic_lunar,  1L,    1,
+  "AH",        hijra,    "Anno Hegirae",                          islamic_lunar,  1L,    1,
+  "BH",        hijra+1,  "Before the Hijra",                      islamic_lunar,  1L,    -1,
+  "SH",        nhijra,   "Solar Hijri",                           nowruz,         1L,    1,
+  "BSH",       nhijra+1, "Before Solar Hijri",                    nowruz,         1L,    -1,
   # Jewish calendars
   "AM",        mundi,   "Anno Mundi",                            hebrew,         1L,    1,
   # Historic calendars
