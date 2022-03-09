@@ -13,7 +13,8 @@
 * Added pillar printing methods for `era` (#33) and `era_year` (#34) in tibbles
 * Class constructors `era()` and `yr()` now return a zero-length vector when called with no arguments (instead of an error), allowing them to be used as [prototypes](https://vctrs.r-lib.org/articles/type-size.html)
 * `era_yr` objects can now be cast to character vectors (e.g. `as.character(yr(1, "BP"))`)
-* `era` no longer exports `magrittr`'s pipe operator (`%>%`)
+* Combining otherwise equivalent eras with different names or labels with `c()` now triggers a warning (#27), consistent with combining them using arithmetic (#3)
+* The `era` package no longer exports `magrittr`'s pipe operator (`%>%`)
 
 # era 0.3.1
 
