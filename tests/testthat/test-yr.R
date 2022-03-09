@@ -97,7 +97,7 @@ test_that("yr arithmetic respects era equality", {
   expect_condition(yr(1, "BP") + yr(1, "BP"), NA)
   expect_warning(yr(1, "BP") + yr(1, "cal BP"), class = "era_lossy_coercion")
   expect_warning(yr(1, "BC") + yr(1, "BCE"), class = "era_lossy_coercion")
-  expect_error(yr(1, "BP") + yr(1, "BC"), class = "vctrs_error_incompatible_op")
+  expect_error(yr(1, "BP") + yr(1, "BC"), class = "vctrs_error_incompatible")
 })
 
 test_that("yr arithmetic preserves era where appropriate", {

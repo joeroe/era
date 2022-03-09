@@ -167,6 +167,12 @@ vec_cast.era_yr.era_yr <- function(x, to, ..., x_arg = "", to_arg = "") {
                            details = "Reconcile eras with yr_transform() first.")
   }
 
+  if (era_label(yr_era(x)) != era_label(yr_era(to)) |
+      era_name(yr_era(x)) != era_name(yr_era(to))) {
+    warn(c("eras have different label or name parameters."),
+         class = "era_lossy_coercion")
+  }
+
   new_yr(vec_data(x), era = yr_era(to))
 }
 
@@ -260,16 +266,7 @@ vec_arith.era_yr.default <- function(op, x, y, ...) {
 #' @method vec_arith.era_yr era_yr
 #' @export
 vec_arith.era_yr.era_yr <- function(op, x, y, ...) {
-  if (yr_era(x) != yr_era(y)) {
-    stop_incompatible_op(op, x, y,
-                         details = "Reconcile eras with yr_transform() first.")
-  }
-
-  if (era_label(yr_era(x)) != era_label(yr_era(y)) |
-      era_name(yr_era(x)) != era_name(yr_era(y))) {
-    warn("`era(x)` and `era(y)` have different label or name parameters.",
-         class = "era_lossy_coercion")
-  }
+  y <- vec_cast(y, x)
 
   switch(
     op,
