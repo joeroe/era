@@ -72,8 +72,8 @@ Use `yr_transform()` to convert between eras:
 ``` r
 yr_transform(x, "BCE")
 #> # BCE years <yr[3]>:
-#> [1] 7050 6050 5050
-#> # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0
+#> [1] 7051 6051 5051
+#> # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 1
 ```
 
 Many common calendar systems and time scales are predefined (see
