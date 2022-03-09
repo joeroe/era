@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Year-based Time Scales • era</title>
+<title>Year-Based Time Scales • era</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Year-based Time Scales">
+<script src="pkgdown.js"></script><meta property="og:title" content="Year-Based Time Scales">
 <meta property="og:description" content="Provides a consistent representation of year-based time scales as a
     numeric vector with an associated era. There are built-in era definitions
     for many year numbering systems used in contemporary and historic calendars 
@@ -52,7 +52,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
       </span>
     </div>
 
@@ -140,8 +140,8 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/yr_transform.html">yr_transform</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"BCE"</span><span class="op">)</span>
 <span class="co">#&gt; # BCE years &lt;yr[3]&gt;:</span>
-<span class="co">#&gt; [1] 7050 6050 5050</span>
-<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0</span></code></pre></div>
+<span class="co">#&gt; [1] 7051 6051 5051</span>
+<span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 1</span></code></pre></div>
 <p>Many common calendar systems and time scales are predefined (see <code>?eras()</code>) and can be referenced by their abbreviated labels. Other eras can be defined using the <code><a href="reference/era.html">era()</a></code> function directly.</p>
 <p>For further usage, see the <a href="https://era.joeroe.io/articles/era.html">package introduction</a> (<code><a href="articles/era.html">vignette("era")</a></code>).</p>
 </div>
@@ -195,7 +195,7 @@
 <li><a href="https://CRAN.R-project.org/package=era" class="external-link"><img src="https://www.r-pkg.org/badges/version/era" alt="CRAN status"></a></li>
 <li><a href="https://cranchecks.info/pkgs/era" class="external-link"><img src="https://cranchecks.info/badges/worst/era" alt="CRAN checks"></a></li>
 <li><a href="https://github.com/joeroe/era/actions" class="external-link"><img src="https://github.com/joeroe/era/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://codecov.io/gh/joeroe/era?branch=master" class="external-link"><img src="https://codecov.io/gh/joeroe/era/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://app.codecov.io/gh/joeroe/era?branch=master" class="external-link"><img src="https://codecov.io/gh/joeroe/era/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 
