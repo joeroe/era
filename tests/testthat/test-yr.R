@@ -100,6 +100,27 @@ test_that("yr arithmetic respects era equality", {
   expect_error(yr(1, "BP") + yr(1, "BC"), class = "vctrs_error_incompatible_op")
 })
 
+test_that("yr arithmetic preserves era where appropriate", {
+  # switch statements in vec_arith.* "fall through" to lowest operator, so only
+  # need to test that
+  expect_s3_class(yr(1, "BP") - yr(1, "BP"), "era_yr")
+  expect_s3_class(yr(1, "BP") - 1, "era_yr")
+  expect_s3_class(1 - yr(1, "BP"), "era_yr")
+})
+
+test_that("yr arithmetic strips era where appropriate", {
+  # switch statements in vec_arith.* "fall through" to lowest operator, so only
+  # need to test that
+  expect_s3_class(yr(10, "BP") %/% yr(2, "BP"), NA)
+  expect_s3_class(yr(10, "BP") %/% 2, NA)
+  expect_s3_class(2 %/% yr(10, "BP"), NA)
+})
+
+test_that("unary arithmetic operators work with yrs", {
+  expect_equal(-yr(1, "BP"), yr(-1, "BP"))
+  expect_equal(+yr(1, "BP"), yr(1, "BP"))
+})
+
 test_that("yr get and set functions work", {
   x <- yr(1, "BP")
   expect_equal(yr_era(x), era("BP"))
