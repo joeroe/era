@@ -72,6 +72,12 @@ format.era_year <- function(x, ...) {
   paste0(era_year_label(x), " years (", era_year_days(x), " days)")
 }
 
+#' @importFrom pillar pillar_shaft
+#' @export
+pillar_shaft.era_year <- function(x, ...) {
+  out <- format(era_year_label(x), justify = "right")
+  pillar::new_pillar_shaft_simple(out, align = "right")
+}
 
 # Get/set attributes -----------------------------------------------------
 

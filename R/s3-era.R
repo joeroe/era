@@ -302,6 +302,12 @@ format.era <- function(x, ...) {
   return(out)
 }
 
+#' @importFrom pillar pillar_shaft
+#' @export
+pillar_shaft.era <- function(x, ...) {
+  out <- format(era_label(x), justify = "right")
+  pillar::new_pillar_shaft_simple(out, align = "right")
+}
 
 # Casting/coercion --------------------------------------------------------
 

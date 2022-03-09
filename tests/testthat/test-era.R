@@ -96,8 +96,12 @@ test_that("validate_era() finds specific problems", {
                regexp = "direction")
 })
 
-test_that("format.era returns correct output", {
+test_that("format.era has expected format", {
   expect_snapshot_output(era("BP"))
+})
+
+test_that("pillar_shaft.era has expected format", {
+  expect_snapshot_output(tibble::tibble(era = era(c("cal BP", "BC", "AH"))))
 })
 
 test_that("eras(label) returns correct exact match", {
