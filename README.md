@@ -15,7 +15,7 @@ checks](https://cranchecks.info/badges/worst/era)](https://cranchecks.info/pkgs/
 [![R build
 status](https://github.com/joeroe/era/workflows/R-CMD-check/badge.svg)](https://github.com/joeroe/era/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/joeroe/era/branch/master/graph/badge.svg)](https://codecov.io/gh/joeroe/era?branch=master)
+coverage](https://codecov.io/gh/joeroe/era/branch/master/graph/badge.svg)](https://app.codecov.io/gh/joeroe/era?branch=master)
 <!-- badges: end -->
 
 **era** is an R package that provides a consistent representation of
