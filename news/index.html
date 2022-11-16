@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.1</span>
       </span>
     </div>
 
@@ -65,17 +65,14 @@
       <small>Source: <a href="https://github.com/joeroe/era/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2"><h2 class="page-header" data-toc-text="0.4.1" id="era-041">era 0.4.1<a class="anchor" aria-label="anchor" href="#era-041"></a></h2></div>
     <div class="section level2">
-<h2 class="page-header" data-toc-text="0.4.0" id="era-040">era 0.4.0<a class="anchor" aria-label="anchor" href="#era-040"></a></h2>
-<ul><li>New eras:
-<ul><li>Anno Mundi (Hebrew calendar)</li>
-</ul></li>
-<li>New year units:
-<ul><li>Sidereal, tropical, and anomalistic astronomic years <a href="https://github.com/joeroe/era/issues/15" class="external-link">#15</a></li>
+<h2 class="page-header" data-toc-text="0.4.0" id="era-040">era 0.4.0<small>2022-03-09</small><a class="anchor" aria-label="anchor" href="#era-040"></a></h2>
+<ul><li>New eras:<ul><li>Anno Mundi (Hebrew calendar)</li></ul></li>
+<li>New year units:<ul><li>Sidereal, tropical, and anomalistic astronomic years <a href="https://github.com/joeroe/era/issues/15" class="external-link">#15</a></li>
 <li>Hebrew lunisolar years</li>
 </ul></li>
-<li>Changes to existing eras:
-<ul><li>More precise epoch value for Hijri eras: <code>621.5394</code> instead of <code>622</code>.</li>
+<li>Changes to existing eras:<ul><li>More precise epoch value for Hijri eras: <code>621.5394</code> instead of <code>622</code>.</li>
 <li>More precise epoch value for Nowruz (Solar Hijri) eras: <code>621.2218</code> instead of <code>622</code>.</li>
 </ul></li>
 <li>Fixed recurring issues related to the absence of a year 0 in BCE/CE <a href="https://github.com/joeroe/era/issues/4" class="external-link">#4</a></li>
@@ -92,28 +89,23 @@
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.1" id="era-031">era 0.3.1<small>2021-01-29</small><a class="anchor" aria-label="anchor" href="#era-031"></a></h2>
 <p>CRAN release.</p>
-<ul><li>Fixed moved link in README</li>
-</ul></div>
+<ul><li>Fixed moved link in README</li></ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.0" id="era-030">era 0.3.0<a class="anchor" aria-label="anchor" href="#era-030"></a></h2>
 <p>Second beta / CRAN pre-release.</p>
-<ul><li>Added new era definitions:
-<ul><li>Islamic calendars (Lunar Hijri, Solar Hijri).</li>
+<ul><li>Added new era definitions:<ul><li>Islamic calendars (Lunar Hijri, Solar Hijri).</li>
 <li>Julian calendar</li>
 </ul></li>
-<li>Reworked era definition scheme:
-<ul><li>Unit is now represented by the <code>era_year</code> class, which describes its length in solar days as well as its name. Added functions for constructing and working with <code>era_year</code> objects: <code><a href="../reference/era_year.html">era_year()</a></code>, <code><a href="../reference/is_era_year.html">is_era_year()</a></code>, <code><a href="../reference/era_year_parameters.html">era_year_label()</a></code>, <code><a href="../reference/era_year_parameters.html">era_year_days()</a></code>.</li>
+<li>Reworked era definition scheme:<ul><li>Unit is now represented by the <code>era_year</code> class, which describes its length in solar days as well as its name. Added functions for constructing and working with <code>era_year</code> objects: <code><a href="../reference/era_year.html">era_year()</a></code>, <code><a href="../reference/is_era_year.html">is_era_year()</a></code>, <code><a href="../reference/era_year_parameters.html">era_year_label()</a></code>, <code><a href="../reference/era_year_parameters.html">era_year_days()</a></code>.</li>
 <li>Direction is now coded as <code>1</code> (“forwards”) or <code>-1</code> (“backwards”). The previous character arguments still work but are deprecated.</li>
 <li>Equality tests for eras now only check significant parameters (i.e. not “label” or “name”), allowing for coercion between functionally equivalent eras, e.g. <code>yr(1, "BP") + yr(1, "cal BP")</code> now works (with a warning) (<a href="https://github.com/joeroe/era/issues/3" class="external-link">#3</a>).</li>
 </ul></li>
-<li>Improved <code><a href="../reference/yr_transform.html">yr_transform()</a></code>:
-<ul><li>Can now convert between eras with different year units (<a href="https://github.com/joeroe/era/issues/25" class="external-link">#25</a>).</li>
+<li>Improved <code><a href="../reference/yr_transform.html">yr_transform()</a></code>:<ul><li>Can now convert between eras with different year units (<a href="https://github.com/joeroe/era/issues/25" class="external-link">#25</a>).</li>
 <li>Now has a <code>precision</code> argument, allowing the result to be rounded (<a href="https://github.com/joeroe/era/issues/23" class="external-link">#23</a>).</li>
 </ul></li>
 <li>
 <code>era</code> and <code>yr</code> objects are now validated when constructed, using new functions <code><a href="../reference/is_era.html">validate_era()</a></code>/<code><a href="../reference/is_era.html">is_valid_era()</a></code> and <code><a href="../reference/is_yr.html">validate_yr()</a></code>/<code><a href="../reference/is_yr.html">is_valid_yr()</a></code> (<a href="https://github.com/joeroe/era/issues/7" class="external-link">#7</a> and <a href="https://github.com/joeroe/era/issues/8" class="external-link">#8</a>).</li>
-<li>Minor changes/bug fixes:
-<ul><li>Added <code><a href="../reference/this_year.html">this_year()</a></code>, which returns the current year as a <code>yr</code> object.</li>
+<li>Minor changes/bug fixes:<ul><li>Added <code><a href="../reference/this_year.html">this_year()</a></code>, which returns the current year as a <code>yr</code> object.</li>
 <li>
 <code>era(NA)</code> now returns an error, not a vector of all standard eras (<a href="https://github.com/joeroe/era/issues/20" class="external-link">#20</a>).</li>
 <li>All <code>era</code> arguments in functions can now accept a character vector (<a href="https://github.com/joeroe/era/issues/20" class="external-link">#20</a>)</li>
@@ -127,16 +119,14 @@
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.0" id="era-020">era 0.2.0<a class="anchor" aria-label="anchor" href="#era-020"></a></h2>
 <p>First beta release, including:</p>
-<ul><li>S3 vector class <code>yr</code> (<code>era_yr</code>) representing years with an era
-<ul><li>
+<ul><li>S3 vector class <code>yr</code> (<code>era_yr</code>) representing years with an era<ul><li>
 <code><a href="../reference/yr.html">yr()</a></code> constructor</li>
 <li>Functions for getting and setting the era of a <code>yr</code> object: <code><a href="../reference/yr_era.html">yr_era()</a></code>, <code>yr_era()&lt;-</code> and <code><a href="../reference/yr_era.html">yr_set_era()</a></code>
 </li>
 <li>Format and print methods for <code>yr</code>s</li>
 <li>Vector arithmetic methods for <code>yr</code>s</li>
 </ul></li>
-<li>S3 record class <code>era</code> representing an era definition
-<ul><li>
+<li>S3 record class <code>era</code> representing an era definition<ul><li>
 <code><a href="../reference/era.html">era()</a></code> constructor</li>
 <li>Format and print methods for <code>era</code>s</li>
 <li>Getter functions for era parameters: <code><a href="../reference/era_parameters.html">era_label()</a></code>, <code><a href="../reference/era_parameters.html">era_name()</a></code>, <code><a href="../reference/era_parameters.html">era_epoch()</a></code>, <code><a href="../reference/era_parameters.html">era_unit()</a></code>, <code><a href="../reference/era_parameters.html">era_scale()</a></code>, <code><a href="../reference/era_parameters.html">era_direction()</a></code>
@@ -168,7 +158,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

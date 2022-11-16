@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.1</span>
       </span>
     </div>
 
@@ -71,21 +71,26 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">yr</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></span><span class="op">(</span><span class="op">)</span>, era <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">yr</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></span><span class="op">(</span><span class="op">)</span>, era <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>A numeric vector of years.</p></dd>
+
+
 <dt>era</dt>
 <dd><p>The calendar era used by <code>x</code>. Either:</p><ul><li><p>A string matching one of the standard era labels defined in <code><a href="eras.html">eras()</a></code></p></li>
 <li><p>An <code>era</code> object constructed with <code><a href="era.html">era()</a></code></p></li>
 </ul></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code>yr</code> (<code>era_yr</code>) object.</p>
+    
+
+<p>A <code>yr</code> (<code>era_yr</code>) object.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -96,15 +101,15 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># The R Age</span></span>
-<span class="r-in"><span class="fu">yr</span><span class="op">(</span><span class="fl">1993</span><span class="op">:</span><span class="fl">2020</span>, <span class="st">"CE"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># The R Age</span></span></span>
+<span class="r-in"><span><span class="fu">yr</span><span class="op">(</span><span class="fl">1993</span><span class="op">:</span><span class="fl">2020</span>, <span class="st">"CE"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # CE years &lt;yr[28]&gt;:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [16] 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # Era: Common Era (CE): Gregorian years (365.2425 days), counted forwards from 0</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># A bad movie</span></span>
-<span class="r-in"><span class="fu">yr</span><span class="op">(</span><span class="fl">10000</span>, <span class="st">"BC"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># A bad movie</span></span></span>
+<span class="r-in"><span><span class="fu">yr</span><span class="op">(</span><span class="fl">10000</span>, <span class="st">"BC"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # BC years &lt;yr[1]&gt;:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 10000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # Era: Before Christ (BC): Gregorian years (365.2425 days), counted backwards from 1</span>
@@ -122,7 +127,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

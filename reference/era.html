@@ -21,7 +21,7 @@ parameters."><meta property="og:image" content="https://era.joeroe.io/logo.svg">
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.1</span>
       </span>
     </div>
 
@@ -79,14 +79,14 @@ parameters.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">era</span><span class="op">(</span>
-  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,
-  epoch <span class="op">=</span> <span class="cn">NULL</span>,
-  name <span class="op">=</span> <span class="va">label</span>,
-  unit <span class="op">=</span> <span class="fu"><a href="era_year.html">era_year</a></span><span class="op">(</span><span class="st">"Gregorian"</span><span class="op">)</span>,
-  scale <span class="op">=</span> <span class="fl">1</span>,
-  direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">era</span><span class="op">(</span></span>
+<span>  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  epoch <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  name <span class="op">=</span> <span class="va">label</span>,</span>
+<span>  unit <span class="op">=</span> <span class="fu"><a href="era_year.html">era_year</a></span><span class="op">(</span><span class="st">"Gregorian"</span><span class="op">)</span>,</span>
+<span>  scale <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -96,26 +96,39 @@ parameters.</p>
 abbreviated label of a standard era defined in <code><a href="eras.html">eras()</a></code>.
 Otherwise, the label to give to the era constructed using the following
 arguments.</p></dd>
+
+
 <dt>epoch</dt>
 <dd><p>Numeric. Epoch year from which years are counted in Gregorian
 astronomical years (i.e. there is a "year zero").</p></dd>
+
+
 <dt>name</dt>
 <dd><p>Character. Full name of the era. Defaults to the value of
 <code>label</code>.</p></dd>
+
+
 <dt>unit</dt>
 <dd><p>An <code><a href="era_year.html">era_year()</a></code> object describing the name of the year unit and
 its average length in solar days. Defaults to a Gregorian year
 (365.2425 days).</p></dd>
+
+
 <dt>scale</dt>
 <dd><p>Integer. Number of years represented by one unit, e.g. <code>1000</code>
 for ka. Default: 1.</p></dd>
+
+
 <dt>direction</dt>
 <dd><p>Are years counted backwards (<code>-1</code>) (the default) or forwards (<code>1</code>)
 from <code>epoch</code>?</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>An object of class <code>era</code>.</p>
+    
+
+<p>An object of class <code>era</code>.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -133,11 +146,11 @@ from <code>epoch</code>?</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">era</span><span class="op">(</span><span class="st">"cal BP"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">era</span><span class="op">(</span><span class="st">"cal BP"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;era[1]&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] Before Present (cal BP): Gregorian years (365.2425 days), counted backwards from 1950</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">era</span><span class="op">(</span><span class="st">"T.A."</span>, epoch <span class="op">=</span> <span class="op">-</span><span class="fl">9021</span>, name <span class="op">=</span> <span class="st">"Third Age"</span>, direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">era</span><span class="op">(</span><span class="st">"T.A."</span>, epoch <span class="op">=</span> <span class="op">-</span><span class="fl">9021</span>, name <span class="op">=</span> <span class="st">"Third Age"</span>, direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;era[1]&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] Third Age (T.A.): Gregorian years (365.2425 days), counted forwards from -9021</span>
 </code></pre></div>
@@ -154,7 +167,7 @@ from <code>epoch</code>?</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

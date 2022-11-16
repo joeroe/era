@@ -19,7 +19,7 @@ specific era by its unique, abbreviated name (e.g. "cal BP").'><meta property="o
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.1</span>
       </span>
     </div>
 
@@ -75,17 +75,20 @@ specific era by its unique, abbreviated name (e.g. "cal BP").</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">eras</span><span class="op">(</span>label <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">eras</span><span class="op">(</span>label <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>label</dt>
 <dd><p>(Optional) Abbreviated names(s) of eras to look up.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A table of era definitions. This can be passed to <code><a href="era.html">era()</a></code> to construct an
+    
+
+<p>A table of era definitions. This can be passed to <code><a href="era.html">era()</a></code> to construct an
 <code>era</code> object.</p>
     </div>
     <div id="details">
@@ -100,8 +103,8 @@ specific era by its unique, abbreviated name (e.g. "cal BP").</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># List all available eras</span></span>
-<span class="r-in"><span class="fu">eras</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># List all available eras</span></span></span>
+<span class="r-in"><span><span class="fu">eras</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 33 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    label  epoch name                    unit      scale direction</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;era_year&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -116,16 +119,16 @@ specific era by its unique, abbreviated name (e.g. "cal BP").</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Ma      <span style="text-decoration: underline;">1</span>950 megaannum          Gregorian    1<span style="text-decoration: underline;">000</span>000        -<span style="color: #BB0000;">1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Ga      <span style="text-decoration: underline;">1</span>950 gigaannum          Gregorian <span style="text-decoration: underline;">1</span>000<span style="text-decoration: underline;">000</span>000        -<span style="color: #BB0000;">1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 23 more rows</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Look up a specific era by label</span></span>
-<span class="r-in"><span class="fu">eras</span><span class="op">(</span><span class="st">"cal BP"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Look up a specific era by label</span></span></span>
+<span class="r-in"><span><span class="fu">eras</span><span class="op">(</span><span class="st">"cal BP"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   label  epoch name                 unit scale direction</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;era_year&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cal BP  <span style="text-decoration: underline;">1</span>950 Before Present  Gregorian     1        -<span style="color: #BB0000;">1</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># With partial matching</span></span>
-<span class="r-in"><span class="fu">eras</span><span class="op">(</span><span class="st">"cal"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># With partial matching</span></span></span>
+<span class="r-in"><span><span class="fu">eras</span><span class="op">(</span><span class="st">"cal"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   label  epoch name                 unit scale direction</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;era_year&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -144,7 +147,7 @@ specific era by its unique, abbreviated name (e.g. "cal BP").</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

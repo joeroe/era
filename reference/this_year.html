@@ -18,7 +18,7 @@ era."><meta property="og:image" content="https://era.joeroe.io/logo.svg"><meta n
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.1</span>
       </span>
     </div>
 
@@ -73,7 +73,7 @@ era."><meta property="og:image" content="https://era.joeroe.io/logo.svg"><meta n
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">this_year</span><span class="op">(</span>era <span class="op">=</span> <span class="st">"CE"</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">this_year</span><span class="op">(</span>era <span class="op">=</span> <span class="st">"CE"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -81,10 +81,13 @@ era."><meta property="og:image" content="https://era.joeroe.io/logo.svg"><meta n
     <dl><dt>era</dt>
 <dd><p>An <code>era</code> object or label understood by <code><a href="era.html">era()</a></code>. Defaults to the
 Common Era (<code>era("CE")</code>).</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code>yr</code> vector with the current year.</p>
+    
+
+<p>A <code>yr</code> vector with the current year.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -100,13 +103,13 @@ Common Era (<code>era("CE")</code>).</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># This year in the Common Era</span></span>
-<span class="r-in"><span class="fu">this_year</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># This year in the Common Era</span></span></span>
+<span class="r-in"><span><span class="fu">this_year</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # CE years &lt;yr[1]&gt;:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2022</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # Era: Common Era (CE): Gregorian years (365.2425 days), counted forwards from 0</span>
-<span class="r-in"><span class="co"># This year in the Holocene Epoch</span></span>
-<span class="r-in"><span class="fu">this_year</span><span class="op">(</span><span class="st">"HE"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># This year in the Holocene Epoch</span></span></span>
+<span class="r-in"><span><span class="fu">this_year</span><span class="op">(</span><span class="st">"HE"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # HE years &lt;yr[1]&gt;:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12022</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # Era: Holocene Era (HE): Gregorian years (365.2425 days), counted forwards from -10000</span>
@@ -124,7 +127,7 @@ Common Era (<code>era("CE")</code>).</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

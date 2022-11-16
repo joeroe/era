@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">era</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.1</span>
       </span>
     </div>
 
@@ -71,24 +71,31 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">yr_transform</span><span class="op">(</span><span class="va">x</span>, era <span class="op">=</span> <span class="fu"><a href="yr_era.html">yr_era</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, precision <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">yr_transform</span><span class="op">(</span><span class="va">x</span>, era <span class="op">=</span> <span class="fu"><a href="yr_era.html">yr_era</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, precision <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p><code>yr</code> object. A vector of years with an era, see <code><a href="yr.html">yr()</a></code>.</p></dd>
+
+
 <dt>era</dt>
 <dd><p><code>era</code> object describing the target era, see <code><a href="era.html">era()</a></code>.</p></dd>
+
+
 <dt>precision</dt>
 <dd><p>Desired precision of the transformation, i.e. the
 transformed values are rounded to the nearest <code>precision</code>. If <code>NA</code>
 (the default), no rounding is performed and the exact transformed value is
 returned.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code>yr</code> object in the era specified by <code>era</code>.</p>
+    
+
+<p>A <code>yr</code> object in the era specified by <code>era</code>.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -117,13 +124,13 @@ precision. It is also useful for working around the ambiguous definition of
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="yr.html">yr</a></span><span class="op">(</span><span class="fl">10010</span><span class="op">:</span><span class="fl">10001</span>, <span class="st">"cal BP"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">yr_transform</span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="era.html">era</a></span><span class="op">(</span><span class="st">"BCE"</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="yr.html">yr</a></span><span class="op">(</span><span class="fl">10010</span><span class="op">:</span><span class="fl">10001</span>, <span class="st">"cal BP"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">yr_transform</span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="era.html">era</a></span><span class="op">(</span><span class="st">"BCE"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # BCE years &lt;yr[10]&gt;:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 8061 8060 8059 8058 8057 8056 8055 8054 8053 8052</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 1</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">yr_transform</span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="era.html">era</a></span><span class="op">(</span><span class="st">"ka"</span><span class="op">)</span>, precision <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">yr_transform</span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="era.html">era</a></span><span class="op">(</span><span class="st">"ka"</span><span class="op">)</span>, precision <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # ka years &lt;yr[10]&gt;:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 10 10 10 10 10 10 10 10 10 10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # Era: kiloannum (ka): 1000 Gregorian years (365.2425 days), counted backwards from 1950</span>
@@ -141,7 +148,7 @@ precision. It is also useful for working around the ambiguous definition of
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
