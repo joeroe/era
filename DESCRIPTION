@@ -20,7 +20,7 @@ URL: https://era.joeroe.io, https://github.com/joeroe/era
 BugReports: https://github.com/joeroe/era/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.2
 Depends: 
     R (>= 2.10)
 Imports: 
