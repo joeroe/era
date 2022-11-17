@@ -1,3 +1,5 @@
+# era (development version)
+
 # era 0.4.1
 
 This patch fixes a malfunctioning test that was causing CRAN checks to fail. There are no significant changes.
