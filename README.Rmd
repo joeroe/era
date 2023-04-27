@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN status](https://www.r-pkg.org/badges/version/era)](https://CRAN.R-project.org/package=era)
 [![CRAN checks](https://badges.cranchecks.info/worst/era.svg)](https://cran.r-project.org/web/checks/check_results_era.html)
-[![R build status](https://github.com/joeroe/era/workflows/R-CMD-check/badge.svg)](https://github.com/joeroe/era/actions)
+[![R-CMD-check](https://github.com/joeroe/era/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joeroe/era/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/joeroe/era/branch/master/graph/badge.svg)](https://app.codecov.io/gh/joeroe/era?branch=master)
 <!-- badges: end -->
 
