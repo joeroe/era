@@ -5,6 +5,7 @@ authors:
     href: "https://joeroe.io"
 
 template:
+  bootstrap: 5
   opengraph:
     twitter:
       creator: "@joeroe90"
