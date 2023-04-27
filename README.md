@@ -11,7 +11,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![CRAN
 status](https://www.r-pkg.org/badges/version/era)](https://CRAN.R-project.org/package=era)
 [![CRAN
-checks](https://cranchecks.info/badges/worst/era)](https://cranchecks.info/pkgs/era)
+checks](https://badges.cranchecks.info/worst/era.svg)](https://cran.r-project.org/web/checks/check_results_era.html)
 [![R build
 status](https://github.com/joeroe/era/workflows/R-CMD-check/badge.svg)](https://github.com/joeroe/era/actions)
 [![Codecov test
@@ -41,17 +41,18 @@ tables.
 ## Installation
 
 You can install the released version of era from
-[CRAN](https://CRAN.R-project.org) with:
+[CRAN](https://cran.r-project.org/web/packages/era/index.html) with:
 
 ``` r
 install.packages("era")
 ```
 
-Or the development version from [GitHub](https://github.com/) with:
+Or the development version from [GitHub](https://github.com/joeroe/era)
+using the [remotes](https://remotes.r-lib.org/) package:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("joeroe/era")
+# install.packages("remotes")
+remotes::install_github("joeroe/era")
 ```
 
 ## Basic usage
