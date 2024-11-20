@@ -29,6 +29,8 @@ reference:
 
 news:
   releases:
+  - text: "era 0.5.0"
+    href: https://joeroe.io/2024/11/20/era-0.5.0.html
   - text: "era 0.3.1"
     href: https://joeroe.io/2021/02/07/era-0.3.1.html
   - text: "era 0.2.0"
