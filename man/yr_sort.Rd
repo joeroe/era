@@ -22,14 +22,24 @@ Sorted \link{yr} vector
 Sorts a vector of years into earliest-to-latest or latest-to-earliest
 chronological order based on its era.
 }
+\details{
+This is implemented as a prefixed function rather than an S3 \code{\link[=sort]{sort()}} method
+for \link{yr}s to avoid surprises when numerical (i.e. not chronological) sorting
+is expected.
+}
 \examples{
 # Forward-counting era:
 x <- yr(c(200, 100, 300), "CE")
 yr_sort(x)
 yr_sort(x, reverse = TRUE)
+
 # Backward-counting era:
 y <- yr(c(200, 100, 300), "BCE")
 yr_sort(y)
 yr_sort(y, reverse = TRUE)
 }
-\concept{functions for chronological ordering and ranges}
+\seealso{
+Other functions for chronological ordering and extremes: 
+\code{\link{yr_extremes}}
+}
+\concept{functions for chronological ordering and extremes}
