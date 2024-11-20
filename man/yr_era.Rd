@@ -36,7 +36,7 @@ yr_era(x)
 }
 \seealso{
 Other years with era functions: 
-\code{\link{yr_transform}()},
-\code{\link{yr}()}
+\code{\link{yr}()},
+\code{\link{yr_transform}()}
 }
 \concept{years with era functions}

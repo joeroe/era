@@ -25,11 +25,11 @@ era_year("Julian", 365.25)
 }
 \seealso{
 Other era helper functions: 
+\code{\link{era}},
 \code{\link{era_parameters}},
 \code{\link{era_year_parameters}},
-\code{\link{era}},
-\code{\link{is_era_year}()},
 \code{\link{is_era}()},
+\code{\link{is_era_year}()},
 \code{\link{is_yr}()},
 \code{\link{this_year}()}
 }

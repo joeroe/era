@@ -48,7 +48,7 @@ yr_transform(x, era("ka"), precision = 1)
 }
 \seealso{
 Other years with era functions: 
-\code{\link{yr_era}()},
-\code{\link{yr}()}
+\code{\link{yr}()},
+\code{\link{yr_era}()}
 }
 \concept{years with era functions}
