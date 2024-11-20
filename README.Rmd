@@ -31,7 +31,7 @@ era's classes are based on [vctrs](https://vctrs.r-lib.org/), and come with meth
 
 ## Installation
 
-You can install the released version of era from [CRAN](https://cran.r-project.org/web/packages/era/index.html) with:
+You can install the released version of era [from CRAN](https://cran.r-project.org/package=era) with:
 
 ```{r install, eval=FALSE}
 install.packages("era")

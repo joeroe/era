@@ -39,8 +39,8 @@ tables.
 
 ## Installation
 
-You can install the released version of era from
-[CRAN](https://cran.r-project.org/web/packages/era/index.html) with:
+You can install the released version of era [from
+CRAN](https://cran.r-project.org/package=era) with:
 
 ``` r
 install.packages("era")
