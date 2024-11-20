@@ -8,10 +8,6 @@ template:
   bootstrap: 5
   includes:
     in_header: '<script async src="https://umami.joeroe.io/script.js" data-website-id="b12fa5e0-1a6e-4692-a4d9-b434610cd7ef"></script>'
-  opengraph:
-    twitter:
-      creator: "@joeroe90"
-      card: summary
 
 reference:
 - title: "Years with era"
@@ -22,6 +18,10 @@ reference:
   desc: "Functions for defining calendar eras and time scales."
 - contents:
   - has_concept("era definition functions")
+- title: "Chronological sorting and extremes"
+  desc: "Functions for sorting and calculating the extreme values of `yr` vectors that take into account the direction of its era."
+- contents:
+  - has_concept("functions for chronological ordering and extremes")
 - title: "Helper functions"
   desc: "Miscellaneous utility functions for working with `yr` and `era` objects."
 - contents:
