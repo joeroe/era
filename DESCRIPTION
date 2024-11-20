@@ -1,7 +1,7 @@
 Package: era
 Type: Package
 Title: Year-Based Time Scales
-Version: 0.4.1.9000
+Version: 0.5.0
 Authors@R: person("Joe", "Roe", email = "joe@joeroe.io",
   role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1011-1244"))
 Description: Provides a consistent representation of year-based time scales as a

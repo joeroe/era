@@ -1,4 +1,4 @@
-# era (development version)
+# era 0.5.0
 
 * New `yr_sort()` function for chronological ordering of year vectors (#44)
 * New `yr_earliest()`, `yr_latest()`, and `yr_range()` functions for chronological extremes of year vectors (#43)
