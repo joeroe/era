@@ -1,3 +1,5 @@
+# era (development version)
+
 # era 0.5.0
 
 * New `yr_sort()` function for chronological ordering of year vectors (#44)
