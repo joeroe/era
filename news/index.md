@@ -2,6 +2,9 @@
 
 ## era (development version)
 
+- Added `CITATION.cff` file with software citation metadata
+  ([\#49](https://github.com/joeroe/era/issues/49))
+
 ## era 0.5.0
 
 CRAN release: 2024-11-20
