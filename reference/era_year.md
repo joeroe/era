@@ -30,7 +30,7 @@ S3 vector of class `era_year`.
 ## See also
 
 Other era helper functions:
-[`era`](https://era.joeroe.io/reference/era.md),
+[`era()`](https://era.joeroe.io/reference/era.md),
 [`era_parameters`](https://era.joeroe.io/reference/era_parameters.md),
 [`era_year_parameters`](https://era.joeroe.io/reference/era_year_parameters.md),
 [`is_era()`](https://era.joeroe.io/reference/is_era.md),

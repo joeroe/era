@@ -22,9 +22,9 @@ is_era_year(x)
 ## See also
 
 Other era helper functions:
-[`era`](https://era.joeroe.io/reference/era.md),
+[`era()`](https://era.joeroe.io/reference/era.md),
 [`era_parameters`](https://era.joeroe.io/reference/era_parameters.md),
-[`era_year`](https://era.joeroe.io/reference/era_year.md),
+[`era_year()`](https://era.joeroe.io/reference/era_year.md),
 [`era_year_parameters`](https://era.joeroe.io/reference/era_year_parameters.md),
 [`is_era()`](https://era.joeroe.io/reference/is_era.md),
 [`is_yr()`](https://era.joeroe.io/reference/is_yr.md),
