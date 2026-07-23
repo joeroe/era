@@ -1,6 +1,7 @@
 # era
 
 [![DOI](https://zenodo.org/badge/311391850.svg)](https://doi.org/10.5281/zenodo.7327395)
+[![](https://cranlogs.r-pkg.org/badges/era)](https://cran.rstudio.com/web/packages/era/index.html)
 
 **era** is an R package that provides a consistent representation of
 year-based time scales as a numeric vector with an associated *era* –
@@ -28,6 +29,7 @@ You can install the released version of era [from
 CRAN](https://cran.r-project.org/package=era) with:
 
 ``` r
+
 install.packages("era")
 ```
 
@@ -35,6 +37,7 @@ Or the development version from [GitHub](https://github.com/joeroe/era)
 using the [remotes](https://remotes.r-lib.org/) package:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("joeroe/era")
 ```
@@ -45,6 +48,7 @@ remotes::install_github("joeroe/era")
 associated with a vector of years:
 
 ``` r
+
 library(era)
 x <- yr(c(9000, 8000, 7000), "cal BP")
 x
@@ -57,6 +61,7 @@ Use [`yr_transform()`](https://era.joeroe.io/reference/yr_transform.md)
 to convert between eras:
 
 ``` r
+
 yr_transform(x, "BCE")
 #> # BCE years <yr[3]>:
 #> [1] 7051 6051 5051

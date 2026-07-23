@@ -18,6 +18,7 @@ formatting, combining, and transforming years with different eras. This
 vignette is an introduction to the main features of the package.
 
 ``` r
+
 library("era")
 library("tibble")
 library("dplyr")
@@ -30,6 +31,7 @@ class, which is constructed with
 [`yr()`](https://era.joeroe.io/reference/yr.md):
 
 ``` r
+
 yr(c(10000, 11000, 12000), "BP")
 #> # BP years <yr[3]>:
 #> [1] 10000 11000 12000
@@ -47,6 +49,7 @@ will be looked up in the standard eras defined by
 [`eras()`](https://era.joeroe.io/reference/eras.md):
 
 ``` r
+
 yr(c(10000, 11000, 12000), "BCE")
 #> # BCE years <yr[3]>:
 #> [1] 10000 11000 12000
@@ -65,6 +68,7 @@ yr(c(10000, 11000, 12000), "ka")
 of the era associated with a `yr` vector:
 
 ``` r
+
 neolithic <- yr(11700:7500, "BP")
 yr_era(neolithic)
 #> <era[1]>
@@ -77,6 +81,7 @@ pipe-friendly alias
 used to set the era of an existing object:
 
 ``` r
+
 chalcolithic <- 7500:6000
 yr_era(chalcolithic) <- yr_era(neolithic)
 yr_era(chalcolithic)
@@ -91,6 +96,7 @@ need to use [the `yr_transform()` function](#yr_transform).
 `yr` vectors fit nicely into tables, both base data frames and tibbles:
 
 ``` r
+
 postglacial <- tribble(
   ~period,           ~start_ka,
   "Late Holocene",   4.2,
@@ -126,6 +132,7 @@ argument of [`yr()`](https://era.joeroe.io/reference/yr.md) or any other
 function in the package:
 
 ``` r
+
 era("BP")
 #> <era[1]>
 #> [1] Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950
@@ -149,41 +156,41 @@ issue](https://github.com/joeroe/era/issues) on GitHub with suggestions.
 
 ### List of built-in eras
 
-| label    |       epoch | name                                 | unit                                           | scale | direction | this_year |
-|:---------|------------:|:-------------------------------------|:-----------------------------------------------|------:|----------:|:----------|
-| BP       |   1950.0000 | Before Present                       | Gregorian years (365.2425 days)                | 1e+00 |        -1 | -76       |
-| cal BP   |   1950.0000 | Before Present                       | Gregorian years (365.2425 days)                | 1e+00 |        -1 | -76       |
-| BC       |      1.0000 | Before Christ                        | Gregorian years (365.2425 days)                | 1e+00 |        -1 | -2025     |
-| BCE      |      1.0000 | Before Common Era                    | Gregorian years (365.2425 days)                | 1e+00 |        -1 | -2025     |
-| AD       |      0.0000 | Anno Domini                          | Gregorian years (365.2425 days)                | 1e+00 |         1 | 2026      |
-| CE       |      0.0000 | Common Era                           | Gregorian years (365.2425 days)                | 1e+00 |         1 | 2026      |
-| a        |   1950.0000 | annum                                | Gregorian years (365.2425 days)                | 1e+00 |        -1 | -76       |
-| ka       |   1950.0000 | kiloannum                            | Gregorian years (365.2425 days)                | 1e+03 |        -1 | 0         |
-| Ma       |   1950.0000 | megaannum                            | Gregorian years (365.2425 days)                | 1e+06 |        -1 | 0         |
-| Ga       |   1950.0000 | gigaannum                            | Gregorian years (365.2425 days)                | 1e+09 |        -1 | 0         |
-| kya      |   1950.0000 | thousand years ago                   | Gregorian years (365.2425 days)                | 1e+03 |        -1 | 0         |
-| mya      |   1950.0000 | million years ago                    | Gregorian years (365.2425 days)                | 1e+06 |        -1 | 0         |
-| bya      |   1950.0000 | billion years ago                    | Gregorian years (365.2425 days)                | 1e+09 |        -1 | 0         |
-| b2k      |   2000.0000 | years before 2000                    | Gregorian years (365.2425 days)                | 1e+00 |        -1 | -26       |
-| uncal BP |   1950.0000 | uncalibrated Before Present          | radiocarbon years (NA days)                    | 1e+00 |        -1 | NA        |
-| RCYBP    |   1950.0000 | Radiocarbon Years Before Present     | radiocarbon years (NA days)                    | 1e+00 |        -1 | NA        |
-| bp       |   1950.0000 | Before Present (uncalibrated)        | radiocarbon years (NA days)                    | 1e+00 |        -1 | NA        |
-| bc       |   1950.0000 | Before Christ (uncalibrated)         | radiocarbon years (NA days)                    | 1e+00 |        -1 | NA        |
-| bce      |   1950.0000 | Before Common Era (uncalibrated)     | radiocarbon years (NA days)                    | 1e+00 |        -1 | NA        |
-| ad       |   1950.0000 | Anno Domini (uncalibrated)           | radiocarbon years (NA days)                    | 1e+00 |         1 | NA        |
-| ce       |   1950.0000 | Common Era (uncalibrated)            | radiocarbon years (NA days)                    | 1e+00 |         1 | NA        |
-| AD O.S.  |      0.0000 | Anno Domini (Old Style)              | Julian years (365.25 days)                     | 1e+00 |         1 | 2025      |
-| BC O.S.  |      1.0000 | Before Christ (New Style)            | Julian years (365.25 days)                     | 1e+00 |         1 | 2024      |
-| H        |    621.5366 | Hijra                                | Islamic lunar years (354.36708 days)           | 1e+00 |         1 | 1447      |
-| AH       |    621.5366 | Anno Hegirae                         | Islamic lunar years (354.36708 days)           | 1e+00 |         1 | 1447      |
-| BH       |    622.5366 | Before the Hijra                     | Islamic lunar years (354.36708 days)           | 1e+00 |        -1 | -1446     |
-| SH       |    621.2190 | Solar Hijri                          | Nowruz years (365.2424 days)                   | 1e+00 |         1 | 1404      |
-| BSH      |    622.2190 | Before Solar Hijri                   | Nowruz years (365.2424 days)                   | 1e+00 |        -1 | -1403     |
-| AM       |  -3760.2361 | Anno Mundi                           | Hebrew lunisolar years (365.246822205978 days) | 1e+00 |         1 | 5786      |
-| HE       | -10000.0000 | Holocene Era                         | Gregorian years (365.2425 days)                | 1e+00 |         1 | 12026     |
-| BHE      | -10000.0000 | Before Holocene Era                  | Gregorian years (365.2425 days)                | 1e+00 |        -1 | -12026    |
-| AL       |  -4000.0000 | Anno Lucis                           | Gregorian years (365.2425 days)                | 1e+00 |         1 | 6026      |
-| ADA      |  -8000.0000 | After the Development of Agriculture | Gregorian years (365.2425 days)                | 1e+00 |         1 | 10026     |
+| label | epoch | name | unit | scale | direction | this_year |
+|:---|---:|:---|:---|---:|---:|:---|
+| BP | 1950.0000 | Before Present | Gregorian years (365.2425 days) | 1e+00 | -1 | -76 |
+| cal BP | 1950.0000 | Before Present | Gregorian years (365.2425 days) | 1e+00 | -1 | -76 |
+| BC | 1.0000 | Before Christ | Gregorian years (365.2425 days) | 1e+00 | -1 | -2025 |
+| BCE | 1.0000 | Before Common Era | Gregorian years (365.2425 days) | 1e+00 | -1 | -2025 |
+| AD | 0.0000 | Anno Domini | Gregorian years (365.2425 days) | 1e+00 | 1 | 2026 |
+| CE | 0.0000 | Common Era | Gregorian years (365.2425 days) | 1e+00 | 1 | 2026 |
+| a | 1950.0000 | annum | Gregorian years (365.2425 days) | 1e+00 | -1 | -76 |
+| ka | 1950.0000 | kiloannum | Gregorian years (365.2425 days) | 1e+03 | -1 | 0 |
+| Ma | 1950.0000 | megaannum | Gregorian years (365.2425 days) | 1e+06 | -1 | 0 |
+| Ga | 1950.0000 | gigaannum | Gregorian years (365.2425 days) | 1e+09 | -1 | 0 |
+| kya | 1950.0000 | thousand years ago | Gregorian years (365.2425 days) | 1e+03 | -1 | 0 |
+| mya | 1950.0000 | million years ago | Gregorian years (365.2425 days) | 1e+06 | -1 | 0 |
+| bya | 1950.0000 | billion years ago | Gregorian years (365.2425 days) | 1e+09 | -1 | 0 |
+| b2k | 2000.0000 | years before 2000 | Gregorian years (365.2425 days) | 1e+00 | -1 | -26 |
+| uncal BP | 1950.0000 | uncalibrated Before Present | radiocarbon years (NA days) | 1e+00 | -1 | NA |
+| RCYBP | 1950.0000 | Radiocarbon Years Before Present | radiocarbon years (NA days) | 1e+00 | -1 | NA |
+| bp | 1950.0000 | Before Present (uncalibrated) | radiocarbon years (NA days) | 1e+00 | -1 | NA |
+| bc | 1950.0000 | Before Christ (uncalibrated) | radiocarbon years (NA days) | 1e+00 | -1 | NA |
+| bce | 1950.0000 | Before Common Era (uncalibrated) | radiocarbon years (NA days) | 1e+00 | -1 | NA |
+| ad | 1950.0000 | Anno Domini (uncalibrated) | radiocarbon years (NA days) | 1e+00 | 1 | NA |
+| ce | 1950.0000 | Common Era (uncalibrated) | radiocarbon years (NA days) | 1e+00 | 1 | NA |
+| AD O.S. | 0.0000 | Anno Domini (Old Style) | Julian years (365.25 days) | 1e+00 | 1 | 2026 |
+| BC O.S. | 1.0000 | Before Christ (New Style) | Julian years (365.25 days) | 1e+00 | 1 | 2025 |
+| H | 621.5366 | Hijra | Islamic lunar years (354.36708 days) | 1e+00 | 1 | 1448 |
+| AH | 621.5366 | Anno Hegirae | Islamic lunar years (354.36708 days) | 1e+00 | 1 | 1448 |
+| BH | 622.5366 | Before the Hijra | Islamic lunar years (354.36708 days) | 1e+00 | -1 | -1447 |
+| SH | 621.2190 | Solar Hijri | Nowruz years (365.2424 days) | 1e+00 | 1 | 1405 |
+| BSH | 622.2190 | Before Solar Hijri | Nowruz years (365.2424 days) | 1e+00 | -1 | -1404 |
+| AM | -3760.2361 | Anno Mundi | Hebrew lunisolar years (365.246822205978 days) | 1e+00 | 1 | 5786 |
+| HE | -10000.0000 | Holocene Era | Gregorian years (365.2425 days) | 1e+00 | 1 | 12026 |
+| BHE | -10000.0000 | Before Holocene Era | Gregorian years (365.2425 days) | 1e+00 | -1 | -12026 |
+| AL | -4000.0000 | Anno Lucis | Gregorian years (365.2425 days) | 1e+00 | 1 | 6026 |
+| ADA | -8000.0000 | After the Development of Agriculture | Gregorian years (365.2425 days) | 1e+00 | 1 | 10026 |
 
 ### Defining other eras
 
@@ -208,6 +215,7 @@ You can define arbitrary eras by using the
 [`era()`](https://era.joeroe.io/reference/era.md) function directly:
 
 ``` r
+
 era("T.A.", epoch = -9021, name = "Third Age", direction = 1)
 #> <era[1]>
 #> [1] Third Age (T.A.): Gregorian years (365.2425 days), counted forwards from -9021
@@ -223,6 +231,7 @@ Use [`yr_transform()`](https://era.joeroe.io/reference/yr_transform.md)
 to convert between eras:
 
 ``` r
+
 postglacial |> 
   mutate(start_ka = yr(start_ka, "ka")) |> 
   mutate(start_bp = yr_transform(start_ka, era("BP")),
@@ -248,6 +257,7 @@ transform between any two eras that can be described by the `era` class.
 By default, era transformations are exact:
 
 ``` r
+
 yr(500000, "BCE") |> 
   yr_transform(era("ka"))
 #> # ka years <yr[1]>:
@@ -262,6 +272,7 @@ rarely significant on a geologic time scale. Use the `precision`
 argument of `yr_transform` to get rounded results:
 
 ``` r
+
 yr(10000, "BP") |> 
   yr_transform(era("BCE"), precision = 1000)
 #> # BCE years <yr[1]>:
@@ -285,6 +296,7 @@ will cause an error if passed to
 [`yr_transform()`](https://era.joeroe.io/reference/yr_transform.md):
 
 ``` r
+
 era_unit(era("uncal BP"))
 #> <era_year[1]>
 #> [1] radiocarbon years (NA days)
@@ -313,6 +325,7 @@ type- and size-stable computations. For example, you can do arithmetic
 with year vectors:
 
 ``` r
+
 a <- yr(1500, "CE")
 b <- yr(2020, "CE")
 b - a
@@ -324,6 +337,7 @@ b - a
 But only when they have the same era:
 
 ``` r
+
 c <- yr(0.5, "ka")
 b - c
 #> Error in `vec_cast.era_yr.era_yr()`:
@@ -339,6 +353,7 @@ functionally equivalent eras, for example `era("BP")` and
 of information:
 
 ``` r
+
 era("BP") == era("BC")
 #> [1] FALSE
 era("BP") == era("cal BP")
@@ -355,6 +370,7 @@ Years will be coerced to a plain numeric vector if a computation means
 their era no longer makes sense:
 
 ``` r
+
 a * b
 #> [1] 3030000
 ```
