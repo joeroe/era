@@ -1,7 +1,8 @@
 # era
 
 [![DOI](https://zenodo.org/badge/311391850.svg)](https://doi.org/10.5281/zenodo.7327395)
-![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/era)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/era)](https://cranlogs.r-pkg.org/)
 
 **era** is an R package that provides a consistent representation of
 year-based time scales as a numeric vector with an associated *era* –
