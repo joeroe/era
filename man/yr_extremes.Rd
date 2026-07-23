@@ -52,7 +52,7 @@ yr_range(x)
 
 }
 \seealso{
-Other functions for chronological ordering and extremes: 
-\code{\link{yr_sort}()}
+Other functions for chronological ordering and extremes:
+\code{\link[=yr_sort]{yr_sort()}}
 }
 \concept{functions for chronological ordering and extremes}

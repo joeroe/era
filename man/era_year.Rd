@@ -24,13 +24,13 @@ between eras that use different units (with \code{\link[=yr_transform]{yr_transf
 era_year("Julian", 365.25)
 }
 \seealso{
-Other era helper functions: 
-\code{\link{era}},
+Other era helper functions:
+\code{\link[=era]{era()}},
 \code{\link{era_parameters}},
 \code{\link{era_year_parameters}},
-\code{\link{is_era}()},
-\code{\link{is_era_year}()},
-\code{\link{is_yr}()},
-\code{\link{this_year}()}
+\code{\link[=is_era]{is_era()}},
+\code{\link[=is_era_year]{is_era_year()}},
+\code{\link[=is_yr]{is_yr()}},
+\code{\link[=this_year]{this_year()}}
 }
 \concept{era helper functions}

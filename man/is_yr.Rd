@@ -43,13 +43,13 @@ is_valid_yr(x)
 validate_yr(x)
 }
 \seealso{
-Other era helper functions: 
-\code{\link{era}},
+Other era helper functions:
+\code{\link[=era]{era()}},
 \code{\link{era_parameters}},
-\code{\link{era_year}},
+\code{\link[=era_year]{era_year()}},
 \code{\link{era_year_parameters}},
-\code{\link{is_era}()},
-\code{\link{is_era_year}()},
-\code{\link{this_year}()}
+\code{\link[=is_era]{is_era()}},
+\code{\link[=is_era_year]{is_era_year()}},
+\code{\link[=this_year]{this_year()}}
 }
 \concept{era helper functions}

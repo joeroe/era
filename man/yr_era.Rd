@@ -35,8 +35,8 @@ yr_era(x) <- era("cal BP")
 yr_era(x)
 }
 \seealso{
-Other years with era functions: 
-\code{\link{yr}()},
-\code{\link{yr_transform}()}
+Other years with era functions:
+\code{\link[=yr]{yr()}},
+\code{\link[=yr_transform]{yr_transform()}}
 }
 \concept{years with era functions}

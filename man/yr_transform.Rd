@@ -47,8 +47,8 @@ yr_transform(x, era("BCE"))
 yr_transform(x, era("ka"), precision = 1)
 }
 \seealso{
-Other years with era functions: 
-\code{\link{yr}()},
-\code{\link{yr_era}()}
+Other years with era functions:
+\code{\link[=yr]{yr()}},
+\code{\link[=yr_era]{yr_era()}}
 }
 \concept{years with era functions}

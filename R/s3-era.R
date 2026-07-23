@@ -157,7 +157,7 @@ new_era <- function(label = character(),
 #'
 #' @examples
 #' # List all available eras
-#' eras()
+#' print(eras(), n = Inf)
 #'
 #' # Look up a specific era by label
 #' eras("cal BP")

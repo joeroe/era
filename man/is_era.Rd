@@ -40,13 +40,13 @@ Valid \code{era} objects:
 }
 }
 \seealso{
-Other era helper functions: 
-\code{\link{era}},
+Other era helper functions:
+\code{\link[=era]{era()}},
 \code{\link{era_parameters}},
-\code{\link{era_year}},
+\code{\link[=era_year]{era_year()}},
 \code{\link{era_year_parameters}},
-\code{\link{is_era_year}()},
-\code{\link{is_yr}()},
-\code{\link{this_year}()}
+\code{\link[=is_era_year]{is_era_year()}},
+\code{\link[=is_yr]{is_yr()}},
+\code{\link[=this_year]{this_year()}}
 }
 \concept{era helper functions}

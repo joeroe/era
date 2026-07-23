@@ -39,7 +39,7 @@ yr_sort(y)
 yr_sort(y, reverse = TRUE)
 }
 \seealso{
-Other functions for chronological ordering and extremes: 
+Other functions for chronological ordering and extremes:
 \code{\link{yr_extremes}}
 }
 \concept{functions for chronological ordering and extremes}

@@ -24,7 +24,7 @@ Looking up eras by \code{label} uses partial matching.
 }
 \examples{
 # List all available eras
-eras()
+print(eras(), n = Inf)
 
 # Look up a specific era by label
 eras("cal BP")
@@ -33,7 +33,7 @@ eras("cal BP")
 eras("cal")
 }
 \seealso{
-Other era definition functions: 
-\code{\link{era}}
+Other era definition functions:
+\code{\link[=era]{era()}}
 }
 \concept{era definition functions}

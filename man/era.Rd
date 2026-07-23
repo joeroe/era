@@ -51,17 +51,17 @@ era("cal BP")
 era("T.A.", epoch = -9021, name = "Third Age", direction = 1)
 }
 \seealso{
-Other era definition functions: 
-\code{\link{eras}()}
+Other era definition functions:
+\code{\link[=eras]{eras()}}
 
-Other era helper functions: 
+Other era helper functions:
 \code{\link{era_parameters}},
-\code{\link{era_year}},
+\code{\link[=era_year]{era_year()}},
 \code{\link{era_year_parameters}},
-\code{\link{is_era}()},
-\code{\link{is_era_year}()},
-\code{\link{is_yr}()},
-\code{\link{this_year}()}
+\code{\link[=is_era]{is_era()}},
+\code{\link[=is_era_year]{is_era_year()}},
+\code{\link[=is_yr]{is_yr()}},
+\code{\link[=this_year]{this_year()}}
 }
 \concept{era definition functions}
 \concept{era helper functions}
