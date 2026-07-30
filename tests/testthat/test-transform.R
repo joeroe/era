@@ -52,3 +52,13 @@ test_that("transforms involving BCE and CE account for year zero", {
   expect_equal(yr_transform(ce10, "BP"), yr(1940, "BP"))
   expect_equal(yr_transform(bce10, "BP"), yr(1959, "BP"))
 })
+
+test_that("yr_transform() accepts numeric input with era", {
+  expect_equal(yr_transform(100, "CE"), yr(100, "CE"))
+  expect_equal(yr_transform(c(100, 200), "BCE"), yr(c(100, 200), "BCE"))
+  expect_equal(yr_transform(100L, "BP"), yr(100, "BP"))
+})
+
+test_that("yr_transform() errors when numeric input lacks era", {
+  expect_error(yr_transform(100), class = "era_invalid_argument")
+})

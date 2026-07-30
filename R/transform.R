@@ -4,12 +4,14 @@
 #'
 #' Transform a vector of years from one era to another.
 #'
-#' @param x `yr` object. A vector of years with an era, see [yr()].
+#' @param x A `yr` object or numeric vector. If numeric, `era` must be
+#'   specified.
 #' @param era `era` object describing the target era, see [era()].
 #' @param precision Desired precision of the transformation, i.e. the
 #'  transformed values are rounded to the nearest `precision`. If `NA`
 #'  (the default), no rounding is performed and the exact transformed value is
 #'  returned.
+#' @param ... Additional arguments passed to methods.
 #'
 #' @details
 #' Transformation between eras uses the `scale`, `epoch`, `direction` and `unit`
@@ -42,7 +44,13 @@
 #' yr_transform(x, era("BCE"))
 #'
 #' yr_transform(x, era("ka"), precision = 1)
-yr_transform <- function(x, era = yr_era(x), precision = NA) {
+yr_transform <- function(x, era, ...) {
+  UseMethod("yr_transform")
+}
+
+#' @rdname yr_transform
+#' @export
+yr_transform.era_yr <- function(x, era = yr_era(x), precision = NA, ...) {
   src_era <- yr_era(x)
   dst_era <- era(era)
 
@@ -84,4 +92,14 @@ yr_transform <- function(x, era = yr_era(x), precision = NA) {
 
   y <- yr(y, dst_era)
   return(y)
+}
+
+#' @rdname yr_transform
+#' @export
+yr_transform.default <- function(x, era, ...) {
+  if (missing(era)) {
+    abort("`era` must be specified when `x` is numeric",
+          class = "era_invalid_argument")
+  }
+  yr(x, era)
 }

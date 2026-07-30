@@ -61,6 +61,8 @@ In all cases, finish with the final checks (step 4).
   is already a dependency) or the base apply() family.
 * Never use for loops.
 * Use the native pipe `|>`, not magrittr's `%>%`.
+* Minimise branching within functions. Avoid guard closes and early returns;
+  these are code smells for insufficiently robust functions.
 
 ## Classes
 
@@ -69,6 +71,8 @@ In all cases, finish with the final checks (step 4).
   an internal `new_*()` constructor that does not, and `is_*()` /
   `validate_*()` predicate and validator functions.
 * Validate on construction.
+* Use S3 generics to implement polymorphism; avoid branching bases on argument
+  type within functions.
 
 ## Error handling
 

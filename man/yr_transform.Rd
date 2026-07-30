@@ -2,14 +2,23 @@
 % Please edit documentation in R/transform.R
 \name{yr_transform}
 \alias{yr_transform}
+\alias{yr_transform.era_yr}
+\alias{yr_transform.default}
 \title{Convert years from one era to another}
 \usage{
-yr_transform(x, era = yr_era(x), precision = NA)
+yr_transform(x, era, ...)
+
+\method{yr_transform}{era_yr}(x, era = yr_era(x), precision = NA, ...)
+
+\method{yr_transform}{default}(x, era, ...)
 }
 \arguments{
-\item{x}{\code{yr} object. A vector of years with an era, see \code{\link[=yr]{yr()}}.}
+\item{x}{A \code{yr} object or numeric vector. If numeric, \code{era} must be
+specified.}
 
 \item{era}{\code{era} object describing the target era, see \code{\link[=era]{era()}}.}
+
+\item{...}{Additional arguments passed to methods.}
 
 \item{precision}{Desired precision of the transformation, i.e. the
 transformed values are rounded to the nearest \code{precision}. If \code{NA}

@@ -56,6 +56,7 @@ yr_not_later_than(y, yr(200, "BCE"))
 }
 \seealso{
 Other functions for chronological ordering and extremes:
+\code{\link[=yr_difference]{yr_difference()}},
 \code{\link{yr_extremes}},
 \code{\link[=yr_sort]{yr_sort()}}
 }

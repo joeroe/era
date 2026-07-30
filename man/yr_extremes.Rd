@@ -53,6 +53,7 @@ yr_range(x)
 }
 \seealso{
 Other functions for chronological ordering and extremes:
+\code{\link[=yr_difference]{yr_difference()}},
 \code{\link[=yr_earlier_than]{yr_earlier_than()}},
 \code{\link[=yr_sort]{yr_sort()}}
 }
