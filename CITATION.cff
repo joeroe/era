@@ -22,7 +22,7 @@ abstract: Provides a consistent representation of year-based time scales as a nu
 authors:
 - family-names: Roe
   given-names: Joe
-  email: joe@joeroe.io
+  email: joeroe@archaeo.dev
   orcid: https://orcid.org/0000-0002-1011-1244
 repository: https://CRAN.R-project.org/package=era
 repository-code: https://github.com/joeroe/era
@@ -30,7 +30,7 @@ url: https://era.joeroe.io
 contact:
 - family-names: Roe
   given-names: Joe
-  email: joe@joeroe.io
+  email: joeroe@archaeo.dev
   orcid: https://orcid.org/0000-0002-1011-1244
 keywords:
 - archaeology
