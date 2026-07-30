@@ -1,5 +1,7 @@
 # Changelog
 
+## era (development version)
+
 ## era 0.6.0
 
 - [`yr_earlier_than()`](https://era.joeroe.io/reference/yr_earlier_than.md),
