@@ -118,6 +118,18 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.pillar
 - type: software
+  title: zeallot
+  abstract: 'zeallot: Multiple, Unpacking, and Destructuring Assignment'
+  notes: Imports
+  url: https://github.com/r-lib/zeallot
+  repository: https://CRAN.R-project.org/package=zeallot
+  authors:
+  - family-names: Teetor
+    given-names: Nathan
+    email: nate@haufin.ch
+  year: '2026'
+  doi: 10.32614/CRAN.package.zeallot
+- type: software
   title: tibble
   abstract: 'tibble: Simple Data Frames'
   notes: Suggests
