@@ -97,3 +97,74 @@ yr_latest <- function(x, na.rm = FALSE) {
 yr_range <- function(x, na.rm = FALSE) {
   yr_sort(range(x, na.rm = na.rm))
 }
+
+#' Chronological comparison of years
+#'
+#' Tests whether years are chronologically earlier or later than each other,
+#' accounting for era direction.
+#'
+#' @param x,y [yr] vectors with era. If in different eras, `y` is transformed to
+#'   the era of `x`. Recycled to their common length.
+#'
+#' @return A logical vector.
+#'
+#' @details
+#' For forward-counting eras (e.g. CE), `yr_earlier_than(x, y)` is equivalent to
+#' `x < y` and `yr_later_than(x, y)` is equivalent to `x > y`. For
+#' backward-counting eras (e.g. BP, BCE), the comparisons are reversed.
+#'
+#' These are implemented as functions rather than S3 methods for `<` and `>` to
+#' avoid surprises when numerical (i.e. not chronological) comparison is
+#' expected.
+#'
+#' @family functions for chronological ordering and extremes
+#'
+#' @export
+#'
+#' @examples
+#' # Forward-counting era:
+#' x <- yr(c(100, 200, 300), "CE")
+#' yr_earlier_than(x, yr(200, "CE"))
+#' yr_later_than(x, yr(200, "CE"))
+#'
+#' # Backward-counting era:
+#' y <- yr(c(100, 200, 300), "BCE")
+#' yr_earlier_than(y, yr(200, "BCE"))
+#' yr_later_than(y, yr(200, "BCE"))
+yr_earlier_than <- function(x, y) {
+  if (!is_yr(x) || !is_yr(y)) {
+    abort(
+      "Both `x` and `y` must be yr objects",
+      class = "era_invalid_yr"
+    )
+  }
+
+  c(x, y) %<-% vec_recycle_common(x, y)
+
+  if (yr_era(x) != yr_era(y)) {
+    y <- yr_transform(y, yr_era(x))
+  }
+
+  if (era_direction(yr_era(x)) < 0) x > y
+  else x < y
+}
+
+#' @rdname yr_earlier_than
+#' @export
+yr_later_than <- function(x, y) {
+  if (!is_yr(x) || !is_yr(y)) {
+    abort(
+      "Both `x` and `y` must be yr objects",
+      class = "era_invalid_yr"
+    )
+  }
+
+  c(x, y) %<-% vec_recycle_common(x, y)
+
+  if (yr_era(x) != yr_era(y)) {
+    y <- yr_transform(y, yr_era(x))
+  }
+
+  if (era_direction(yr_era(x)) < 0) x < y
+  else x > y
+}
