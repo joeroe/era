@@ -2,13 +2,14 @@
 
 ## era (development version)
 
-- New
-  [`yr_earlier_than()`](https://era.joeroe.io/reference/yr_earlier_than.md),
+- [`yr_earlier_than()`](https://era.joeroe.io/reference/yr_earlier_than.md),
   [`yr_later_than()`](https://era.joeroe.io/reference/yr_earlier_than.md),
   [`yr_not_earlier_than()`](https://era.joeroe.io/reference/yr_earlier_than.md),
   and
   [`yr_not_later_than()`](https://era.joeroe.io/reference/yr_earlier_than.md)
-  functions for chronological comparison of years
+  implement chronological comparison of year vectors
+- [`yr_difference()`](https://era.joeroe.io/reference/yr_difference.md)
+  implements chronological difference of year vectors
 - Added `CITATION.cff` file with software citation metadata
   ([\#49](https://github.com/joeroe/era/issues/49))
 
