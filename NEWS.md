@@ -1,6 +1,6 @@
 # era (development version)
 
-* New `yr_earlier_than()` and `yr_later_than()` functions for chronological comparison of years
+* New `yr_earlier_than()`, `yr_later_than()`, `yr_not_earlier_than()`, and `yr_not_later_than()` functions for chronological comparison of years
 * Added `CITATION.cff` file with software citation metadata (#49)
 
 # era 0.5.0

@@ -108,3 +108,80 @@ test_that("yr_later_than() errors with class era_invalid_yr for non-yr", {
     class = "era_invalid_yr"
   )
 })
+
+test_that("yr_not_earlier_than() respects era direction", {
+  expect_equal(
+    yr_not_earlier_than(yr(c(100, 200, 300), "CE"), yr(200, "CE")),
+    c(FALSE, TRUE, TRUE)
+  )
+  expect_equal(
+    yr_not_earlier_than(yr(c(100, 200, 300), "BCE"), yr(200, "BCE")),
+    c(TRUE, TRUE, FALSE)
+  )
+})
+
+test_that("yr_not_later_than() respects era direction", {
+  expect_equal(
+    yr_not_later_than(yr(c(100, 200, 300), "CE"), yr(200, "CE")),
+    c(TRUE, TRUE, FALSE)
+  )
+  expect_equal(
+    yr_not_later_than(yr(c(100, 200, 300), "BCE"), yr(200, "BCE")),
+    c(FALSE, TRUE, TRUE)
+  )
+})
+
+test_that("yr_not_earlier_than() and yr_not_later_than() propagate NAs", {
+  expect_equal(
+    yr_not_earlier_than(yr(c(100, NA, 300), "CE"), yr(200, "CE")),
+    c(FALSE, NA, TRUE)
+  )
+  expect_equal(
+    yr_not_later_than(yr(c(100, NA, 300), "CE"), yr(c(200, 200, NA), "CE")),
+    c(TRUE, NA, NA)
+  )
+})
+
+test_that("yr_not_earlier_than() and yr_not_later_than() recycle inputs", {
+  expect_equal(
+    yr_not_earlier_than(yr(100, "CE"), yr(c(50, 100, 200), "CE")),
+    c(TRUE, TRUE, FALSE)
+  )
+  expect_equal(
+    yr_not_later_than(yr(c(50, 100, 200), "BCE"), yr(100, "BCE")),
+    c(FALSE, TRUE, TRUE)
+  )
+})
+
+test_that("yr_not_earlier_than() and yr_not_later_than() transform eras", {
+  expect_equal(
+    yr_not_earlier_than(yr(100, "CE"), yr(100, "BCE")),
+    TRUE
+  )
+  expect_equal(
+    yr_not_later_than(yr(100, "CE"), yr(100, "BCE")),
+    FALSE
+  )
+})
+
+test_that("yr_not_earlier_than() errors with class era_invalid_yr", {
+  expect_error(
+    yr_not_earlier_than(1, yr(1, "CE")),
+    class = "era_invalid_yr"
+  )
+  expect_error(
+    yr_not_earlier_than(yr(1, "CE"), 1),
+    class = "era_invalid_yr"
+  )
+})
+
+test_that("yr_not_later_than() errors with class era_invalid_yr", {
+  expect_error(
+    yr_not_later_than(1, yr(1, "CE")),
+    class = "era_invalid_yr"
+  )
+  expect_error(
+    yr_not_later_than(yr(1, "CE"), 1),
+    class = "era_invalid_yr"
+  )
+})

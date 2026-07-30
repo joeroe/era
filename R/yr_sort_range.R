@@ -113,9 +113,13 @@ yr_range <- function(x, na.rm = FALSE) {
 #' `x < y` and `yr_later_than(x, y)` is equivalent to `x > y`. For
 #' backward-counting eras (e.g. BP, BCE), the comparisons are reversed.
 #'
-#' These are implemented as functions rather than S3 methods for `<` and `>` to
-#' avoid surprises when numerical (i.e. not chronological) comparison is
-#' expected.
+#' `yr_not_earlier_than()` and `yr_not_later_than()` are the negations of
+#' `yr_earlier_than()` and `yr_later_than()`, equivalent to `>=` and `<=`
+#' respectively for forward-counting eras.
+#'
+#' These are implemented as functions rather than S3 methods for `<`, `>`,
+#' `<=`, and `>=` to avoid surprises when numerical (i.e. not chronological)
+#' comparison is expected.
 #'
 #' @family functions for chronological ordering and extremes
 #'
@@ -126,11 +130,15 @@ yr_range <- function(x, na.rm = FALSE) {
 #' x <- yr(c(100, 200, 300), "CE")
 #' yr_earlier_than(x, yr(200, "CE"))
 #' yr_later_than(x, yr(200, "CE"))
+#' yr_not_earlier_than(x, yr(200, "CE"))
+#' yr_not_later_than(x, yr(200, "CE"))
 #'
 #' # Backward-counting era:
 #' y <- yr(c(100, 200, 300), "BCE")
 #' yr_earlier_than(y, yr(200, "BCE"))
 #' yr_later_than(y, yr(200, "BCE"))
+#' yr_not_earlier_than(y, yr(200, "BCE"))
+#' yr_not_later_than(y, yr(200, "BCE"))
 yr_earlier_than <- function(x, y) {
   if (!is_yr(x) || !is_yr(y)) {
     abort(
@@ -167,4 +175,16 @@ yr_later_than <- function(x, y) {
 
   if (era_direction(yr_era(x)) < 0) x < y
   else x > y
+}
+
+#' @rdname yr_earlier_than
+#' @export
+yr_not_earlier_than <- function(x, y) {
+  !yr_earlier_than(x, y)
+}
+
+#' @rdname yr_earlier_than
+#' @export
+yr_not_later_than <- function(x, y) {
+  !yr_later_than(x, y)
 }

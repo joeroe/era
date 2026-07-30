@@ -3,11 +3,17 @@
 \name{yr_earlier_than}
 \alias{yr_earlier_than}
 \alias{yr_later_than}
+\alias{yr_not_earlier_than}
+\alias{yr_not_later_than}
 \title{Chronological comparison of years}
 \usage{
 yr_earlier_than(x, y)
 
 yr_later_than(x, y)
+
+yr_not_earlier_than(x, y)
+
+yr_not_later_than(x, y)
 }
 \arguments{
 \item{x, y}{\link{yr} vectors with era. If in different eras, \code{y} is transformed to
@@ -25,20 +31,28 @@ For forward-counting eras (e.g. CE), \code{yr_earlier_than(x, y)} is equivalent 
 \code{x < y} and \code{yr_later_than(x, y)} is equivalent to \code{x > y}. For
 backward-counting eras (e.g. BP, BCE), the comparisons are reversed.
 
-These are implemented as functions rather than S3 methods for \code{<} and \code{>} to
-avoid surprises when numerical (i.e. not chronological) comparison is
-expected.
+\code{yr_not_earlier_than()} and \code{yr_not_later_than()} are the negations of
+\code{yr_earlier_than()} and \code{yr_later_than()}, equivalent to \code{>=} and \code{<=}
+respectively for forward-counting eras.
+
+These are implemented as functions rather than S3 methods for \code{<}, \code{>},
+\code{<=}, and \code{>=} to avoid surprises when numerical (i.e. not chronological)
+comparison is expected.
 }
 \examples{
 # Forward-counting era:
 x <- yr(c(100, 200, 300), "CE")
 yr_earlier_than(x, yr(200, "CE"))
 yr_later_than(x, yr(200, "CE"))
+yr_not_earlier_than(x, yr(200, "CE"))
+yr_not_later_than(x, yr(200, "CE"))
 
 # Backward-counting era:
 y <- yr(c(100, 200, 300), "BCE")
 yr_earlier_than(y, yr(200, "BCE"))
 yr_later_than(y, yr(200, "BCE"))
+yr_not_earlier_than(y, yr(200, "BCE"))
+yr_not_later_than(y, yr(200, "BCE"))
 }
 \seealso{
 Other functions for chronological ordering and extremes:
