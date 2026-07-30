@@ -76,12 +76,14 @@
 <li>If vectorization is not possible, use a map-apply pattern with purrr (if it is already a dependency) or the base apply() family.</li>
 <li>Never use for loops.</li>
 <li>Use the native pipe <code>|&gt;</code>, not magrittr’s <code>%&gt;%</code>.</li>
+<li>Minimise branching within functions. Avoid guard closes and early returns; these are code smells for insufficiently robust functions.</li>
 </ul></div>
 <div class="section level2">
 <h2 id="classes">Classes<a class="anchor" aria-label="anchor" href="#classes"></a></h2>
 <ul><li>Use S3. Use vctrs when the class describes a vector.</li>
 <li>Follow the constructor pattern: a public constructor that validates inputs, an internal <code>new_*()</code> constructor that does not, and <code>is_*()</code> / <code>validate_*()</code> predicate and validator functions.</li>
 <li>Validate on construction.</li>
+<li>Use S3 generics to implement polymorphism; avoid branching bases on argument type within functions.</li>
 </ul></div>
 <div class="section level2">
 <h2 id="error-handling">Error handling<a class="anchor" aria-label="anchor" href="#error-handling"></a></h2>

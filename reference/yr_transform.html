@@ -47,7 +47,13 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">yr_transform</span><span class="op">(</span><span class="va">x</span>, era <span class="op">=</span> <span class="fu"><a href="yr_era.html">yr_era</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, precision <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">yr_transform</span><span class="op">(</span><span class="va">x</span>, <span class="va">era</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'era_yr'</span></span>
+<span><span class="fu">yr_transform</span><span class="op">(</span><span class="va">x</span>, era <span class="op">=</span> <span class="fu"><a href="yr_era.html">yr_era</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, precision <span class="op">=</span> <span class="cn">NA</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Default S3 method</span></span>
+<span><span class="fu">yr_transform</span><span class="op">(</span><span class="va">x</span>, <span class="va">era</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -55,11 +61,16 @@
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p><code>yr</code> object. A vector of years with an era, see <code><a href="yr.html">yr()</a></code>.</p></dd>
+<dd><p>A <code>yr</code> object or numeric vector. If numeric, <code>era</code> must be
+specified.</p></dd>
 
 
 <dt id="arg-era">era<a class="anchor" aria-label="anchor" href="#arg-era"></a></dt>
 <dd><p><code>era</code> object describing the target era, see <code><a href="era.html">era()</a></code>.</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Additional arguments passed to methods.</p></dd>
 
 
 <dt id="arg-precision">precision<a class="anchor" aria-label="anchor" href="#arg-precision"></a></dt>

@@ -45,6 +45,7 @@ chronological) comparison is expected.
 ## See also
 
 Other functions for chronological ordering and extremes:
+[`yr_difference()`](https://era.joeroe.io/reference/yr_difference.md),
 [`yr_extremes`](https://era.joeroe.io/reference/yr_extremes.md),
 [`yr_sort()`](https://era.joeroe.io/reference/yr_sort.md)
 

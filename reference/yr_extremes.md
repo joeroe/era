@@ -49,6 +49,7 @@ numerical (i.e. not chronological) extremes are expected.
 ## See also
 
 Other functions for chronological ordering and extremes:
+[`yr_difference()`](https://era.joeroe.io/reference/yr_difference.md),
 [`yr_earlier_than()`](https://era.joeroe.io/reference/yr_earlier_than.md),
 [`yr_sort()`](https://era.joeroe.io/reference/yr_sort.md)
 

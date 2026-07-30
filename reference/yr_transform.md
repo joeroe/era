@@ -5,20 +5,29 @@ Transform a vector of years from one era to another.
 ## Usage
 
 ``` r
-yr_transform(x, era = yr_era(x), precision = NA)
+yr_transform(x, era, ...)
+
+# S3 method for class 'era_yr'
+yr_transform(x, era = yr_era(x), precision = NA, ...)
+
+# Default S3 method
+yr_transform(x, era, ...)
 ```
 
 ## Arguments
 
 - x:
 
-  `yr` object. A vector of years with an era, see
-  [`yr()`](https://era.joeroe.io/reference/yr.md).
+  A `yr` object or numeric vector. If numeric, `era` must be specified.
 
 - era:
 
   `era` object describing the target era, see
   [`era()`](https://era.joeroe.io/reference/era.md).
+
+- ...:
+
+  Additional arguments passed to methods.
 
 - precision:
 
