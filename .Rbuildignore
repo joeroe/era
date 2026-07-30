@@ -13,3 +13,4 @@
 ^CRAN-SUBMISSION$
 ^revdep$
 ^CITATION\.cff$
+^AGENTS.md
