@@ -10,13 +10,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/joeroe/era/blob/master/DESCRIPTION)
 
-Roe J (2026). *era: Year-Based Time Scales*. R package version
-0.5.0.9000, <https://era.joeroe.io>.
+Roe J (2026). *era: Year-Based Time Scales*. R package version 0.6.0,
+<https://era.joeroe.io>.
 
     @Manual{,
       title = {era: Year-Based Time Scales},
       author = {Joe Roe},
       year = {2026},
-      note = {R package version 0.5.0.9000},
+      note = {R package version 0.6.0},
       url = {https://era.joeroe.io},
     }
