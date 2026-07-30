@@ -28,6 +28,11 @@ Functions for defining calendar eras and time scales.
 Functions for sorting and calculating the extreme values of `yr` vectors
 that take into account the direction of its era.
 
+- [`yr_earlier_than()`](https://era.joeroe.io/reference/yr_earlier_than.md)
+  [`yr_later_than()`](https://era.joeroe.io/reference/yr_earlier_than.md)
+  [`yr_not_earlier_than()`](https://era.joeroe.io/reference/yr_earlier_than.md)
+  [`yr_not_later_than()`](https://era.joeroe.io/reference/yr_earlier_than.md)
+  : Chronological comparison of years
 - [`yr_earliest()`](https://era.joeroe.io/reference/yr_extremes.md)
   [`yr_latest()`](https://era.joeroe.io/reference/yr_extremes.md)
   [`yr_range()`](https://era.joeroe.io/reference/yr_extremes.md) :
