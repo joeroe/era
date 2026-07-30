@@ -1,4 +1,4 @@
-# era (development version)
+# era 0.6.0
 
 * `yr_earlier_than()`, `yr_later_than()`, `yr_not_earlier_than()`, and `yr_not_later_than()` implement chronological comparison of year vectors
 * `yr_difference()` implements chronological difference of year vectors
